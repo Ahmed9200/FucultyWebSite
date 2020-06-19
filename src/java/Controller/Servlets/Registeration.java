@@ -9,6 +9,8 @@ import Model.Util.Helper;
 import Model.projetcModels.Students;
 import java.io.IOException;
 import javax.servlet.ServletException;
+import javax.servlet.annotation.MultipartConfig;
+import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
@@ -17,6 +19,8 @@ import javax.servlet.http.HttpServletResponse;
  *
  * @author 20102
  */
+@WebServlet(name = "Registeration", urlPatterns = ("/Registeration"))
+@MultipartConfig(maxFileSize = 1024 * 1024 * 50)// 1.5 MB
 public class Registeration extends HttpServlet {
 
     @Override

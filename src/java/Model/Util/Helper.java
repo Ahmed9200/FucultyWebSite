@@ -42,6 +42,7 @@ public class Helper {
             newStudent.setTotalHours(0);
             newStudent.setTotalGPA(0);
             String dept_name = request.getParameter("dept");
+            System.out.println("dept name = " + dept_name);
             newStudent.setDept_id(Integer.parseInt(DealingWith_DB.getCoulmnData(con, "departments", "id", "where name_ar=" + dept_name)[0]));
 
             Part f_part = request.getPart("filtration_card_img");
