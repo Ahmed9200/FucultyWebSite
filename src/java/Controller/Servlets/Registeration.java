@@ -8,7 +8,6 @@ package Controller.Servlets;
 import Model.Util.Helper;
 import Model.projetcModels.Students;
 import java.io.IOException;
-import java.io.PrintWriter;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.MultipartConfig;
 import javax.servlet.annotation.WebServlet;
@@ -21,7 +20,7 @@ import javax.servlet.http.HttpServletResponse;
  * @author 20102
  */
 @WebServlet(name = "Registeration", urlPatterns = ("/Registeration"))
-@MultipartConfig(maxFileSize = 1024 * 1024 * 50)// 1.5 MB
+@MultipartConfig(maxFileSize = 1024 * 1024 * 150)// 1.5 MB
 public class Registeration extends HttpServlet {
 
     /**
