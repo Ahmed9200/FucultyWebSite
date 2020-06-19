@@ -37,7 +37,7 @@ public class Helper {
             newStudent.setName_ar(request.getParameter("name_ar"));
             newStudent.setName_en(request.getParameter("name_en"));
             newStudent.setPhone(request.getParameter("phone"));
-            newStudent.setStatus("waiting");
+            newStudent.setStatus("pending");
             newStudent.setTotal_yearsNo(0);
             newStudent.setTotalHours(0);
             newStudent.setTotalGPA(0);
