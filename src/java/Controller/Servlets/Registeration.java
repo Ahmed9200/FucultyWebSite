@@ -35,8 +35,8 @@ public class Registeration extends HttpServlet {
      */
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-        response.setContentType("text/html;charset=UTF-8");
-
+        request.setCharacterEncoding("UTF-8");
+        response.setCharacterEncoding("UTF-8");
         System.out.println("1- dept name = " + request.getParameter("dept"));
 
         Students student = Helper.getStudentFromRegistrationForm(request);
