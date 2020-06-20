@@ -109,7 +109,6 @@
                                 for (int i = 0; i < depts.size(); i++) {
                         %>
 
-
                         <h2><%=depts.get(i).getName_ar()%></h2>
 
                         <%for (int j = 0; j < depts.get(i).getSubjects().size(); j++) {
