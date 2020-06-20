@@ -7,7 +7,7 @@ package Model.Util;
 
 import Model.projetcModels.Admins;
 import Model.projetcModels.Students;
-import Model.projetcModels.Stuff;
+import Model.projetcModels.Staff;
 import java.io.InputStream;
 import java.sql.Connection;
 import javax.servlet.http.HttpServletRequest;
@@ -21,7 +21,7 @@ public class Helper {
 
     public static Connection con;
     public static Students currentStudent = new Students();
-    public static Stuff currentUser = new Stuff();
+    public static Staff currentUser = new Staff();
     public static Admins currentAdmin = new Admins();
 
     public static Students getStudentFromRegistrationForm(HttpServletRequest request) {
@@ -39,6 +39,7 @@ public class Helper {
             newStudent.setName_ar(request.getParameter("name_ar"));
             newStudent.setName_en(request.getParameter("name_en"));
             newStudent.setPhone(request.getParameter("phone"));
+            newStudent.setGender(request.getParameter("gender"));
             newStudent.setStatus("pending");
             newStudent.setTotal_yearsNo(0);
             newStudent.setTotalHours(0);

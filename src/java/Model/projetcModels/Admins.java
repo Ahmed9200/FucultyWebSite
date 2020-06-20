@@ -18,7 +18,7 @@ public class Admins {
 
     private int id;
     private int stuff_id;
-    private Stuff adminInfo;
+    private Staff adminInfo;
 
     public boolean add(Connection con) {
         try {
@@ -71,11 +71,11 @@ public class Admins {
         this.stuff_id = stuff_id;
     }
 
-    public Stuff getAdminInfo() {
+    public Staff getAdminInfo() {
         return adminInfo;
     }
 
-    public void setAdminInfo(Stuff adminInfo) {
+    public void setAdminInfo(Staff adminInfo) {
         this.adminInfo = adminInfo;
     }
 

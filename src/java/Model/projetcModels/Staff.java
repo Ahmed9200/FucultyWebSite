@@ -15,7 +15,7 @@ import java.sql.SQLException;
  *
  * @author 20102
  */
-public class Stuff {
+public class Staff {
 
     private int id;
     private String name_ar;
@@ -34,7 +34,6 @@ public class Stuff {
     private String edu_status;
     private String username;
     private String password;
-    private Departments dept;
     private String base64_cv;
 
     public boolean add(Connection con) {
@@ -239,14 +238,6 @@ public class Stuff {
 
     public void setPassword(String password) {
         this.password = password;
-    }
-
-    public Departments getDept() {
-        return dept;
-    }
-
-    public void setDept(Departments dept) {
-        this.dept = dept;
     }
 
     public String getBase64_cv() {

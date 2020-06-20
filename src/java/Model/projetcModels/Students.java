@@ -37,6 +37,7 @@ public class Students {
     private String username;
     private String password;
     private int dept_id;
+    private String gender;
     private String base64_fitrationImg;
     private String base64_birthdayImg;
     private String base64_ssidImg;
@@ -45,7 +46,7 @@ public class Students {
 
     public boolean add(Connection con) {
         try {
-            PreparedStatement ps = con.prepareStatement("insert into students values(?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?)");
+            PreparedStatement ps = con.prepareStatement("insert into students values(?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?)");
             ps.setInt(1, Integer.parseInt(DealingWith_DB.AutoIncrementCoulmn(con, "students", "id")));
             ps.setString(2, name_ar);
             ps.setString(3, name_en);
@@ -66,6 +67,7 @@ public class Students {
             ps.setString(18, username);
             ps.setString(19, password);
             ps.setInt(20, dept_id);
+            ps.setString(21, gender);
 
             int isAdded = ps.executeUpdate();
 
@@ -81,7 +83,7 @@ public class Students {
         try {
             String strUpdate = "update stuff set name_ar = ? , name_en = ? , age = ? , mail = ? ,address = ? "
                     + "phone = ? ,governorate=? , city=? , filtration_card_img=? , birthday_card_img=? , ssid_card_img=? , result_card_img=? ,"
-                    + " totalGPA =? ,  totalHours=? , total_yearsNo=? , status=? , username=? , password=? , dept_id=?  \n where id = ? ;";
+                    + " totalGPA =? ,  totalHours=? , total_yearsNo=? , status=? , username=? , password=? , dept_id=? ,gender=? \n where id = ? ;";
             PreparedStatement ps = con.prepareStatement(strUpdate);
 
             // add prepared statement data 
@@ -104,8 +106,9 @@ public class Students {
             ps.setString(17, username);
             ps.setString(18, password);
             ps.setInt(19, dept_id);
+            ps.setString(20, gender);
 
-            ps.setInt(20, id);
+            ps.setInt(21, id);
 
             int isUpdated = ps.executeUpdate();
             return isUpdated > 0;
@@ -315,6 +318,14 @@ public class Students {
 
     public void setDept(Departments dept) {
         this.dept = dept;
+    }
+
+    public String getGender() {
+        return gender;
+    }
+
+    public void setGender(String gender) {
+        this.gender = gender;
     }
 
 }

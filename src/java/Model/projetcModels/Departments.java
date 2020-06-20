@@ -25,13 +25,14 @@ public class Departments {
     private InputStream img;
     private double price;
     private int manager_id;
-    private Stuff doctor;
+    private int current_no;
+    private Staff doctor;
     private String base64_image;
     private ArrayList<Subjects> subjects;
 
     public boolean add(Connection con) {
         try {
-            PreparedStatement ps = con.prepareStatement("insert into departments values(?,?,?,?,?,?,?)");
+            PreparedStatement ps = con.prepareStatement("insert into departments values(?,?,?,?,?,?,?,?)");
             ps.setInt(1, Integer.parseInt(DealingWith_DB.AutoIncrementCoulmn(con, "departments", "id")));
             ps.setString(2, name_ar);
             ps.setString(3, name_en);
@@ -39,6 +40,7 @@ public class Departments {
             ps.setBlob(5, img);
             ps.setDouble(6, price);
             ps.setInt(7, manager_id);
+            ps.setInt(8, current_no);
 
             int isAdded = ps.executeUpdate();
 
@@ -53,7 +55,7 @@ public class Departments {
 
         try {
             String strUpdate = "update departments set name_ar = ? , name_en = ? , description = ? , image = ? ,price = ? "
-                    + "manager_id = ?  \n where id = ? ;";
+                    + "manager_id = ?,current_no=?  \n where id = ? ;";
             PreparedStatement ps = con.prepareStatement(strUpdate);
 
             // add prepared statement data 
@@ -63,7 +65,8 @@ public class Departments {
             ps.setBlob(4, img);
             ps.setDouble(5, price);
             ps.setInt(6, manager_id);
-            ps.setInt(7, id);
+            ps.setInt(7, current_no);
+            ps.setInt(8, id);
 
             int isUpdated = ps.executeUpdate();
             return isUpdated > 0;
@@ -73,6 +76,14 @@ public class Departments {
 
             return false;
         }
+    }
+
+    public int getCurrent_no() {
+        return current_no;
+    }
+
+    public void setCurrent_no(int current_no) {
+        this.current_no = current_no;
     }
 
     public ArrayList<Subjects> getSubjects() {
@@ -147,11 +158,11 @@ public class Departments {
         this.base64_image = base64_image;
     }
 
-    public Stuff getDoctor() {
+    public Staff getDoctor() {
         return doctor;
     }
 
-    public void setDoctor(Stuff doctor) {
+    public void setDoctor(Staff doctor) {
         this.doctor = doctor;
     }
 

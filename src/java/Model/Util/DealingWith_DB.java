@@ -10,7 +10,7 @@ import Model.projetcModels.Departments;
 import Model.projetcModels.GPA;
 import Model.projetcModels.Student_subjects;
 import Model.projetcModels.Students;
-import Model.projetcModels.Stuff;
+import Model.projetcModels.Staff;
 import Model.projetcModels.Subjects;
 import java.io.ByteArrayOutputStream;
 import java.io.IOException;
@@ -43,8 +43,8 @@ public class DealingWith_DB {
 
     //Check username and password for user and admin
     public static boolean checkStuffAuthentications(Connection con, String username, String password) {
-        Helper.currentUser = getStuff(con,
-                "select * from stuff where username= '" + username + "' and password= '" + password + "'").get(0);
+        Helper.currentUser = getStaff(con,
+                "select * from staff where username= '" + username + "' and password= '" + password + "'").get(0);
         if (Helper.currentStudent == null) {
             return false;
         } else {
@@ -144,6 +144,7 @@ public class DealingWith_DB {
                 item.setPhone(rs.getString("phone"));
                 item.setGovernorate(rs.getString("governorate"));
                 item.setCity(rs.getString("city"));
+                item.setGender(rs.getString("gender"));
                 item.setStatus(rs.getString("status"));
                 item.setTotalGPA(rs.getDouble("totalGPA"));
                 item.setTotalHours(rs.getInt("totalHours"));
@@ -196,6 +197,7 @@ public class DealingWith_DB {
                 item.setName_en(rs.getString("name_en"));
                 item.setDescription(rs.getString("description"));
                 item.setPrice(rs.getDouble("price"));
+                item.setCurrent_no(rs.getInt("current_no"));
                 item.setManager_id(rs.getInt("manager_id"));
                 try {
                     item.setSubjects(getSubjetcs(con, "select * from subjects where dept_id = " + item.getId()));
@@ -203,9 +205,9 @@ public class DealingWith_DB {
                     item.setSubjects(new ArrayList<>());
                 }
                 try {
-                    item.setDoctor(getStuff(con, "select * from stuff where id = " + item.getManager_id()).get(0));
+                    item.setDoctor(getStaff(con, "select * from staff where id = " + item.getManager_id()).get(0));
                 } catch (Exception e) {
-                    item.setDoctor(new Stuff());
+                    item.setDoctor(new Staff());
                 }
 
                 // set img in base 64 to show it in img tag in html
@@ -224,16 +226,16 @@ public class DealingWith_DB {
 
     }
 
-    public static ArrayList<Stuff> getStuff(Connection con, String sql) {
+    public static ArrayList<Staff> getStaff(Connection con, String sql) {
 
         try {
-            ArrayList<Stuff> data = new ArrayList<>();
+            ArrayList<Staff> data = new ArrayList<>();
 
             Statement stmt = con.createStatement();
             ResultSet rs = stmt.executeQuery(sql);
             while (rs.next()) {
 
-                Stuff item = new Stuff();
+                Staff item = new Staff();
                 item.setId(rs.getInt("id"));
                 item.setName_ar(rs.getString("name_ar"));
                 item.setName_en(rs.getString("name_en"));
@@ -420,9 +422,9 @@ public class DealingWith_DB {
                 item.setStuff_id(rs.getInt("stuff_id"));
 
                 try {
-                    item.setAdminInfo(getStuff(con, "select * from stuff where id = " + item.getStuff_id()).get(0));
+                    item.setAdminInfo(getStaff(con, "select * from staff where id = " + item.getStuff_id()).get(0));
                 } catch (Exception e) {
-                    item.setAdminInfo(new Stuff());
+                    item.setAdminInfo(new Staff());
                 }
 
                 data.add(item);

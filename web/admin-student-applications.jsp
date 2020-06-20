@@ -4,6 +4,10 @@
     Author     : 20102
 --%>
 
+<%@page import="Model.Util.Helper"%>
+<%@page import="Model.Util.DealingWith_DB"%>
+<%@page import="Model.projetcModels.Students"%>
+<%@page import="java.util.ArrayList"%>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <html lang="ar" dir="rtl">
@@ -142,11 +146,26 @@
                                     </tr>
                                 </thead>
                                 <tbody>
+                                    <%
+                                        ArrayList<Students> accepted = new ArrayList<Students>();
+                                        ArrayList<Students> waiting = new ArrayList<Students>();
+                                        try {
+                                            ArrayList<Students> all = DealingWith_DB.getStudents(Helper.con, "select * from students");
+                                            for (int i = 0; i < all.size(); i++) {
+                                                if (all.get(i).getStatus().equals("pending")) {
+                                                    waiting.add(all.get(i));
+                                                } else if (all.get(i).getStatus().equals("accepted")) {
+                                                    accepted.add(all.get(i));
+                                                }
+                                            }
+                                            for (int i = 0; i < waiting.size(); i++) {
+                                    %>
+
                                     <tr>
-                                        <td>1,001</td>
-                                        <td>إسلام أحمد محمد سمير سلامه</td>
-                                        <td>01099908132</td>
-                                        <td>ذكر</td>
+                                        <td><%=waiting.get(i).getId()%></td>
+                                        <td><%=waiting.get(i).getName_ar()%></td>
+                                        <td><%=waiting.get(i).getPhone()%></td>
+                                        <td><%=waiting.get(i).getGender()%></td>
                                         <td>
                                             <select>
                                                 <option>قيد المراجعه</option>
@@ -155,71 +174,10 @@
                                         </td>
                                         <td><i class="fa fa-external-link-square" aria-hidden="true"></i></td>
                                     </tr>
-                                    <tr>
-                                        <td>1,002</td>
-                                        <td>amet</td>
-                                        <td>consectetur</td>
-                                        <td>adipiscing</td>
-                                        <td>
-                                            <select>
-                                                <option>قيد المراجعه</option>
-                                                <option>مقبول</option>
-                                            </select>
-                                        </td>
-                                        <td><i class="fa fa-external-link-square" aria-hidden="true"></i></td>
-                                    </tr>
-                                    <tr>
-                                        <td>1,003</td>
-                                        <td>Integer</td>
-                                        <td>nec</td>
-                                        <td>odio</td>
-                                        <td>
-                                            <select>
-                                                <option>قيد المراجعه</option>
-                                                <option>مقبول</option>
-                                            </select>
-                                        </td>
-                                        <td><i class="fa fa-external-link-square" aria-hidden="true"></i></td>
-                                    </tr>
-                                    <tr>
-                                        <td>1,003</td>
-                                        <td>libero</td>
-                                        <td>Sed</td>
-                                        <td>cursus</td>
-                                        <td>
-                                            <select>
-                                                <option>قيد المراجعه</option>
-                                                <option>مقبول</option>
-                                            </select>
-                                        </td>
-                                        <td><i class="fa fa-external-link-square" aria-hidden="true"></i></td>
-                                    </tr>
-                                    <tr>
-                                        <td>1,004</td>
-                                        <td>dapibus</td>
-                                        <td>diam</td>
-                                        <td>Sed</td>
-                                        <td>
-                                            <select>
-                                                <option>قيد المراجعه</option>
-                                                <option>مقبول</option>
-                                            </select>
-                                        </td>
-                                        <td><i class="fa fa-external-link-square" aria-hidden="true"></i></td>
-                                    </tr>
-                                    <tr>
-                                        <td>1,005</td>
-                                        <td>Nulla</td>
-                                        <td>quis</td>
-                                        <td>sem</td>
-                                        <td>
-                                            <select>
-                                                <option>قيد المراجعه</option>
-                                                <option>مقبول</option>
-                                            </select>
-                                        </td>
-                                        <td><i class="fa fa-external-link-square" aria-hidden="true"></i></td>
-                                    </tr>
+
+                                    <%}
+                                        } catch (Exception e) {
+                                        }%>
                                 </tbody>
                             </table>
                         </div>        
@@ -238,11 +196,16 @@
                                     </tr>
                                 </thead>
                                 <tbody>
+                                    <%
+                                        try {
+                                            for (int i = 0; i < accepted.size(); i++) {
+                                    %>
+
                                     <tr>
-                                        <td>1,001</td>
-                                        <td>إسلام أحمد محمد سمير سلامه</td>
-                                        <td>01099908132</td>
-                                        <td>ذكر</td>
+                                        <td><%=accepted.get(i).getId()%></td>
+                                        <td><%=accepted.get(i).getName_ar()%></td>
+                                        <td><%=accepted.get(i).getPhone()%></td>
+                                        <td><%=accepted.get(i).getGender()%></td>
                                         <td>
                                             <select>
                                                 <option>قيد المراجعه</option>
@@ -251,71 +214,10 @@
                                         </td>
                                         <td><i class="fa fa-external-link-square" aria-hidden="true"></i></td>
                                     </tr>
-                                    <tr>
-                                        <td>1,002</td>
-                                        <td>amet</td>
-                                        <td>consectetur</td>
-                                        <td>adipiscing</td>
-                                        <td>
-                                            <select>
-                                                <option>قيد المراجعه</option>
-                                                <option selected>مقبول</option>
-                                            </select>
-                                        </td>
-                                        <td><i class="fa fa-external-link-square" aria-hidden="true"></i></td>
-                                    </tr>
-                                    <tr>
-                                        <td>1,003</td>
-                                        <td>Integer</td>
-                                        <td>nec</td>
-                                        <td>odio</td>
-                                        <td>
-                                            <select>
-                                                <option>قيد المراجعه</option>
-                                                <option selected>مقبول</option>
-                                            </select>
-                                        </td>
-                                        <td><i class="fa fa-external-link-square" aria-hidden="true"></i></td>
-                                    </tr>
-                                    <tr>
-                                        <td>1,003</td>
-                                        <td>libero</td>
-                                        <td>Sed</td>
-                                        <td>cursus</td>
-                                        <td>
-                                            <select>
-                                                <option>قيد المراجعه</option>
-                                                <option selected>مقبول</option>
-                                            </select>
-                                        </td>
-                                        <td><i class="fa fa-external-link-square" aria-hidden="true"></i></td>
-                                    </tr>
-                                    <tr>
-                                        <td>1,004</td>
-                                        <td>dapibus</td>
-                                        <td>diam</td>
-                                        <td>Sed</td>
-                                        <td>
-                                            <select>
-                                                <option>قيد المراجعه</option>
-                                                <option selected>مقبول</option>
-                                            </select>
-                                        </td>
-                                        <td><i class="fa fa-external-link-square" aria-hidden="true"></i></td>
-                                    </tr>
-                                    <tr>
-                                        <td>1,005</td>
-                                        <td>Nulla</td>
-                                        <td>quis</td>
-                                        <td>sem</td>
-                                        <td>
-                                            <select>
-                                                <option>قيد المراجعه</option>
-                                                <option selected>مقبول</option>
-                                            </select>
-                                        </td>
-                                        <td><i class="fa fa-external-link-square" aria-hidden="true"></i></td>
-                                    </tr>
+                                    <%}
+                                        } catch (Exception e) {
+                                        }%>
+
                                 </tbody>
                             </table>
                         </div>        
