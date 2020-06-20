@@ -30,19 +30,13 @@ public class DealingWith_DB {
 
     //Check username and password for user and admin
     public static boolean checkStudentAuthentications(Connection con, String username, String password) {
-        try {
-            Statement statement = con.createStatement();
-            String strCheck = "select * from students where username= '" + username + "' and password= '" + password + "'";
-            statement.executeQuery(strCheck);
-
-            return statement.getResultSet().next();
-
-        } catch (SQLException var4) {
-
-            System.out.println(var4.getMessage());
+        Helper.currentStudent = getStudents(con,
+                "select * from students where username= '" + username + "' and password= '" + password + "'").get(0);
+        if (Helper.currentStudent == null) {
             return false;
+        } else {
+            return true;
         }
-
     }
 
     //Check username and password for user and admin
@@ -172,7 +166,7 @@ public class DealingWith_DB {
                     item.setDept(new Departments());
                 }
                 // set img in base 64 to show it in img tag in html
-                InputStream inputStream_f = rs.getBlob("filtration_card_img").getBinaryStream();
+                InputStream inputStream_f = rs.getBlob("filtaration_card_img").getBinaryStream();
                 InputStream inputStream_b = rs.getBlob("birthday_card_img").getBinaryStream();
                 InputStream inputStream_s = rs.getBlob("ssid_card_img").getBinaryStream();
                 InputStream inputStream_r = rs.getBlob("result_card_img").getBinaryStream();

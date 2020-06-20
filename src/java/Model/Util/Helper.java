@@ -26,8 +26,8 @@ public class Helper {
 
     public static Students getStudentFromRegistrationForm(HttpServletRequest request) {
         try {
-             request.setCharacterEncoding("UTF-8");
-        
+            request.setCharacterEncoding("UTF-8");
+
             Students newStudent = new Students();
             newStudent.setAddress(request.getParameter("address"));
             newStudent.setAge(Integer.parseInt(request.getParameter("age")));
@@ -45,7 +45,7 @@ public class Helper {
             newStudent.setTotalGPA(0);
             String dept_name = request.getParameter("dept");
             System.out.println("dept name = " + dept_name);
-            newStudent.setDept_id(Integer.parseInt(DealingWith_DB.getCoulmnData(con, "departments", "id", "where name_ar='" + dept_name+"';")[0]));
+            newStudent.setDept_id(Integer.parseInt(DealingWith_DB.getCoulmnData(con, "departments", "id", "where name_ar='" + dept_name + "';")[0]));
 
             Part f_part = request.getPart("filtration_card_img");
             Part s_part = request.getPart("ssid_card_img");
@@ -74,6 +74,18 @@ public class Helper {
             System.out.println("error " + e.getMessage());
             return null;
         }
+    }
+
+    public static boolean checkAuthentication(HttpServletRequest request) {
+
+        try {
+
+            return DealingWith_DB.checkStudentAuthentications(con, request.getParameter("username"), request.getParameter("password"));
+
+        } catch (Exception e) {
+            return false;
+        }
+
     }
 
 }
