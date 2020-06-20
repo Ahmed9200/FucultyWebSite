@@ -17,7 +17,7 @@ import javax.servlet.http.HttpServletResponse;
  *
  * @author 20102
  */
-public class SignIn extends HttpServlet {
+public class AdminSignIn extends HttpServlet {
 
     /**
      * Processes requests for both HTTP <code>GET</code> and <code>POST</code>
@@ -39,11 +39,15 @@ public class SignIn extends HttpServlet {
             throws ServletException, IOException {
         processRequest(request, response);
 
-        if (Helper.checkStudentAuthentication(request)) {
-            request.getRequestDispatcher("student-panel.jsp").forward(request, response);
-        } else {
+        if (Helper.checkAdminAuthentication(request)) {
+            request.getRequestDispatcher("admin-panel.jsp").forward(request, response);
+        } else if (Helper.checkStuffAuthentication(request)) {
             request.setAttribute("checked", false);
-            request.getRequestDispatcher("student-sign-in.jsp").forward(request, response);
+            request.setAttribute("stuff", true);
+        } else {
+            request.setAttribute("stuff", false);
+            request.setAttribute("checked", false);
+            request.getRequestDispatcher("admin-sign-in.jsp").forward(request, response);
         }
 
     }

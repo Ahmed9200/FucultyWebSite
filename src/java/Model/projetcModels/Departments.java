@@ -10,6 +10,7 @@ import java.io.InputStream;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.SQLException;
+import java.util.ArrayList;
 
 /**
  *
@@ -26,6 +27,7 @@ public class Departments {
     private int manager_id;
     private Stuff doctor;
     private String base64_image;
+    private ArrayList<Subjects> subjects;
 
     public boolean add(Connection con) {
         try {
@@ -71,6 +73,14 @@ public class Departments {
 
             return false;
         }
+    }
+
+    public ArrayList<Subjects> getSubjects() {
+        return subjects;
+    }
+
+    public void setSubjects(ArrayList<Subjects> subjects) {
+        this.subjects = subjects;
     }
 
     public int getId() {

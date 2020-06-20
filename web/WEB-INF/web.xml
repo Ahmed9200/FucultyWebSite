@@ -12,6 +12,10 @@
         <servlet-name>SignIn</servlet-name>
         <servlet-class>Controller.Servlets.SignIn</servlet-class>
     </servlet>
+    <servlet>
+        <servlet-name>AdminSignIn</servlet-name>
+        <servlet-class>Controller.Servlets.AdminSignIn</servlet-class>
+    </servlet>
     <servlet-mapping>
         <servlet-name>Registeration</servlet-name>
         <url-pattern>/Registeration</url-pattern>
@@ -19,6 +23,10 @@
     <servlet-mapping>
         <servlet-name>SignIn</servlet-name>
         <url-pattern>/SignIn</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>AdminSignIn</servlet-name>
+        <url-pattern>/AdminSignIn</url-pattern>
     </servlet-mapping>
     <session-config>
         <session-timeout>

@@ -1,4 +1,10 @@
-<%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
+<%-- 
+    Document   : admin-panel
+    Created on : Jun 20, 2020, 7:14:28 PM
+    Author     : 20102
+--%>
+
+<%@page contentType="text/html" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <html lang="ar" dir="rtl">
     <head>
@@ -8,24 +14,25 @@
 
         <link href="https://fonts.googleapis.com/css?family=Poppins:200,300,400,500,600,700,800,900&display=swap" rel="stylesheet">
 
-        <link rel="stylesheet" href="../css/open-iconic-bootstrap.min.css">
-        <link rel="stylesheet" href="../css/animate.css">
+        <link rel="stylesheet" href="css/open-iconic-bootstrap.min.css">
+        <link rel="stylesheet" href="css/animate.css">
 
-        <link rel="stylesheet" href="../css/owl.carousel.min.css">
-        <link rel="stylesheet" href="../css/owl.theme.default.min.css">
-        <link rel="stylesheet" href="../css/magnific-popup.css">
+        <link rel="stylesheet" href="css/owl.carousel.min.css">
+        <link rel="stylesheet" href="css/owl.theme.default.min.css">
+        <link rel="stylesheet" href="css/magnific-popup.css">
 
-        <link rel="stylesheet" href="../css/aos.css">
+        <link rel="stylesheet" href="css/aos.css">
 
-        <link rel="stylesheet" href="../css/ionicons.min.css">
+        <link rel="stylesheet" href="css/ionicons.min.css">
 
-        <link rel="stylesheet" href="../css/flaticon.css">
-        <link rel="stylesheet" href="../css/icomoon.css">
-        <link rel="stylesheet" href="../css/style.css">
+        <link rel="stylesheet" href="css/flaticon.css">
+        <link rel="stylesheet" href="css/icomoon.css">
+        <link rel="stylesheet" href="css/style.css">
+        <link href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet" integrity="sha384-wvfXpqpZZVQGK6TAh5PVlGOfQNHSoD2xbE+QkPxCAFlNEevoEH3Sl0sibVcOQVnN" crossorigin="anonymous">
     </head>
     <body>
         <nav class="navbar navbar-dark sticky-top bg-dark flex-md-nowrap p-0 shadow">
-            <a class="navbar-brand col-md-3 col-lg-2 mr-0 px-3" href="#">إسلام أحمد محمد سمير سلامه</a>
+            <a class="navbar-brand col-md-3 col-lg-2 mr-0 px-3" href="#">Admin panel</a>
             <button class="navbar-toggler position-absolute d-md-none collapsed" type="button" data-toggle="collapse" data-target="#sidebarMenu" aria-controls="sidebarMenu" aria-expanded="false" aria-label="Toggle navigation">
                 <span class="navbar-toggler-icon"></span>
             </button>
@@ -43,18 +50,24 @@
                         <ul class="nav flex-column">
                             <li class="nav-item">
                                 <a class="nav-link active" href="#">
-                                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-home"><path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"></path><polyline points="9 22 9 12 15 12 15 22"></polyline></svg>
-                                    الرئيسيه 
+                                    <i class="fa fa-home" aria-hidden="true"></i> الرئيسيه 
                                 </a>
                             </li>
-                            <!--
-                                      <li class="nav-item">
-                                        <a class="nav-link" href="#">
-                                          <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-file"><path d="M13 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V9z"></path><polyline points="13 2 13 9 20 9"></polyline></svg>
-                                          Orders
-                                        </a>
-                                      </li>
-                            -->
+                            <li class="nav-item">
+                                <a class="nav-link" href="admin-student-applications.html">
+                                    <i class="fa fa-table" aria-hidden="true"></i> المتقدمين
+                                </a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link" href="admin-subjects.html">
+                                    <i class="fa fa-book" aria-hidden="true"></i> المواد
+                                </a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link" href="admin-departments.html">
+                                    <i class="fa fa-briefcase" aria-hidden="true"></i> الأقسام
+                                </a>
+                            </li>
                         </ul>
 
                         <h6 class="sidebar-heading d-flex justify-content-between align-items-center px-3 mt-4 mb-1 text-muted">
@@ -67,9 +80,9 @@
                         </h6>
                         <ul class="nav flex-column mb-2">
                             <li class="nav-item">
-                                <a class="nav-link" href="info.html">
+                                <a class="nav-link" href="#">
                                     <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-file-text"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"></path><polyline points="14 2 14 8 20 8"></polyline><line x1="16" y1="13" x2="8" y2="13"></line><line x1="16" y1="17" x2="8" y2="17"></line><polyline points="10 9 9 9 8 9"></polyline></svg>
-                                    معلوماتك  
+                                    المزيد من الخيارات
                                 </a>
                             </li>
                             <!--
@@ -125,42 +138,40 @@
                         </div>
 
                         <h2>المواد المسجله</h2>
-                        <div class="alert alert-danger" role="alert">
-                            لا يوجد مواد مسجله
-                        </div>
+
                         <div class="row">
                             <div class="col-lg-3 col-md-6 col-sm-6 col-6">
                                 <div class="card">
-                                    <img src="../images/course-1.jpg" class="card-img-top" alt="...">
+                                    <img src="images/course-1.jpg" class="card-img-top" alt="...">
                                     <div class="card-body">
-                                        <h5 class="card-title">اسم الماده</h5>
+                                        <h5 class="card-title">Card title</h5>
                                         <p class="card-text">This is a longer card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
                                     </div>
                                 </div>
                             </div>
                             <div class="col-lg-3 col-md-6 col-sm-6 col-6">
                                 <div class="card">
-                                    <img src="../images/course-2.jpg" class="card-img-top" alt="...">
+                                    <img src="images/course-2.jpg" class="card-img-top" alt="...">
                                     <div class="card-body">
-                                        <h5 class="card-title">اسم الماده</h5>
+                                        <h5 class="card-title">Card title</h5>
                                         <p class="card-text">This is a longer card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
                                     </div>
                                 </div>
                             </div>
                             <div class="col-lg-3 col-md-6 col-sm-6 col-6">
                                 <div class="card">
-                                    <img src="../images/course-5.jpg" class="card-img-top" alt="...">
+                                    <img src="images/course-5.jpg" class="card-img-top" alt="...">
                                     <div class="card-body">
-                                        <h5 class="card-title">اسم الماده</h5>
+                                        <h5 class="card-title">Card title</h5>
                                         <p class="card-text">This is a longer card with supporting text below as a natural lead-in to additional content.</p>
                                     </div>
                                 </div>
                             </div>
                             <div class="col-lg-3 col-md-6 col-sm-6 col-6">
                                 <div class="card">
-                                    <img src="../images/course-6.jpg" class="card-img-top" alt="...">
+                                    <img src="images/course-6.jpg" class="card-img-top" alt="...">
                                     <div class="card-body">
-                                        <h5 class="card-title">اسم الماده</h5>
+                                        <h5 class="card-title">Card title</h5>
                                         <p class="card-text">This is a longer card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
                                     </div>
                                 </div>
@@ -177,21 +188,21 @@
         <div id="ftco-loader" class="show fullscreen"><svg class="circular" width="48px" height="48px"><circle class="path-bg" cx="24" cy="24" r="22" fill="none" stroke-width="4" stroke="#eeeeee"/><circle class="path" cx="24" cy="24" r="22" fill="none" stroke-width="4" stroke-miterlimit="10" stroke="#F96D00"/></svg></div>
 
 
-        <script src="../js/jquery.min.js"></script>
-        <script src="../js/jquery-migrate-3.0.1.min.js"></script>
-        <script src="../js/popper.min.js"></script>
-        <script src="../js/bootstrap.min.js"></script>
-        <script src="../js/jquery.easing.1.3.js"></script>
-        <script src="../js/jquery.waypoints.min.js"></script>
-        <script src="../js/jquery.stellar.min.js"></script>
-        <script src="../js/owl.carousel.min.js"></script>
-        <script src="../js/jquery.magnific-popup.min.js"></script>
-        <script src="../js/aos.js"></script>
-        <script src="../js/jquery.animateNumber.min.js"></script>
-        <script src="../js/scrollax.min.js"></script>
+        <script src="js/jquery.min.js"></script>
+        <script src="js/jquery-migrate-3.0.1.min.js"></script>
+        <script src="js/popper.min.js"></script>
+        <script src="js/bootstrap.min.js"></script>
+        <script src="js/jquery.easing.1.3.js"></script>
+        <script src="js/jquery.waypoints.min.js"></script>
+        <script src="js/jquery.stellar.min.js"></script>
+        <script src="js/owl.carousel.min.js"></script>
+        <script src="js/jquery.magnific-popup.min.js"></script>
+        <script src="js/aos.js"></script>
+        <script src="js/jquery.animateNumber.min.js"></script>
+        <script src="js/scrollax.min.js"></script>
         <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBVWaKrjvy3MaE7SQ74_uJiULgl1JY0H2s&sensor=false"></script>
-        <script src="../js/google-map.js"></script>
-        <script src="../js/main.js"></script>
+        <script src="js/google-map.js"></script>
+        <script src="js/main.js"></script>
 
     </body>
 </html>

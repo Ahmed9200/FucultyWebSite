@@ -21,6 +21,8 @@ import java.sql.SQLException;
 import java.sql.Statement;
 import java.util.ArrayList;
 import java.util.Base64;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 
 /**
  *
@@ -41,34 +43,24 @@ public class DealingWith_DB {
 
     //Check username and password for user and admin
     public static boolean checkStuffAuthentications(Connection con, String username, String password) {
-        try {
-            Statement statement = con.createStatement();
-            String strCheck = "select * from stuff where username= '" + username + "' and password= '" + password + "'";
-            statement.executeQuery(strCheck);
-
-            return statement.getResultSet().next();
-
-        } catch (SQLException var4) {
-
-            System.out.println(var4.getMessage());
+        Helper.currentUser = getStuff(con,
+                "select * from stuff where username= '" + username + "' and password= '" + password + "'").get(0);
+        if (Helper.currentStudent == null) {
             return false;
+        } else {
+            return true;
         }
 
     }
 
     //Check username and password for user and admin
     public static boolean checkAdminAuthentications(Connection con, String username, String password) {
-        try {
-            Statement statement = con.createStatement();
-            String strCheck = "select * from admins_view where username= '" + username + "' and password= '" + password + "'";
-            statement.executeQuery(strCheck);
-
-            return statement.getResultSet().next();
-
-        } catch (SQLException var4) {
-
-            System.out.println(var4.getMessage());
+        Helper.currentAdmin = getAdmins(con,
+                "select * from admins_view where username= '" + username + "' and password= '" + password + "'").get(0);
+        if (Helper.currentStudent == null) {
             return false;
+        } else {
+            return true;
         }
 
     }
@@ -205,7 +197,11 @@ public class DealingWith_DB {
                 item.setDescription(rs.getString("description"));
                 item.setPrice(rs.getDouble("price"));
                 item.setManager_id(rs.getInt("manager_id"));
-
+                try {
+                    item.setSubjects(getSubjetcs(con, "select * from subjects where dept_id = " + item.getId()));
+                } catch (Exception e) {
+                    item.setSubjects(new ArrayList<>());
+                }
                 try {
                     item.setDoctor(getStuff(con, "select * from stuff where id = " + item.getManager_id()).get(0));
                 } catch (Exception e) {
@@ -344,17 +340,14 @@ public class DealingWith_DB {
                 item.setName_ar(rs.getString("name_ar"));
                 item.setName_en(rs.getString("name_en"));
                 item.setCode(rs.getString("code"));
+                item.setYear_no(rs.getString("year_no"));
                 item.setSuccess_grade(rs.getDouble("success_grade"));
                 item.setTotal_grade(rs.getDouble("total_grade"));
                 item.setMin_students_no(rs.getInt("min_students_no"));
                 item.setHours_no(rs.getInt("hours_no"));
                 item.setDepends_on(rs.getInt("depends_on"));
-
-                try {
-                    item.setDept(getDepts(con, "select * from departments where id = " + item.getDepends_on()).get(0));
-                } catch (Exception e) {
-                    item.setDept(new Departments());
-                }
+                item.setDept_id(rs.getInt("dept_id"));
+                item.setBase64_img(getBase64(rs.getBlob("img").getBinaryStream()));
 
                 data.add(item);
             }
@@ -365,7 +358,10 @@ public class DealingWith_DB {
 
             return null;
 
+        } catch (IOException ex) {
+            Logger.getLogger(DealingWith_DB.class.getName()).log(Level.SEVERE, null, ex);
         }
+        return null;
 
     }
 

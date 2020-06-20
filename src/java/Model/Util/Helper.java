@@ -20,9 +20,9 @@ import javax.servlet.http.Part;
 public class Helper {
 
     public static Connection con;
-    public static Students currentStudent;
-    public static Stuff currentUser;
-    public static Admins currentAdmin;
+    public static Students currentStudent = new Students();
+    public static Stuff currentUser = new Stuff();
+    public static Admins currentAdmin = new Admins();
 
     public static Students getStudentFromRegistrationForm(HttpServletRequest request) {
         try {
@@ -76,12 +76,32 @@ public class Helper {
         }
     }
 
-    public static boolean checkAuthentication(HttpServletRequest request) {
+    public static boolean checkStudentAuthentication(HttpServletRequest request) {
 
         try {
 
             return DealingWith_DB.checkStudentAuthentications(con, request.getParameter("username"), request.getParameter("password"));
 
+        } catch (Exception e) {
+            return false;
+        }
+
+    }
+
+    public static boolean checkAdminAuthentication(HttpServletRequest request) {
+
+        try {
+            return DealingWith_DB.checkAdminAuthentications(con, request.getParameter("username"), request.getParameter("password"));
+        } catch (Exception e) {
+            return false;
+        }
+
+    }
+
+    public static boolean checkStuffAuthentication(HttpServletRequest request) {
+
+        try {
+            return DealingWith_DB.checkStuffAuthentications(con, request.getParameter("username"), request.getParameter("password"));
         } catch (Exception e) {
             return false;
         }

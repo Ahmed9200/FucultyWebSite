@@ -6,6 +6,7 @@
 package Model.projetcModels;
 
 import Model.Util.DealingWith_DB;
+import java.io.InputStream;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.SQLException;
@@ -25,11 +26,14 @@ public class Subjects {
     private int depends_on;
     private double success_grade;
     private double total_grade;
-    private Departments dept;
+    private int dept_id;
+    private InputStream img;
+    private String base64_img;
+    private String year_no;
 
     public boolean add(Connection con) {
         try {
-            PreparedStatement ps = con.prepareStatement("insert into subjects values(?,?,?,?,?,?,?,?,?)");
+            PreparedStatement ps = con.prepareStatement("insert into subjects values(?,?,?,?,?,?,?,?,?,?,?,?)");
             ps.setInt(1, Integer.parseInt(DealingWith_DB.AutoIncrementCoulmn(con, "subjects", "id")));
             ps.setString(2, name_ar);
             ps.setString(3, name_en);
@@ -39,6 +43,9 @@ public class Subjects {
             ps.setInt(7, depends_on);
             ps.setDouble(8, success_grade);
             ps.setDouble(9, total_grade);
+            ps.setInt(10, dept_id);
+            ps.setBlob(11, img);
+            ps.setString(12, year_no);
 
             int isAdded = ps.executeUpdate();
 
@@ -53,7 +60,7 @@ public class Subjects {
 
         try {
             String strUpdate = "update subjects set name_ar = ? , name_en = ? , code = ? , min_students_no = ? ,hours_no = ? "
-                    + "depends_on = ? , success_grade=? , total_grade=? \n where id = ? ;";
+                    + "depends_on = ? , success_grade=? , total_grade=? , dept_id=?,img =? , year_no=? \n where id = ? ;";
             PreparedStatement ps = con.prepareStatement(strUpdate);
 
             // add prepared statement data 
@@ -65,8 +72,11 @@ public class Subjects {
             ps.setInt(6, depends_on);
             ps.setDouble(7, success_grade);
             ps.setDouble(8, total_grade);
+            ps.setInt(9, dept_id);
+            ps.setBlob(10, img);
+            ps.setString(11, year_no);
 
-            ps.setInt(9, id);
+            ps.setInt(12, id);
 
             int isUpdated = ps.executeUpdate();
             return isUpdated > 0;
@@ -76,6 +86,14 @@ public class Subjects {
 
             return false;
         }
+    }
+
+    public int getDept_id() {
+        return dept_id;
+    }
+
+    public void setDept_id(int dept_id) {
+        this.dept_id = dept_id;
     }
 
     public int getId() {
@@ -150,12 +168,28 @@ public class Subjects {
         this.total_grade = total_grade;
     }
 
-    public Departments getDept() {
-        return dept;
+    public InputStream getImg() {
+        return img;
     }
 
-    public void setDept(Departments dept) {
-        this.dept = dept;
+    public void setImg(InputStream img) {
+        this.img = img;
+    }
+
+    public String getBase64_img() {
+        return base64_img;
+    }
+
+    public void setBase64_img(String base64_img) {
+        this.base64_img = base64_img;
+    }
+
+    public String getYear_no() {
+        return year_no;
+    }
+
+    public void setYear_no(String year_no) {
+        this.year_no = year_no;
     }
 
 }
