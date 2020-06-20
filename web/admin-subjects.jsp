@@ -111,11 +111,11 @@
 
                         <h2><%=depts.get(i).getName_ar()%></h2>
 
-                        <%for (int j = 0; j < depts.get(i).getSubjects().size(); j++) {
-
-                        %>
-
                         <div class="row">
+                            <%for (int j = 0; j < depts.get(i).getSubjects().size(); j++) {
+
+                            %>
+
                             <div class="col-lg-3 col-md-6 col-sm-6 col-6">
                                 <div class="card">
                                     <img src="images/course-1.jpg" class="card-img-top" alt="...">
@@ -129,9 +129,11 @@
                                     </div>
                                 </div>
                             </div>
+
+                            <%}%>
                         </div>
 
-                        <%}
+                        <%
                                 }
                             } catch (Exception e) {
                             }

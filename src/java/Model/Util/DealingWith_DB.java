@@ -251,11 +251,11 @@ public class DealingWith_DB {
                 item.setUsername(rs.getString("username"));
                 item.setPassword(rs.getString("password"));
 
-                try {
-                    item.setDept(getDepts(con, "select * from departments where id = " + item.getDept_id()).get(0));
-                } catch (Exception e) {
-                    item.setDept(new Departments());
-                }
+//                try {
+//                    item.setDept(getDepts(con, "select * from departments where id = " + item.getDept_id()).get(0));
+//                } catch (Exception e) {
+//                    item.setDept(new Departments());
+//                }
                 // set img in base 64 to show it in img tag in html
                 InputStream inputStream = rs.getBlob("CV").getBinaryStream();
                 item.setBase64_cv(getBase64(inputStream));
