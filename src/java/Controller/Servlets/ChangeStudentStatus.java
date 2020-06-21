@@ -28,10 +28,10 @@ public class ChangeStudentStatus extends HttpServlet {
         request.setCharacterEncoding("UTF-8");
         response.setContentType("text/html;charset=UTF-8");
 
-        if (Helper.changeStudentStatusInDB(request, request.getParameter("oldStatus"), request.getParameter("newStatus")) == null) {
-            response.sendRedirect("admin-student-applications.jsp");
-        } else {
+        if (Helper.changeStudentStatusInDB(request)) {
             request.getRequestDispatcher("admin-student-applications.jsp").forward(request, response);
+        } else {
+            response.sendRedirect("admin-student-applications.jsp");
 
         }
     }

@@ -77,22 +77,23 @@ public class Helper {
         }
     }
 
-    public static Students changeStudentStatusInDB(HttpServletRequest request, String oldStatus, String newStatus) {
+    public static boolean changeStudentStatusInDB(HttpServletRequest request) {
         try {
+            String oldStatus = request.getParameter("oldStatus");
+            String newStatus = request.getParameter("newStatus");
+            int id = Integer.parseInt(request.getParameter("id"));
             if (!oldStatus.equals(newStatus)) {
-                currentStudent.setStatus(newStatus);
-                if (currentStudent.update(con)) {
-
-                    return Helper.currentStudent;
+                if (DealingWith_DB.excuteQuery(con, "UPDATE students SET status = " + newStatus + " WHERE id=" + id)) {
+                    return true;
                 } else {
-                    return null;
+                    return false;
                 }
             } else {
-                return null;
+                return false;
             }
         } catch (Exception e) {
             System.out.println("error " + e.getMessage());
-            return null;
+            return false;
         }
     }
 
