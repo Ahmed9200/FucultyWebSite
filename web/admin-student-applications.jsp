@@ -58,10 +58,7 @@
                                         <td><%=waiting.get(i).getPhone()%></td>
                                         <td><%=waiting.get(i).getGender()%></td>
                                         <td>
-                                            <select>
-                                                <option>قيد المراجعه</option>
-                                                <option>مقبول</option>
-                                            </select>
+                                            <%=waiting.get(i).getStatus()%>
                                         </td>
                                         <td><a onclick="showInfo(
                                                <%=waiting.get(i).getId()%>,
@@ -257,7 +254,12 @@
                     </div>
 
                     <div class="modal-footer">
-                        <button type="button" class="btn btn-secondary" data-dismiss="modal">اغلق</button>
+                        <form action="ChangeStudentStatus" method="POST">
+                            <input class="oldStatus" type="text" name="oldStatus" value="pending" hidden/>
+                            <input class="newStatus" type="text" name="newStatus" value="accepted" hidden/>
+                            <input type="submit" class="btn btn-success" value="قبول"/>
+                        </form>
+                        <button type="button" class="btn btn-danger" data-dismiss="modal">اغلق</button>
                     </div>
                 </div>
             </div>

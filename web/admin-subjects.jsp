@@ -1,15 +1,10 @@
-<%-- 
-    Document   : admin-subjects
-    Created on : Jun 20, 2020, 7:16:24 PM
-    Author     : 20102
---%>
-
 <%@page import="Model.projetcModels.Subjects"%>
 <%@page import="Model.Util.Helper"%>
 <%@page import="Model.Util.DealingWith_DB"%>
 <%@page import="Model.projetcModels.Departments"%>
 <%@page import="java.util.ArrayList"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%><%@page import="Model.projetcModels.Subjects"%>
+
 <!DOCTYPE html>
 <html lang="ar" dir="rtl">
     <head>
@@ -36,9 +31,10 @@
                                 for (int i = 0; i < depts.size(); i++) {
                         %>
 
-                        <h2><%=depts.get(i).getName_ar()%></h2>
+                        <h2><%=depts.get(i).getName_ar()%><small> - </small><a href="add-subject.jsp?deptID=<%=depts.get(i).getId()%>"><small>إضافة ماده جديد</small></a></h2>
 
                         <div class="row">
+                            
                             <%for (int j = 0; j < depts.get(i).getSubjects().size(); j++) {
 
                             %>
@@ -59,6 +55,7 @@
 
                             <%}%>
                         </div>
+                        <hr>
 
                         <%
                                 }

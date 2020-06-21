@@ -18,15 +18,20 @@ import javax.servlet.http.HttpServletResponse;
  */
 public class ChangeStudentStatus extends HttpServlet {
 
+    @Override
+    protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
+        processRequest(req, resp);
+    }
+
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
         request.setCharacterEncoding("UTF-8");
         response.setContentType("text/html;charset=UTF-8");
 
         if (Helper.changeStudentStatusInDB(request, request.getParameter("oldStatus"), request.getParameter("newStatus")) == null) {
-            response.sendRedirect("admin-student-applocations.jsp");
+            response.sendRedirect("admin-student-applications.jsp");
         } else {
-            request.getRequestDispatcher("admin-student-applocations.jsp").forward(request, response);
+            request.getRequestDispatcher("admin-student-applications.jsp").forward(request, response);
 
         }
     }
