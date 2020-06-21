@@ -1,14 +1,9 @@
-<%-- 
-    Document   : admin-student-applications
-    Created on : Jun 20, 2020, 7:15:52 PM
-    Author     : 20102
---%>
-
+<%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
 <%@page import="Model.Util.Helper"%>
 <%@page import="Model.Util.DealingWith_DB"%>
 <%@page import="Model.projetcModels.Students"%>
 <%@page import="java.util.ArrayList"%>
-<%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
+
 <!DOCTYPE html>
 <html lang="ar" dir="rtl">
     <head>
@@ -79,7 +74,28 @@
                                                 <option>مقبول</option>
                                             </select>
                                         </td>
-                                        <td><i class="fa fa-external-link-square" aria-hidden="true"></i></td>
+                                        <td><a onclick="showInfo(
+                                                    <%=waiting.get(i).getId()%>,
+                                                    '<%=waiting.get(i).getName_ar()%>',
+                                                    '<%=waiting.get(i).getName_en()%>',
+                                                    <%=waiting.get(i).getAge()%>,
+                                                    '<%=waiting.get(i).getMail()%>',
+                                                    <%=waiting.get(i).getPhone()%>,
+                                                    '<%=waiting.get(i).getAddress()%>',
+                                                    '<%=waiting.get(i).getCity()%>',
+                                                    '<%=waiting.get(i).getGovernorate()%>',
+                                                    '<%=waiting.get(i).getStatus()%>',
+                                                    '<%=waiting.get(i).getDept_id()%>',
+                                                    '<%=waiting.get(i).getUsername()%>',
+                                                    <%=waiting.get(i).getTotalGPA()%>,
+                                                    <%=waiting.get(i).getTotalHours()%>,
+                                                    <%=waiting.get(i).getTotal_yearsNo()%>,
+                                                    '<%=waiting.get(i).getTotal_yearsNo()%>',
+                                                    'data:image / jpg; base64,<%=waiting.get(i).getBase64_resultImg()%>',
+                                                    'data:image / jpg; base64,<%=waiting.get(i).getBase64_fitrationImg()%>',
+                                                    'data:image / jpg; base64,<%=waiting.get(i).getBase64_ssidImg()%>',
+                                                    'data:image / jpg; base64,<%=waiting.get(i).getBase64_birthdayImg()%>'
+                                                    )" style="cursor: pointer;"><i class="fa fa-external-link-square" aria-hidden="true"></i></a></td>
                                     </tr>
 
                                     <%}
@@ -138,6 +154,125 @@
         <!-- loader -->
         <div id="ftco-loader" class="show fullscreen"><svg class="circular" width="48px" height="48px"><circle class="path-bg" cx="24" cy="24" r="22" fill="none" stroke-width="4" stroke="#eeeeee"/><circle class="path" cx="24" cy="24" r="22" fill="none" stroke-width="4" stroke-miterlimit="10" stroke="#F96D00"/></svg></div>
 
+<!--        <button type="button" class="btn btn-primary" onclick="showInfo()" data-toggle="modal" data-target="#studentInfo">
+            اعرض
+        </button>-->
+
+        <!-- Modal -->
+        <div class="modal fade" id="studentInfo" tabindex="-1" role="dialog" aria-labelledby="exampleModalLongTitle" aria-hidden="true">
+            <div class="modal-dialog" role="document">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h5 class="modal-title modal-student-id" id="exampleModalLongTitle">1</h5>
+                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                            <span aria-hidden="true">&times;</span>
+                        </button>
+                    </div>
+                    <div class="modal-body table-responsive">
+                        <table class="table table-sm">
+                            <tbody>
+                                <tr>
+                                    <td><strong>الاسم بالعربيه: </strong></td>
+                                    <td class="modal-name-ar"></td>
+                                </tr>
+                                <tr>
+                                    <td><strong>الاسم بالانجليزيه: </strong></td>
+                                    <td class="modal-name-en"></td>
+                                </tr>
+                                <tr>
+                                    <td><strong>السن</strong></td>
+                                    <td class="modal-age"></td>
+                                </tr>
+                                <tr>
+                                    <td><strong>الإيميل</strong></td>
+                                    <td class="modal-mail"></td>
+                                </tr>
+                                <tr>
+                                    <td><strong>رقم الموبايل</strong></td>
+                                    <td class="modal-phone"></td>
+                                </tr>
+                                <tr>
+                                    <td><strong>العنوان</strong></td>
+                                    <td class="modal-address"></td>
+                                </tr>
+                                <tr>
+                                    <td><strong>المدينه</strong></td>
+                                    <td class="modal-city"></td>
+                                </tr>
+                                <tr>
+                                    <td><strong>المحافظه</strong></td>
+                                    <td class="modal-gov"></td>
+                                </tr>
+                                <tr>
+                                    <td><strong>حالة الطالب</strong></td>
+                                    <td class="modal-status"></td>
+                                </tr>
+                                <tr>
+                                    <td><strong>القسم</strong></td>
+                                    <td class="modal-dept"></td>
+                                </tr>
+                                <tr>
+                                    <td><strong>الرقم القومي</strong></td>
+                                    <td class="modal-id"></td>
+                                </tr>
+                                <tr>
+                                    <td><strong>GPA</strong></td>
+                                    <td class="modal-gpa"></td>
+                                </tr>
+                                <tr>
+                                    <td><strong>مجموع الساعات</strong></td>
+                                    <td class="modal-hours"></td>
+                                </tr>
+                                <tr>
+                                    <td><strong>السنه الدراسيه</strong></td>
+                                    <td class="modal-years"></td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+
+                    <div class="row" style="margin: 5px">
+
+                        <div class="col-6">
+                            <div class="card">
+                                <img class="card-img-top modal-img-result" src="images/course-2.jpg" alt="Card image cap">
+                                <div class="card-footer">
+                                    <small class="text-muted">شهادة الثانويه العامه</small>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-6">
+                            <div class="card">
+                                <img class="card-img-top modal-img-filtaration" src="images/course-2.jpg" alt="Card image cap">
+                                <div class="card-footer">
+                                    <small class="text-muted">بطاقة الترشح</small>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-6">
+                            <div class="card">
+                                <img class="card-img-top modal-img-id" src="images/course-2.jpg" alt="Card image cap">
+                                <div class="card-footer">
+                                    <small class="text-muted">صوره البطاقه</small>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-6">
+                            <div class="card">
+                                <img class="card-img-top modal-img-birth" src="images/course-2.jpg" alt="Card image cap">
+                                <div class="card-footer">
+                                    <small class="text-muted">صورة شهادة الميلاد</small>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-secondary" data-dismiss="modal">اغلق</button>
+                    </div>
+                </div>
+            </div>
+        </div>
 
         <script src="js/jquery.min.js"></script>
         <script src="js/jquery-migrate-3.0.1.min.js"></script>
@@ -159,6 +294,32 @@
                 $("#applications-link").addClass("active");
                 console.log("output");
             });
+
+            function showInfo($id, $nameAr, $nameEn, $age, $mail, $phone, $address, $city, $gov, $status, $dept, $cardID, $GPA, $hours, $years, $currentYear, $img1, $img2, $img3, $img4) {
+                $('#studentInfo').modal('show');
+//                console.log('id' , $id , 'nameAr' , $nameAr);
+                $('.modal-student-id').text($id);
+                $('.modal-name-ar').text($nameAr);
+                $('.modal-name-en').text($nameEn);
+                $('.modal-age').text($age);
+                $('.modal-mail').text($mail);
+                $('.modal-phone').text('0'+$phone);
+                $('.modal-address').text($address);
+                $('.modal-city').text($city);
+                $('.modal-gov').text($gov);
+                $('.modal-status').text($status);
+                $('.modal-dept').text($dept);
+                $('.modal-id').text($cardID);
+                $('.modal-gpa').text($GPA);
+                $('.modal-hours').text($hours);
+                $('.modal-years').text($currentYear);
+                
+                $(".modal-img-result").attr('src', $img1);
+                $(".modal-img-filtaration").attr('src', $img2);
+                $(".modal-img-id").attr('src', $img3);
+                $(".modal-img-birth").attr('src', $img4);
+                
+            }
         </script>
     </body>
 </html>
