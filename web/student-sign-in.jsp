@@ -3,58 +3,10 @@
 <html lang="ar" dir="rtl" >
     <head>
         <title>Sign In</title>
-        <meta charset="utf-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-
-        <link href="https://fonts.googleapis.com/css?family=Poppins:200,300,400,500,600,700,800,900&display=swap" rel="stylesheet">
-
-    <link rel="stylesheet" href="css/open-iconic-bootstrap.min.css">
-    <link rel="stylesheet" href="css/animate.css">
-    
-    <link rel="stylesheet" href="css/owl.carousel.min.css">
-    <link rel="stylesheet" href="css/owl.theme.default.min.css">
-    <link rel="stylesheet" href="css/magnific-popup.css">
-
-    <link rel="stylesheet" href="css/aos.css">
-
-    <link rel="stylesheet" href="css/ionicons.min.css">
-    
-    <link rel="stylesheet" href="css/flaticon.css">
-    <link rel="stylesheet" href="css/icomoon.css">
-    <link rel="stylesheet" href="css/style.css">
+        <%@include  file="head.jsp" %>
     </head>
     <body>
-        <div class="bg-top navbar-light">
-            <div class="container">
-                <div class="row no-gutters d-flex align-items-center align-items-stretch">
-                    <div class="col-md-4 d-flex align-items-center py-4">
-                        <a class="navbar-brand" href="index.html">المنوفيه. <span>جامعة</span></a>
-                    </div>
-
-                </div>
-            </div>
-        </div>
-        <nav class="navbar navbar-expand-lg navbar-dark bg-dark ftco-navbar-light" id="ftco-navbar">
-            <div class="container d-flex align-items-center px-4">
-                <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#ftco-nav" aria-controls="ftco-nav" aria-expanded="false" aria-label="Toggle navigation">
-                    <span class="oi oi-menu"></span> القائمه
-                </button>
-
-                <div class="collapse navbar-collapse" id="ftco-nav">
-                    <ul class="navbar-nav mr-auto">
-                        <li class="nav-item"><a href="index.html" class="nav-link pl-0">الرئيسيه</a></li>
-                        <li class="nav-item"><a href="about.html" class="nav-link">عن الكليه</a></li>
-                        <li class="nav-item"><a href="courses.html" class="nav-link">الاقسام</a></li>
-                        <li class="nav-item"><a href="teacher.html" class="nav-link">هيئة التدريس</a></li>
-                        <li class="nav-item"><a href="register.html" class="nav-link">التسجيل</a></li>
-                    </ul>
-                    <ul class="navbar-nav order-lg-last">
-                        <li class="nav-item active"><a href="#" class="nav-link">الدخول</a></li>
-                    </ul>
-                </div>
-            </div>
-        </nav>
-        <!-- END nav -->
+        <%@include  file="top-navbar.jsp" %>
 
         <section class="hero-wrap hero-wrap-2" style="background-image: url('images/bg_1.jpg');">
             <div class="overlay"></div>
@@ -110,51 +62,7 @@
 
         <br>
 
-        <footer class="ftco-footer ftco-bg-dark ftco-section">
-            <div class="container">
-                <div class="row mb-5">
-                    <div class="col-md-8 col-lg-4">
-                        <div class="ftco-footer-widget mb-5">
-                            <h2 class="ftco-heading-2">قم بزيارتنا</h2>
-                            <div class="block-23 mb-3">
-                                <ul>
-                                    <li><span class="icon icon-map-marker"></span><span class="text">مجمع الكليات النظريه، ش جمال عبد الناصر، شبين الكوم، المنوفيه</span></li>
-                                    <li><a href="#"><span class="icon icon-phone"></span><span class="text">048-2316189</span></a></li>
-                                    <li><a href="#"><span class="icon icon-envelope"></span><span class="text">Itunit@ci.menofia.edu.eg</span></a></li>
-                                </ul>
-                            </div>
-                        </div>
-                    </div>
-
-                    <div class="col-md-8 col-lg-4">
-                        <div class="ftco-footer-widget mb-5 ml-md-4">
-                            <h2 class="ftco-heading-2">الروابط</h2>
-                            <ul class="list-unstyled">
-                                <li><a href="#"><span class="ion-ios-arrow-round-back mr-2"></span>الرئيسيه</a></li>
-                                <li><a href="#"><span class="ion-ios-arrow-round-back mr-2"></span>عن الكليه</a></li>
-                                <li><a href="#"><span class="ion-ios-arrow-round-back mr-2"></span>الاقسام</a></li>
-                                <li><a href="#"><span class="ion-ios-arrow-round-back mr-2"></span>هيئه التدريس</a></li>
-                                <li><a href="#"><span class="ion-ios-arrow-round-back mr-2"></span>التسجيل</a></li>
-                            </ul>
-                        </div>
-                    </div>
-
-                    <div class="col-md-8 col-lg-4">
-
-                        <div class="ftco-footer-widget mb-5">
-                            <h2 class="ftco-heading-2 mb-0">تواصل معنا</h2>
-                            <ul class="ftco-footer-social list-unstyled float-md-right float-right mt-3">
-                                <li class="ftco-animate"><a href="#"><span class="icon-twitter"></span></a></li>
-                                <li class="ftco-animate"><a href="#"><span class="icon-facebook"></span></a></li>
-                                <li class="ftco-animate"><a href="#"><span class="icon-instagram"></span></a></li>
-                            </ul>
-                        </div>
-                    </div>
-
-                </div>
-
-            </div>
-        </footer>
+        <%@include  file="footer.jsp" %>
 
 
 
@@ -177,6 +85,11 @@
   <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBVWaKrjvy3MaE7SQ74_uJiULgl1JY0H2s&sensor=false"></script>
   <script src="js/google-map.js"></script>
   <script src="js/main.js"></script>
-
+<script>
+            $(document).ready(function () {
+                $("#signin-link").addClass("active");
+                console.log("output");
+            });
+        </script>
     </body>
 </html>
