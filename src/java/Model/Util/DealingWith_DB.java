@@ -349,6 +349,7 @@ public class DealingWith_DB {
                 item.setHours_no(rs.getInt("hours_no"));
                 item.setDepends_on(rs.getInt("depends_on"));
                 item.setDept_id(rs.getInt("dept_id"));
+                item.setDoctor_id(rs.getInt("doctor_id"));
                 item.setBase64_img(getBase64(rs.getBlob("img").getBinaryStream()));
 
                 data.add(item);

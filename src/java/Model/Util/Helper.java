@@ -8,6 +8,7 @@ package Model.Util;
 import Model.projetcModels.Admins;
 import Model.projetcModels.Students;
 import Model.projetcModels.Staff;
+import Model.projetcModels.Subjects;
 import java.io.InputStream;
 import java.sql.Connection;
 import javax.servlet.http.HttpServletRequest;
@@ -127,6 +128,32 @@ public class Helper {
             return false;
         }
 
+    }
+
+    public static boolean addSubjectToDB(HttpServletRequest request) {
+        try {
+            Subjects sub = new Subjects();
+            sub.setCode(request.getParameter("code"));
+            sub.setDepends_on(sub.getDeptIdFromName_ar(request.getParameter("depends_on")));
+            sub.setDoctor_id(sub.getDocIdFromName_ar(request.getParameter("doctor_name")));
+            sub.setName_ar(request.getParameter("name_ar"));
+            sub.setName_en(request.getParameter("name_en"));
+            sub.setMin_students_no(Integer.parseInt(request.getParameter("min_students_no")));
+            sub.setHours_no(Integer.parseInt(request.getParameter("hours_no")));
+            sub.setTotal_grade(Integer.parseInt(request.getParameter("total_grade")));
+            sub.setSuccess_grade(Integer.parseInt(request.getParameter("success_grade")));
+            sub.setYear_no(request.getParameter("year_no"));
+            Part part = request.getPart("img");
+            InputStream inputStream = null;
+            if (part != null) {
+                inputStream = part.getInputStream();
+            }
+            sub.setImg(inputStream);
+            return sub.add(con);
+        } catch (Exception e) {
+            e.printStackTrace();
+            return false;
+        }
     }
 
 }

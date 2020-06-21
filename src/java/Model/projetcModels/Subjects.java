@@ -6,6 +6,7 @@
 package Model.projetcModels;
 
 import Model.Util.DealingWith_DB;
+import Model.Util.Helper;
 import java.io.InputStream;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
@@ -30,10 +31,11 @@ public class Subjects {
     private InputStream img;
     private String base64_img;
     private String year_no;
+    private int doctor_id;
 
     public boolean add(Connection con) {
         try {
-            PreparedStatement ps = con.prepareStatement("insert into subjects values(?,?,?,?,?,?,?,?,?,?,?,?)");
+            PreparedStatement ps = con.prepareStatement("insert into subjects values(?,?,?,?,?,?,?,?,?,?,?,?,?)");
             ps.setInt(1, Integer.parseInt(DealingWith_DB.AutoIncrementCoulmn(con, "subjects", "id")));
             ps.setString(2, name_ar);
             ps.setString(3, name_en);
@@ -46,6 +48,7 @@ public class Subjects {
             ps.setInt(10, dept_id);
             ps.setBlob(11, img);
             ps.setString(12, year_no);
+            ps.setInt(13, doctor_id);
 
             int isAdded = ps.executeUpdate();
 
@@ -60,7 +63,7 @@ public class Subjects {
 
         try {
             String strUpdate = "update subjects set name_ar = ? , name_en = ? , code = ? , min_students_no = ? ,hours_no = ? "
-                    + "depends_on = ? , success_grade=? , total_grade=? , dept_id=?,img =? , year_no=? \n where id = ? ;";
+                    + "depends_on = ? , success_grade=? , total_grade=? , dept_id=?,img =? , year_no=? ,doctor_id=? \n where id = ? ;";
             PreparedStatement ps = con.prepareStatement(strUpdate);
 
             // add prepared statement data 
@@ -75,8 +78,9 @@ public class Subjects {
             ps.setInt(9, dept_id);
             ps.setBlob(10, img);
             ps.setString(11, year_no);
+            ps.setInt(12, doctor_id);
 
-            ps.setInt(12, id);
+            ps.setInt(13, id);
 
             int isUpdated = ps.executeUpdate();
             return isUpdated > 0;
@@ -190,6 +194,26 @@ public class Subjects {
 
     public void setYear_no(String year_no) {
         this.year_no = year_no;
+    }
+
+    public int getDoctor_id() {
+        return doctor_id;
+    }
+
+    public void setDoctor_id(int doctor_id) {
+        this.doctor_id = doctor_id;
+    }
+
+    public int getDocIdFromName_ar(String name) {
+
+        int id = Integer.parseInt(DealingWith_DB.getCoulmnData(Helper.con, "staff", "id", " where name_ar='" + name + "';")[0]);
+        return id;
+    }
+
+    public int getDeptIdFromName_ar(String name) {
+
+        int id = Integer.parseInt(DealingWith_DB.getCoulmnData(Helper.con, "departments", "id", " where name_ar='" + name + "';")[0]);
+        return id;
     }
 
 }
