@@ -328,4 +328,28 @@ public class Students {
         this.gender = gender;
     }
 
+    public String getYearName() {
+        String year_name = "";
+        switch (total_yearsNo) {
+            case 1:
+                year_name = "الفرقه الاولى";
+                break;
+            case 2:
+                year_name = "الفرقه الثانيه";
+                break;
+            case 3:
+                year_name = "الفرقه الثالثه";
+                break;
+            case 4:
+                year_name = "الفرقه الرابعه";
+                break;
+            case 5:
+                year_name = "الفرقه الخامسه";
+                break;
+            default:
+                year_name = "غير مسجل";
+                break;
+        }
+        return year_name;
+    }
 }

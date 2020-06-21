@@ -18,18 +18,7 @@
                 <main role="main" class="col-md-9 ml-sm-auto col-lg-10 px-md-4"><div class="chartjs-size-monitor" style="position: absolute; left: 0px; top: 0px; right: 0px; bottom: 0px; overflow: hidden; pointer-events: none; visibility: hidden; z-index: -1;"><div class="chartjs-size-monitor-expand" style="position:absolute;left:0;top:0;right:0;bottom:0;overflow:hidden;pointer-events:none;visibility:hidden;z-index:-1;"><div style="position:absolute;width:1000000px;height:1000000px;left:0;top:0"></div></div><div class="chartjs-size-monitor-shrink" style="position:absolute;left:0;top:0;right:0;bottom:0;overflow:hidden;pointer-events:none;visibility:hidden;z-index:-1;"><div style="position:absolute;width:200%;height:200%;left:0; top:0"></div></div></div>
                     <div class="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center pt-3 pb-2 mb-3 border-bottom">
                         <h1 class="h2">طلبات الألتحاق</h1>
-                        <!--
-                                <div class="btn-toolbar mb-2 mb-md-0">
-                                  <div class="btn-group mr-2">
-                                    <button type="button" class="btn btn-sm btn-outline-secondary">Share</button>
-                                    <button type="button" class="btn btn-sm btn-outline-secondary">Export</button>
-                                  </div>
-                                  <button type="button" class="btn btn-sm btn-outline-secondary dropdown-toggle">
-                                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-calendar"><rect x="3" y="4" width="18" height="18" rx="2" ry="2"></rect><line x1="16" y1="2" x2="16" y2="6"></line><line x1="8" y1="2" x2="8" y2="6"></line><line x1="3" y1="10" x2="21" y2="10"></line></svg>
-                                    This week
-                                  </button>
-                                </div>
-                        -->
+
                     </div>
 
                     <section class="ftco-section" style="padding: 5px 0px;" >
@@ -75,27 +64,27 @@
                                             </select>
                                         </td>
                                         <td><a onclick="showInfo(
-                                                    <%=waiting.get(i).getId()%>,
-                                                    '<%=waiting.get(i).getName_ar()%>',
-                                                    '<%=waiting.get(i).getName_en()%>',
-                                                    <%=waiting.get(i).getAge()%>,
-                                                    '<%=waiting.get(i).getMail()%>',
-                                                    <%=waiting.get(i).getPhone()%>,
-                                                    '<%=waiting.get(i).getAddress()%>',
-                                                    '<%=waiting.get(i).getCity()%>',
-                                                    '<%=waiting.get(i).getGovernorate()%>',
-                                                    '<%=waiting.get(i).getStatus()%>',
-                                                    '<%=waiting.get(i).getDept_id()%>',
-                                                    '<%=waiting.get(i).getUsername()%>',
-                                                    <%=waiting.get(i).getTotalGPA()%>,
-                                                    <%=waiting.get(i).getTotalHours()%>,
-                                                    <%=waiting.get(i).getTotal_yearsNo()%>,
-                                                    '<%=waiting.get(i).getTotal_yearsNo()%>',
-                                                    'data:image / jpg; base64,<%=waiting.get(i).getBase64_resultImg()%>',
-                                                    'data:image / jpg; base64,<%=waiting.get(i).getBase64_fitrationImg()%>',
-                                                    'data:image / jpg; base64,<%=waiting.get(i).getBase64_ssidImg()%>',
-                                                    'data:image / jpg; base64,<%=waiting.get(i).getBase64_birthdayImg()%>'
-                                                    )" style="cursor: pointer;"><i class="fa fa-external-link-square" aria-hidden="true"></i></a></td>
+                                               <%=waiting.get(i).getId()%>,
+                                                        '<%=waiting.get(i).getName_ar()%>',
+                                                        '<%=waiting.get(i).getName_en()%>',
+                                               <%=waiting.get(i).getAge()%>,
+                                                        '<%=waiting.get(i).getMail()%>',
+                                               <%=waiting.get(i).getPhone()%>,
+                                                        '<%=waiting.get(i).getAddress()%>',
+                                                        '<%=waiting.get(i).getCity()%>',
+                                                        '<%=waiting.get(i).getGovernorate()%>',
+                                                        '<%=waiting.get(i).getStatus()%>',
+                                                        '<%=waiting.get(i).getDept().getName_ar()%>',
+                                                        '<%=waiting.get(i).getUsername()%>',
+                                               <%=waiting.get(i).getTotalGPA()%>,
+                                               <%=waiting.get(i).getTotalHours()%>,
+                                               <%=waiting.get(i).getTotal_yearsNo()%>,
+                                                        '<%=waiting.get(i).getYearName()%>',
+                                                        'data:image / jpg; base64,<%=waiting.get(i).getBase64_resultImg()%>',
+                                                        'data:image / jpg; base64,<%=waiting.get(i).getBase64_fitrationImg()%>',
+                                                        'data:image / jpg; base64,<%=waiting.get(i).getBase64_ssidImg()%>',
+                                                        'data:image / jpg; base64,<%=waiting.get(i).getBase64_birthdayImg()%>'
+                                                        )" style="cursor: pointer;"><i class="fa fa-external-link-square" aria-hidden="true"></i></a></td>
                                     </tr>
 
                                     <%}
@@ -154,9 +143,9 @@
         <!-- loader -->
         <div id="ftco-loader" class="show fullscreen"><svg class="circular" width="48px" height="48px"><circle class="path-bg" cx="24" cy="24" r="22" fill="none" stroke-width="4" stroke="#eeeeee"/><circle class="path" cx="24" cy="24" r="22" fill="none" stroke-width="4" stroke-miterlimit="10" stroke="#F96D00"/></svg></div>
 
-<!--        <button type="button" class="btn btn-primary" onclick="showInfo()" data-toggle="modal" data-target="#studentInfo">
-            اعرض
-        </button>-->
+        <!--        <button type="button" class="btn btn-primary" onclick="showInfo()" data-toggle="modal" data-target="#studentInfo">
+                    اعرض
+                </button>-->
 
         <!-- Modal -->
         <div class="modal fade" id="studentInfo" tabindex="-1" role="dialog" aria-labelledby="exampleModalLongTitle" aria-hidden="true">
@@ -290,36 +279,36 @@
         <script src="js/google-map.js"></script>
         <script src="js/main.js"></script>
         <script>
-            $(document).ready(function () {
-                $("#applications-link").addClass("active");
-                console.log("output");
-            });
+                                            $(document).ready(function () {
+                                                $("#applications-link").addClass("active");
+                                                console.log("output");
+                                            });
 
-            function showInfo($id, $nameAr, $nameEn, $age, $mail, $phone, $address, $city, $gov, $status, $dept, $cardID, $GPA, $hours, $years, $currentYear, $img1, $img2, $img3, $img4) {
-                $('#studentInfo').modal('show');
+                                            function showInfo($id, $nameAr, $nameEn, $age, $mail, $phone, $address, $city, $gov, $status, $dept, $cardID, $GPA, $hours, $years, $currentYear, $img1, $img2, $img3, $img4) {
+                                                $('#studentInfo').modal('show');
 //                console.log('id' , $id , 'nameAr' , $nameAr);
-                $('.modal-student-id').text($id);
-                $('.modal-name-ar').text($nameAr);
-                $('.modal-name-en').text($nameEn);
-                $('.modal-age').text($age);
-                $('.modal-mail').text($mail);
-                $('.modal-phone').text('0'+$phone);
-                $('.modal-address').text($address);
-                $('.modal-city').text($city);
-                $('.modal-gov').text($gov);
-                $('.modal-status').text($status);
-                $('.modal-dept').text($dept);
-                $('.modal-id').text($cardID);
-                $('.modal-gpa').text($GPA);
-                $('.modal-hours').text($hours);
-                $('.modal-years').text($currentYear);
-                
-                $(".modal-img-result").attr('src', $img1);
-                $(".modal-img-filtaration").attr('src', $img2);
-                $(".modal-img-id").attr('src', $img3);
-                $(".modal-img-birth").attr('src', $img4);
-                
-            }
+                                                $('.modal-student-id').text($id);
+                                                $('.modal-name-ar').text($nameAr);
+                                                $('.modal-name-en').text($nameEn);
+                                                $('.modal-age').text($age);
+                                                $('.modal-mail').text($mail);
+                                                $('.modal-phone').text('0' + $phone);
+                                                $('.modal-address').text($address);
+                                                $('.modal-city').text($city);
+                                                $('.modal-gov').text($gov);
+                                                $('.modal-status').text($status);
+                                                $('.modal-dept').text($dept);
+                                                $('.modal-id').text($cardID);
+                                                $('.modal-gpa').text($GPA);
+                                                $('.modal-hours').text($hours);
+                                                $('.modal-years').text($currentYear);
+
+                                                $(".modal-img-result").attr('src', $img1);
+                                                $(".modal-img-filtaration").attr('src', $img2);
+                                                $(".modal-img-id").attr('src', $img3);
+                                                $(".modal-img-birth").attr('src', $img4);
+
+                                            }
         </script>
     </body>
 </html>

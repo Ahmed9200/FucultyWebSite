@@ -77,6 +77,25 @@ public class Helper {
         }
     }
 
+    public static Students changeStudentStatusInDB(HttpServletRequest request, String oldStatus, String newStatus) {
+        try {
+            if (!oldStatus.equals(newStatus)) {
+                currentStudent.setStatus(newStatus);
+                if (currentStudent.update(con)) {
+
+                    return Helper.currentStudent;
+                } else {
+                    return null;
+                }
+            } else {
+                return null;
+            }
+        } catch (Exception e) {
+            System.out.println("error " + e.getMessage());
+            return null;
+        }
+    }
+
     public static boolean checkStudentAuthentication(HttpServletRequest request) {
 
         try {
