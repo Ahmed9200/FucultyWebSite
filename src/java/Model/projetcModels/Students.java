@@ -6,10 +6,12 @@
 package Model.projetcModels;
 
 import Model.Util.DealingWith_DB;
+import Model.Util.Helper;
 import java.io.InputStream;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.SQLException;
+import java.util.ArrayList;
 
 /**
  *
@@ -351,5 +353,42 @@ public class Students {
                 break;
         }
         return year_name;
+    }
+
+    public ArrayList<Subjects> getAvailableSubjects() {
+
+        ArrayList<Subjects> availableSub = new ArrayList<>();
+        ArrayList<Subjects> passedSub = new ArrayList<>();
+//        ArrayList<Subjects> currentYearSub = new ArrayList<>();
+        ArrayList<Student_subjects> studentSub = new ArrayList<>();
+        try {
+            availableSub = DealingWith_DB.getSubjetcs(Helper.con,
+                    "select * from subjects where depends_on=0 and year_no='"
+                    + getYearName() + "' and dept_id = " + dept_id + ";");
+//            currentYearSub = DealingWith_DB.getSubjetcs(Helper.con,
+//                    "select * from subjects where year_no='" + getYearName() + "' and dept_id = " + dept_id + ";");
+            studentSub = DealingWith_DB.getStudent_subjetcs(Helper.con,
+                    "select * from students_subjects where grade <> 'not passed';");
+
+            for (int i = 0; i < studentSub.size(); i++) {
+                passedSub.add(DealingWith_DB.getSubjetcs(Helper.con,
+                        "select * from subjects id=" + studentSub.get(0).getSubject_id()).get(0));
+            }
+
+            for (int i = 0; i < passedSub.size(); i++) {
+                ArrayList<Subjects> temp = DealingWith_DB.getSubjetcs(Helper.con,
+                        "select * from subjects where depends_on=" + passedSub.get(i).getId() + " and year_no='"
+                        + getYearName() + "' and dept_id = " + dept_id + ";");
+                for (int j = 0; j < temp.size(); j++) {
+                    availableSub.add(temp.get(j));
+                }
+            }
+
+            return availableSub;
+        } catch (Exception e) {
+            e.printStackTrace();
+            return availableSub;
+        }
+
     }
 }

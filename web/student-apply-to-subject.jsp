@@ -1,3 +1,4 @@
+<%@page import="Model.projetcModels.Student_subjects"%>
 <%@page import="Model.projetcModels.Subjects"%>
 <%@page import="java.util.ArrayList"%>
 <%@page import="Model.Util.DealingWith_DB"%>
@@ -41,81 +42,42 @@
 
                         <%} else if (Helper.currentStudent.getStatus().equals("accepted")) {
 
-                            String[] subjects = DealingWith_DB.getCoulmnData(Helper.con, "students_subjects", "subject_id", " where student_id = " + Helper.currentStudent.getId());
+                            String[] subjects = DealingWith_DB.getCoulmnData(Helper.con,
+                                    "students_subjects", "subject_id", " where student_id = " + Helper.currentStudent.getId());
+                            ArrayList<Subjects> subs = Helper.currentStudent.getAvailableSubjects();
+                            for (int i = 0; i < subs.size(); i++) {
+                                Student_subjects data = null;
+                                try {
+                                    data = DealingWith_DB.getStudent_subjetcs(Helper.con, "select * from students_subjects where "
+                                            + "student_id=" + Helper.currentStudent.getId() + " and subject_id=" + subs.get(i).getId()).get(0);
+                                } catch (Exception e) {
+                                    data = new Student_subjects();
+                                }
                         %>
 
 
                         <div class="row">
                             <div class="col-lg-3 col-md-6 col-sm-6 col-6">
                                 <div class="card">
-                                    <img src="images/course-1.jpg" class="card-img-top" alt="...">
+                                    <img src='data:image / jpg; base64,<%=subs.get(i).getBase64_img()%>' class="card-img-top" alt="...">
                                     <div class="card-body">
-                                        <h5 class="card-title">اسم الماده</h5>
-                                        <p class="card-text"><small class="text-muted">الفرقه الاولي</small></p>
-                                        <p class="card-text">الساعات المعتمده: 9 ساعات.</p>
+                                        <h5 class="card-title"><%=subs.get(i).getName_ar()%></h5>
+                                        <!--//         <p class="card-text"><small class="text-muted">الفرقه الاولي</small></p>-->
+                                        <p class="card-text">الساعات المعتمده: <%=data.getHour_no()%> ساعات.</p>
                                         <a href="#" class="btn btn-primary">تسجيل</a>
                                     </div>
                                 </div>
                             </div>
-                                  
-                            <div class="col-lg-3 col-md-6 col-sm-6 col-6">
-                                <div class="card">
-                                    <img src="images/course-1.jpg" class="card-img-top" alt="...">
-                                    <div class="card-body">
-                                        <h5 class="card-title">اسم الماده</h5>
-                                        <p class="card-text"><small class="text-muted">الفرقه الاولي</small></p>
-                                        <p class="card-text">الساعات المعتمده: 9 ساعات.</p>
-                                        <a href="#" class="btn btn-primary">تسجيل</a>
-                                    </div>
-                                </div>
-                            </div>
-                                  
-                            <div class="col-lg-3 col-md-6 col-sm-6 col-6">
-                                <div class="card">
-                                    <img src="images/course-1.jpg" class="card-img-top" alt="...">
-                                    <div class="card-body">
-                                        <h5 class="card-title">اسم الماده</h5>
-                                        <p class="card-text"><small class="text-muted">الفرقه الاولي</small></p>
-                                        <p class="card-text">الساعات المعتمده: 9 ساعات.</p>
-                                        <a href="#" class="btn btn-primary">تسجيل</a>
-                                    </div>
-                                </div>
-                            </div>
-                            
-                            <div class="col-lg-3 col-md-6 col-sm-6 col-6">
-                                <div class="card">
-                                    <img src="images/course-1.jpg" class="card-img-top" alt="...">
-                                    <div class="card-body">
-                                        <h5 class="card-title">اسم الماده</h5>
-                                        <p class="card-text"><small class="text-muted">الفرقه الاولي</small></p>
-                                        <p class="card-text">الساعات المعتمده: 9 ساعات.</p>
-                                        <a href="#" class="btn btn-primary">تسجيل</a>
-                                    </div>
-                                </div>
-                            </div>
-                            
-                            <div class="col-lg-3 col-md-6 col-sm-6 col-6">
-                                <div class="card">
-                                    <img src="images/course-1.jpg" class="card-img-top" alt="...">
-                                    <div class="card-body">
-                                        <h5 class="card-title">اسم الماده</h5>
-                                        <p class="card-text"><small class="text-muted">الفرقه الاولي</small></p>
-                                        <p class="card-text">الساعات المعتمده: 9 ساعات.</p>
-                                        <a href="#" class="btn btn-primary">تسجيل</a>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
 
-
-                        <%} else if (Helper.currentStudent.getStatus().equals("refused")) {%>
+                            <%}
+                            } else if (Helper.currentStudent.getStatus().equals("refused")) {%>
 
 
 
-                        <%}
-                            } catch (Exception e) {
-                            }
-                        %>
+                            <%}
+                                } catch (Exception e) {
+                                }
+                            %>
 
                     </section>
                 </main>
