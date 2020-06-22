@@ -77,6 +77,7 @@
                                                <%=waiting.get(i).getTotalHours()%>,
                                                <%=waiting.get(i).getTotal_yearsNo()%>,
                                                         '<%=waiting.get(i).getYearName()%>',
+                                                        0,
                                                         'data:image / jpg; base64,<%=waiting.get(i).getBase64_resultImg()%>',
                                                         'data:image / jpg; base64,<%=waiting.get(i).getBase64_fitrationImg()%>',
                                                         'data:image / jpg; base64,<%=waiting.get(i).getBase64_ssidImg()%>',
@@ -116,12 +117,31 @@
                                         <td><%=accepted.get(i).getPhone()%></td>
                                         <td><%=accepted.get(i).getGender()%></td>
                                         <td>
-                                            <select>
-                                                <option>قيد المراجعه</option>
-                                                <option selected>مقبول</option>
-                                            </select>
+                                            <%=accepted.get(i).getStatus()%>
                                         </td>
-                                        <td><i class="fa fa-external-link-square" aria-hidden="true"></i></td>
+                                        <td><a onclick="showInfo(
+                                                        <%=accepted.get(i).getId()%>,
+                                                        '<%=accepted.get(i).getName_ar()%>',
+                                                        '<%=accepted.get(i).getName_en()%>',
+                                                        <%=accepted.get(i).getAge()%>,
+                                                        '<%=accepted.get(i).getMail()%>',
+                                                        <%=accepted.get(i).getPhone()%>,
+                                                        '<%=accepted.get(i).getAddress()%>',
+                                                        '<%=accepted.get(i).getCity()%>',
+                                                        '<%=accepted.get(i).getGovernorate()%>',
+                                                        '<%=accepted.get(i).getStatus()%>',
+                                                        '<%=accepted.get(i).getDept().getName_ar()%>',
+                                                        '<%=accepted.get(i).getUsername()%>',
+                                                        <%=accepted.get(i).getTotalGPA()%>,
+                                                        <%=accepted.get(i).getTotalHours()%>,
+                                                        <%=accepted.get(i).getTotal_yearsNo()%>,
+                                                        '<%=accepted.get(i).getYearName()%>',
+                                                        1,
+                                                        'data:image / jpg; base64,<%=accepted.get(i).getBase64_resultImg()%>',
+                                                        'data:image / jpg; base64,<%=accepted.get(i).getBase64_fitrationImg()%>',
+                                                        'data:image / jpg; base64,<%=accepted.get(i).getBase64_ssidImg()%>',
+                                                        'data:image / jpg; base64,<%=accepted.get(i).getBase64_birthdayImg()%>'
+                                                        )" style="cursor: pointer;"><i class="fa fa-external-link-square" aria-hidden="true"></i></a></td>
                                     </tr>
                                     <%}
                                         } catch (Exception e) {
@@ -255,9 +275,10 @@
 
                     <div class="modal-footer">
                         <form action="ChangeStudentStatus" method="POST">
+                            <input class="idInput" type="text" name="id" value="0" hidden/>
                             <input class="oldStatus" type="text" name="oldStatus" value="pending" hidden/>
                             <input class="newStatus" type="text" name="newStatus" value="accepted" hidden/>
-                            <input type="submit" class="btn btn-success" value="قبول"/>
+                            <input type="submit" class="btn btn-success submitStatus" value="قبول"/>
                         </form>
                         <button type="button" class="btn btn-danger" data-dismiss="modal">اغلق</button>
                     </div>
@@ -286,9 +307,10 @@
                                                 console.log("output");
                                             });
 
-                                            function showInfo($id, $nameAr, $nameEn, $age, $mail, $phone, $address, $city, $gov, $status, $dept, $cardID, $GPA, $hours, $years, $currentYear, $img1, $img2, $img3, $img4) {
+                                            function showInfo($id, $nameAr, $nameEn, $age, $mail, $phone, $address, $city, $gov, $status, $dept, $cardID, $GPA, $hours, $years, $currentYear, $statusCode, $img1, $img2, $img3, $img4) {
                                                 $('#studentInfo').modal('show');
 //                console.log('id' , $id , 'nameAr' , $nameAr);
+                                                $('.idInput').val($id);
                                                 $('.modal-student-id').text($id);
                                                 $('.modal-name-ar').text($nameAr);
                                                 $('.modal-name-en').text($nameEn);
@@ -304,6 +326,17 @@
                                                 $('.modal-gpa').text($GPA);
                                                 $('.modal-hours').text($hours);
                                                 $('.modal-years').text($currentYear);
+
+                                                if ($statusCode == 0) {
+                                                    $('.oldStatus').val('pending');
+                                                    $('.newStatus').val('accepted');
+                                                    $('.submitStatus').val('قبول');
+                                                }
+                                                else if ($statusCode == 1) {
+                                                    $('.oldStatus').val('accepted');
+                                                    $('.newStatus').val('pending');
+                                                    $('.submitStatus').val('تحويل لقيد المراجعه ');
+                                                }
 
                                                 $(".modal-img-result").attr('src', $img1);
                                                 $(".modal-img-filtaration").attr('src', $img2);

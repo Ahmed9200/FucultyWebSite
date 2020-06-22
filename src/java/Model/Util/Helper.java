@@ -85,7 +85,7 @@ public class Helper {
             String newStatus = request.getParameter("newStatus");
             int id = Integer.parseInt(request.getParameter("id"));
             if (!oldStatus.equals(newStatus)) {
-                if (DealingWith_DB.excuteQuery(con, "UPDATE students SET status = " + newStatus + " WHERE id=" + id)) {
+                if (DealingWith_DB.excuteQuery(con, "UPDATE students SET status = '" + newStatus + "' WHERE id=" + id)) {
                     return true;
                 } else {
                     return false;

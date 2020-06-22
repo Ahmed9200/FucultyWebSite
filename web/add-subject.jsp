@@ -43,56 +43,56 @@
                             <div class="col-3"></div>
                             <div class="col-6 p-4 p-md-5 bg-light">
                                 <form action="AddSubject">
-                                    <input type="number" class="form-control subjectDeptID" name="subjectDeptID" hidden>
+                                    <input type="number" class="form-control subjectDeptID" name="dept_id" hidden>
                                     <div class="form-group">
-                                        <input type="text" class="form-control" name="subjectNameAr" placeholder="الأسم بالعربيه">
+                                        <input type="text" class="form-control" name="name_ar" placeholder="الأسم بالعربيه">
                                     </div>
                                     <div class="form-group">
-                                        <input type="text" class="form-control" name="subjectNameEn" placeholder="الأسم بالإنجليزيه">
+                                        <input type="text" class="form-control" name="name_en" placeholder="الأسم بالإنجليزيه">
                                     </div>
                                     <div class="form-group">
-                                        <input type="text" class="form-control" name="subjectCode" placeholder="كود الماده"/>
+                                        <input type="text" class="form-control" name="code" placeholder="كود الماده"/>
                                     </div>
                                     <div class="form-group">
-                                        <input type="number" class="form-control" name="subjectMinStudentNum" placeholder="الحد الأدني لعدد الطلاب">
+                                        <input type="number" class="form-control" name="min_students_no" placeholder="الحد الأدني لعدد الطلاب">
                                     </div>
                                     <div class="form-group">
-                                        <input type="number" class="form-control" name="subjectHoursNum" placeholder="عدد الساعات">
+                                        <input type="number" class="form-control" name="hours_no" placeholder="عدد الساعات">
                                     </div>
                                     <div class="form-group">
-                                        <input type="number" class="form-control" name="subjectTotalGrade" placeholder="درجة الماده">
+                                        <input type="number" class="form-control" name="total_grade" placeholder="درجة الماده">
                                     </div>
                                     <div class="form-group">
-                                        <input type="number" class="form-control" name="subjectSuccessGrade" placeholder="درجة النجاح">
+                                        <input type="number" class="form-control" name="success_grade" placeholder="درجة النجاح">
                                     </div>
                                     <label>فرقه</label>
                                     <div class="form-group">
-                                        <select name="subjectYear">
-                                            <option value="1">فرقه اولي</option>
-                                            <option value="2">فرقه ثانيه</option>
-                                            <option value="3">فرقه ثالثه</option>
-                                            <option value="4">فرقه رابعه</option>
+                                        <select name="year_no">
+                                            <option value="الفرقه الاولي">الفرقه الاولي</option>
+                                            <option value="الفرقه الثانيه">الفرقه الثانيه</option>
+                                            <option value="الفرقه الثالثه">الفرقه الثالثه</option>
+                                            <option value="الفرقه الرابعه">الفرقه الرابعه</option>
                                         </select>
                                     </div>
                                     <label>معتمده علي</label>
                                     <div class="form-group">
-                                        <select name="subjetcDepends">
+                                        <select name="depends_on">
                                             <%for (int i = 0; i < currentSubjects.size(); i++) {%>
-                                            <option value="1"><%=currentSubjects.get(i).getName_ar()%></option>
+                                            <option value="<%=currentSubjects.get(i).getId()%>"><%=currentSubjects.get(i).getName_ar()%></option>
                                             <%}%>
                                         </select>
                                     </div>
                                     <label>استاذ الماده</label>
                                     <div class="form-group">
-                                        <select name="subjetcDepends">
+                                        <select name="doctor_name">
                                             <%for (int i = 0; i < currentStaff.size(); i++) {%>
-                                            <option value="1"><%=currentStaff.get(i).getName_ar()%></option>
+                                            <option value="<%=currentStaff.get(i).getId()%>"><%=currentStaff.get(i).getName_ar()%></option>
                                             <%}%>
                                         </select>
                                     </div>
                                     <label>صورة الماده</label>
                                     <div class="form-group">
-                                        <input type="file" class="form-control" name="subjectImg" placeholder="صوره">
+                                        <input type="file" class="form-control" name="img" placeholder="صوره">
                                     </div>
                                     <div class="form-group">
                                         <input type="submit" value="إضافه" class="btn btn-primary py-3 px-5">
