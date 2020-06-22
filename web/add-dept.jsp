@@ -1,3 +1,7 @@
+<%@page import="Model.projetcModels.Staff"%>
+<%@page import="Model.Util.Helper"%>
+<%@page import="Model.Util.DealingWith_DB"%>
+<%@page import="java.util.ArrayList"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
 
 <!DOCTYPE html>
@@ -19,9 +23,19 @@
                         <h1 class="h2">إضافة قسم جديد</h1>
                     </div>
 
+                    <%
+                        ArrayList<Staff> currentStaff = null;
+                        try {
+                            currentStaff = DealingWith_DB.getStaff(Helper.con, "select * from staff");
+                        } catch (Exception e) {
+                            e.printStackTrace();
+                            currentStaff = new ArrayList<Staff>();
+                        }
+                    %>
+
                     <section class="ftco-section" style="padding: 5px 0px;" >
                         <div class="row">
-                            
+
                             <div class="col-3"></div>
                             <div class="col-6 p-4 p-md-5 bg-light">
                                 <form action="#">
@@ -44,8 +58,9 @@
                                     <label>رئيس القسم</label>
                                     <div class="form-group">
                                         <select name="deptManager">
-                                            <option value="1">حمدي موسي</option>
-                                            <option value="2">كذا كذا</option>
+                                            <%for (int i = 0; i < currentStaff.size(); i++) {%>
+                                            <option value="1"><%=currentStaff.get(i).getName_ar()%></option>
+                                            <%}%>
                                         </select>
                                     </div>
                                     <div class="form-group">

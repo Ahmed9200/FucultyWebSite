@@ -6,6 +6,7 @@
 package Model.projetcModels;
 
 import Model.Util.DealingWith_DB;
+import Model.Util.Helper;
 import java.io.InputStream;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
@@ -166,4 +167,9 @@ public class Departments {
         this.doctor = doctor;
     }
 
+    public int getDocIdFromName_ar(String name) {
+
+        int id = Integer.parseInt(DealingWith_DB.getCoulmnData(Helper.con, "staff", "id", " where name_ar='" + name + "';")[0]);
+        return id;
+    }
 }

@@ -6,6 +6,7 @@
 package Model.Util;
 
 import Model.projetcModels.Admins;
+import Model.projetcModels.Departments;
 import Model.projetcModels.Students;
 import Model.projetcModels.Staff;
 import Model.projetcModels.Subjects;
@@ -150,6 +151,27 @@ public class Helper {
             }
             sub.setImg(inputStream);
             return sub.add(con);
+        } catch (Exception e) {
+            e.printStackTrace();
+            return false;
+        }
+    }
+
+    public static boolean addDeptToDB(HttpServletRequest request) {
+        try {
+            Departments dept = new Departments();
+            dept.setName_ar(request.getParameter("name_ar"));
+            dept.setName_en(request.getParameter("name_en"));
+            dept.setDescription(request.getParameter("description"));
+            dept.setPrice(Integer.parseInt(request.getParameter("price")));
+            dept.setManager_id(dept.getDocIdFromName_ar(request.getParameter("doctor_name")));
+            Part part = request.getPart("img");
+            InputStream inputStream = null;
+            if (part != null) {
+                inputStream = part.getInputStream();
+            }
+            dept.setImg(inputStream);
+            return dept.add(con);
         } catch (Exception e) {
             e.printStackTrace();
             return false;
