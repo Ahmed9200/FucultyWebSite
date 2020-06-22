@@ -63,7 +63,7 @@
                                     <div class="card-body">
                                         <h5 class="card-title"><%=subs.get(i).getName_ar()%></h5>
                                         <!--//         <p class="card-text"><small class="text-muted">الفرقه الاولي</small></p>-->
-                                        <p class="card-text">الساعات المعتمده: <%=data.getHour_no()%> ساعات.</p>
+                                        <p class="card-text">الساعات المعتمده: <%=subs.get(i).getHours_no()%> ساعات.</p>
                                         <a href="#" class="btn btn-primary">تسجيل</a>
                                     </div>
                                 </div>

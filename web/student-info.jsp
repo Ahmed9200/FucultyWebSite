@@ -101,7 +101,7 @@
                                 <tbody>
                                     <tr>
                                         <td><strong>السنه الدراسيه:  </strong></td>
-                                        <td><%=Helper.currentStudent.getTotal_yearsNo() == 1 ? "الفرقه التانيه " : "الفرقه الاولى"%></td>
+                                        <td><%=Helper.currentStudent.getYearName()%></td>
                                     </tr>
                                     <tr>
                                         <td><strong>القسم: </strong></td>
