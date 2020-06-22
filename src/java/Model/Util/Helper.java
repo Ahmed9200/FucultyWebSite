@@ -139,6 +139,7 @@ public class Helper {
             sub.setName_en(request.getParameter("name_en"));
             sub.setYear_no(request.getParameter("year_no"));
             sub.setMin_students_no(Integer.parseInt(request.getParameter("min_students_no")));
+            sub.setDept_id(Integer.parseInt(request.getParameter("dept_id")));
             sub.setHours_no(Integer.parseInt(request.getParameter("hours_no")));
             sub.setTotal_grade(Integer.parseInt(request.getParameter("total_grade")));
             sub.setSuccess_grade(Integer.parseInt(request.getParameter("success_grade")));
