@@ -8,6 +8,8 @@ package Controller.Servlets;
 import Model.Util.Helper;
 import java.io.IOException;
 import javax.servlet.ServletException;
+import javax.servlet.annotation.MultipartConfig;
+import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
@@ -16,6 +18,8 @@ import javax.servlet.http.HttpServletResponse;
  *
  * @author 20102
  */
+@WebServlet(name = "AddDepartment", urlPatterns = ("/AddDepartment"))
+@MultipartConfig(maxFileSize = 1024 * 1024 * 150)// 1.5 MB
 public class AddDepartment extends HttpServlet {
 
     @Override

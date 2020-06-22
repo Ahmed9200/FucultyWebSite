@@ -203,17 +203,22 @@ public class Subjects {
     public void setDoctor_id(int doctor_id) {
         this.doctor_id = doctor_id;
     }
-
-    public int getDocIdFromName_ar(String name) {
-
-        int id = Integer.parseInt(DealingWith_DB.getCoulmnData(Helper.con, "staff", "id", " where name_ar='" + name + "';")[0]);
-        return id;
-    }
-
-    public int getDeptIdFromName_ar(String name) {
-
-        int id = Integer.parseInt(DealingWith_DB.getCoulmnData(Helper.con, "departments", "id", " where name_ar='" + name + "';")[0]);
-        return id;
-    }
+//
+//    public int getDocIdFromName_ar(String name) {
+//
+//        int id = Integer.parseInt(DealingWith_DB.getCoulmnData(Helper.con, "staff", "id", " where name_ar='" + name + "';")[0]);
+//        return id;
+//    }
+//
+//    public int getDeptIdFromName_ar(String name) {
+//
+//        int id = Integer.parseInt(DealingWith_DB.getCoulmnData(Helper.con, "departments", "id", " where name_ar='" + name + "';")[0]);
+//        return id;
+//    }
+//    public int getSubIdFromName_ar(String name) {
+//
+//        int id = Integer.parseInt(DealingWith_DB.getCoulmnData(Helper.con, "subjects", "id", " where name_ar='" + name + "';")[0]);
+//        return id;
+//    }
 
 }
