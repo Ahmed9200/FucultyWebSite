@@ -28,7 +28,7 @@ public class AddDepartment extends HttpServlet {
         } else {
             request.setAttribute("isAdded", false);
         }
-        request.getRequestDispatcher("add-subject.jsp").forward(request, response);
+        request.getRequestDispatcher("add-dept.jsp").forward(request, response);
     }
 
 }
