@@ -1,3 +1,4 @@
+<%@page import="Model.projetcModels.Student_subjects"%>
 <%@page import="Model.projetcModels.Subjects"%>
 <%@page import="java.util.ArrayList"%>
 <%@page import="Model.Util.DealingWith_DB"%>
@@ -70,6 +71,13 @@
                                     sub.add(DealingWith_DB.getSubjetcs(Helper.con, "select * from subjects where id =" + subjects[i]).get(0));
                                 }
                                 for (int i = 0; i < sub.size(); i++) {
+                                    Student_subjects data = null;
+                                    try {
+                                        data = DealingWith_DB.getStudent_subjetcs(Helper.con, "select * from students_subjects where "
+                                                + "student_id=" + Helper.currentStudent.getId() + " and subject_id=" + sub.get(i).getId()).get(0);
+                                    } catch (Exception e) {
+                                        data = new Student_subjects();
+                                    }
                             %>
 
                             <div class="col-lg-3 col-md-6 col-sm-6 col-6">
@@ -77,8 +85,8 @@
                                     <img src='data:image / jpg; base64,<%=sub.get(i).getBase64_img()%>' class="card-img-top" alt="...">
                                     <div class="card-body">
                                         <h5 class="card-title"><%=sub.get(i).getName_ar()%></h5>
-                                        <p class="card-text">GPA: 1.5</p>
-                                        <p class="card-text">عدد الساعات: 3 من <%=sub.get(i).getHours_no()%></p>
+                                        <p class="card-text">GPA: <%=data.getGPA()%></p>
+                                        <p class="card-text">عدد الساعات: <%=data.getHour_no()%> من <%=sub.get(i).getHours_no()%></p>
                                         <a href="#" class="btn btn-primary">المزيد</a>
                                     </div>
                                 </div>
