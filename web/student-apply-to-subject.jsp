@@ -46,13 +46,6 @@
                                     "students_subjects", "subject_id", " where student_id = " + Helper.currentStudent.getId());
                             ArrayList<Subjects> subs = Helper.currentStudent.getAvailableSubjects();
                             for (int i = 0; i < subs.size(); i++) {
-                                Student_subjects data = null;
-                                try {
-                                    data = DealingWith_DB.getStudent_subjetcs(Helper.con, "select * from students_subjects where "
-                                            + "student_id=" + Helper.currentStudent.getId() + " and subject_id=" + subs.get(i).getId()).get(0);
-                                } catch (Exception e) {
-                                    data = new Student_subjects();
-                                }
                         %>
 
 
@@ -62,7 +55,6 @@
                                     <img src='data:image / jpg; base64,<%=subs.get(i).getBase64_img()%>' class="card-img-top" alt="...">
                                     <div class="card-body">
                                         <h5 class="card-title"><%=subs.get(i).getName_ar()%></h5>
-                                        <!--//         <p class="card-text"><small class="text-muted">الفرقه الاولي</small></p>-->
                                         <p class="card-text">الساعات المعتمده: <%=subs.get(i).getHours_no()%> ساعات.</p>
                                         <a href="#" class="btn btn-primary">تسجيل</a>
                                     </div>

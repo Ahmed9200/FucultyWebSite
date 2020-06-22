@@ -368,11 +368,10 @@ public class Students {
 //            currentYearSub = DealingWith_DB.getSubjetcs(Helper.con,
 //                    "select * from subjects where year_no='" + getYearName() + "' and dept_id = " + dept_id + ";");
             studentSub = DealingWith_DB.getStudent_subjetcs(Helper.con,
-                    "select * from students_subjects where grade <> 'not passed';");
-
+                    "select * from students_subjects where student_id = " + Helper.currentStudent.getId() + " and grade <> 'not passed';");
             for (int i = 0; i < studentSub.size(); i++) {
                 passedSub.add(DealingWith_DB.getSubjetcs(Helper.con,
-                        "select * from subjects id=" + studentSub.get(0).getSubject_id()).get(0));
+                        "select * from subjects where id=" + studentSub.get(i).getSubject_id()).get(0));
             }
 
             for (int i = 0; i < passedSub.size(); i++) {
