@@ -38,28 +38,28 @@
 
                             <div class="col-3"></div>
                             <div class="col-6 p-4 p-md-5 bg-light">
-                                <form action="#">
+                                <form action="AddDepartment" method="POST" enctype="multipart/form-data">
                                     <div class="form-group">
-                                        <input type="text" class="form-control" name="deptNameAr" placeholder="الأسم بالعربيه">
+                                        <input type="text" class="form-control" name="name_ar" placeholder="الأسم بالعربيه">
                                     </div>
                                     <div class="form-group">
-                                        <input type="text" class="form-control" name="deptNameEn" placeholder="الأسم بالإنجليزيه">
+                                        <input type="text" class="form-control" name="name_en" placeholder="الأسم بالإنجليزيه">
                                     </div>
                                     <div class="form-group">
-                                        <textarea type="text" class="form-control" name="deptDesc" placeholder="الوصف"></textarea>
+                                        <textarea type="text" class="form-control" name="description" placeholder="الوصف"></textarea>
                                     </div>
                                     <div class="form-group">
-                                        <input type="number" class="form-control" name="deptPrice" placeholder="السعر">
+                                        <input type="number" class="form-control" name="price" placeholder="السعر">
                                     </div>
                                     <label>صورة القسم</label>
                                     <div class="form-group">
-                                        <input type="file" class="form-control" name="deptImg" placeholder="صوؤه">
+                                        <input type="file" class="form-control" name="img" placeholder="صوره">
                                     </div>
                                     <label>رئيس القسم</label>
                                     <div class="form-group">
-                                        <select name="deptManager">
+                                        <select name="doctor_name">
                                             <%for (int i = 0; i < currentStaff.size(); i++) {%>
-                                            <option value="1"><%=currentStaff.get(i).getName_ar()%></option>
+                                            <option value="<%=currentStaff.get(i).getId()%>"><%=currentStaff.get(i).getName_ar()%></option>
                                             <%}%>
                                         </select>
                                     </div>

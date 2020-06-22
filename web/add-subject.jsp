@@ -42,7 +42,7 @@
 
                             <div class="col-3"></div>
                             <div class="col-6 p-4 p-md-5 bg-light">
-                                <form action="AddSubject">
+                                <form action="AddSubject" method="POST" enctype="multipart/form-data">
                                     <input type="number" class="form-control subjectDeptID" name="dept_id" hidden>
                                     <div class="form-group">
                                         <input type="text" class="form-control" name="name_ar" placeholder="الأسم بالعربيه">
@@ -77,6 +77,7 @@
                                     <label>معتمده علي</label>
                                     <div class="form-group">
                                         <select name="depends_on">
+                                            <option value="0">غير معتمده علي ماده</option>
                                             <%for (int i = 0; i < currentSubjects.size(); i++) {%>
                                             <option value="<%=currentSubjects.get(i).getId()%>"><%=currentSubjects.get(i).getName_ar()%></option>
                                             <%}%>

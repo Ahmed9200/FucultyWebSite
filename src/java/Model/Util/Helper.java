@@ -135,8 +135,8 @@ public class Helper {
         try {
             Subjects sub = new Subjects();
             sub.setCode(request.getParameter("code"));
-            sub.setDepends_on(sub.getDeptIdFromName_ar(request.getParameter("depends_on")));
-            sub.setDoctor_id(sub.getDocIdFromName_ar(request.getParameter("doctor_name")));
+            sub.setDepends_on(Integer.parseInt(request.getParameter("depends_on")));
+            sub.setDoctor_id(Integer.parseInt(request.getParameter("doctor_name")));
             sub.setName_ar(request.getParameter("name_ar"));
             sub.setName_en(request.getParameter("name_en"));
             sub.setMin_students_no(Integer.parseInt(request.getParameter("min_students_no")));
@@ -164,7 +164,7 @@ public class Helper {
             dept.setName_en(request.getParameter("name_en"));
             dept.setDescription(request.getParameter("description"));
             dept.setPrice(Integer.parseInt(request.getParameter("price")));
-            dept.setManager_id(dept.getDocIdFromName_ar(request.getParameter("doctor_name")));
+            dept.setManager_id(Integer.parseInt(request.getParameter("doctor_name")));
             Part part = request.getPart("img");
             InputStream inputStream = null;
             if (part != null) {

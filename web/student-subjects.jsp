@@ -17,7 +17,7 @@
 
                 <main role="main" class="col-md-9 ml-sm-auto col-lg-10 px-md-4"><div class="chartjs-size-monitor" style="position: absolute; left: 0px; top: 0px; right: 0px; bottom: 0px; overflow: hidden; pointer-events: none; visibility: hidden; z-index: -1;"><div class="chartjs-size-monitor-expand" style="position:absolute;left:0;top:0;right:0;bottom:0;overflow:hidden;pointer-events:none;visibility:hidden;z-index:-1;"><div style="position:absolute;width:1000000px;height:1000000px;left:0;top:0"></div></div><div class="chartjs-size-monitor-shrink" style="position:absolute;left:0;top:0;right:0;bottom:0;overflow:hidden;pointer-events:none;visibility:hidden;z-index:-1;"><div style="position:absolute;width:200%;height:200%;left:0; top:0"></div></div></div>
                     <div class="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center pt-3 pb-2 mb-3 border-bottom">
-                        <h1 class="h2">الرئيسيه</h1>
+                        <h1 class="h2">المواد المسجله</h1>
                     </div>
 
                     <section class="ftco-section" style="padding: 5px 0px;" >
@@ -44,9 +44,53 @@
                             String[] subjects = DealingWith_DB.getCoulmnData(Helper.con, "students_subjects", "subject_id", " where student_id = " + Helper.currentStudent.getId());
                         %>
 
-                        <div class="alert alert-success" role="alert">
-                            تم قبول طلبك
+
+
+                        <%if (subjects.length == 0) {%>
+
+                        <div class="alert alert-danger" role="alert">
+                            لا يوجد مواد مسجله
                         </div>
+
+                        <%} else {%>
+                        <div class="row">
+                            <div class="col-lg-3 col-md-6 col-sm-6 col-6">
+                                <a href="student-apply-to-subject.jsp">
+                                    <div class="card">
+                                        <img src="images/plus.png" class="card-img-top" alt="...">
+                                        <div class="card-body">
+                                            <h5 class="card-title">تسجيل ماده</h5>
+                                        </div>
+                                    </div>
+                                </a>
+                            </div>
+                            <%
+                                ArrayList<Subjects> sub = new ArrayList<Subjects>();
+                                for (int i = 0; i < subjects.length; i++) {
+                                    sub.add(DealingWith_DB.getSubjetcs(Helper.con, "select * from subjects where id =" + subjects[i]).get(0));
+                                }
+                                for (int i = 0; i < sub.size(); i++) {
+                            %>
+
+                            <div class="col-lg-3 col-md-6 col-sm-6 col-6">
+                                <div class="card">
+                                    <img src='data:image / jpg; base64,<%=sub.get(i).getBase64_img()%>' class="card-img-top" alt="...">
+                                    <div class="card-body">
+                                        <h5 class="card-title"><%=sub.get(i).getName_ar()%></h5>
+                                        <p class="card-text">GPA: 1.5</p>
+                                        <p class="card-text">عدد الساعات: 3 من <%=sub.get(i).getHours_no()%></p>
+                                        <a href="#" class="btn btn-primary">المزيد</a>
+                                    </div>
+                                </div>
+                            </div>
+
+
+                            <%}%>
+                        </div>
+
+                        <%
+                            }
+                        %>
 
 
                         <%} else if (Helper.currentStudent.getStatus().equals("refused")) {%>
@@ -85,7 +129,7 @@
         <script src="js/main.js"></script>
         <script>
             $(document).ready(function () {
-                $("#panel-link").addClass("active");
+                $("#student-subjects-link").addClass("active");
                 console.log("output");
             });
         </script>

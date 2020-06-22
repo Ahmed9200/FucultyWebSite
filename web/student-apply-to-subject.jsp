@@ -17,7 +17,7 @@
 
                 <main role="main" class="col-md-9 ml-sm-auto col-lg-10 px-md-4"><div class="chartjs-size-monitor" style="position: absolute; left: 0px; top: 0px; right: 0px; bottom: 0px; overflow: hidden; pointer-events: none; visibility: hidden; z-index: -1;"><div class="chartjs-size-monitor-expand" style="position:absolute;left:0;top:0;right:0;bottom:0;overflow:hidden;pointer-events:none;visibility:hidden;z-index:-1;"><div style="position:absolute;width:1000000px;height:1000000px;left:0;top:0"></div></div><div class="chartjs-size-monitor-shrink" style="position:absolute;left:0;top:0;right:0;bottom:0;overflow:hidden;pointer-events:none;visibility:hidden;z-index:-1;"><div style="position:absolute;width:200%;height:200%;left:0; top:0"></div></div></div>
                     <div class="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center pt-3 pb-2 mb-3 border-bottom">
-                        <h1 class="h2">الرئيسيه</h1>
+                        <h1 class="h2">التسجيل في ماده جديده</h1>
                     </div>
 
                     <section class="ftco-section" style="padding: 5px 0px;" >
@@ -44,8 +44,67 @@
                             String[] subjects = DealingWith_DB.getCoulmnData(Helper.con, "students_subjects", "subject_id", " where student_id = " + Helper.currentStudent.getId());
                         %>
 
-                        <div class="alert alert-success" role="alert">
-                            تم قبول طلبك
+
+                        <div class="row">
+                            <div class="col-lg-3 col-md-6 col-sm-6 col-6">
+                                <div class="card">
+                                    <img src="images/course-1.jpg" class="card-img-top" alt="...">
+                                    <div class="card-body">
+                                        <h5 class="card-title">اسم الماده</h5>
+                                        <p class="card-text"><small class="text-muted">الفرقه الاولي</small></p>
+                                        <p class="card-text">الساعات المعتمده: 9 ساعات.</p>
+                                        <a href="#" class="btn btn-primary">تسجيل</a>
+                                    </div>
+                                </div>
+                            </div>
+                                  
+                            <div class="col-lg-3 col-md-6 col-sm-6 col-6">
+                                <div class="card">
+                                    <img src="images/course-1.jpg" class="card-img-top" alt="...">
+                                    <div class="card-body">
+                                        <h5 class="card-title">اسم الماده</h5>
+                                        <p class="card-text"><small class="text-muted">الفرقه الاولي</small></p>
+                                        <p class="card-text">الساعات المعتمده: 9 ساعات.</p>
+                                        <a href="#" class="btn btn-primary">تسجيل</a>
+                                    </div>
+                                </div>
+                            </div>
+                                  
+                            <div class="col-lg-3 col-md-6 col-sm-6 col-6">
+                                <div class="card">
+                                    <img src="images/course-1.jpg" class="card-img-top" alt="...">
+                                    <div class="card-body">
+                                        <h5 class="card-title">اسم الماده</h5>
+                                        <p class="card-text"><small class="text-muted">الفرقه الاولي</small></p>
+                                        <p class="card-text">الساعات المعتمده: 9 ساعات.</p>
+                                        <a href="#" class="btn btn-primary">تسجيل</a>
+                                    </div>
+                                </div>
+                            </div>
+                            
+                            <div class="col-lg-3 col-md-6 col-sm-6 col-6">
+                                <div class="card">
+                                    <img src="images/course-1.jpg" class="card-img-top" alt="...">
+                                    <div class="card-body">
+                                        <h5 class="card-title">اسم الماده</h5>
+                                        <p class="card-text"><small class="text-muted">الفرقه الاولي</small></p>
+                                        <p class="card-text">الساعات المعتمده: 9 ساعات.</p>
+                                        <a href="#" class="btn btn-primary">تسجيل</a>
+                                    </div>
+                                </div>
+                            </div>
+                            
+                            <div class="col-lg-3 col-md-6 col-sm-6 col-6">
+                                <div class="card">
+                                    <img src="images/course-1.jpg" class="card-img-top" alt="...">
+                                    <div class="card-body">
+                                        <h5 class="card-title">اسم الماده</h5>
+                                        <p class="card-text"><small class="text-muted">الفرقه الاولي</small></p>
+                                        <p class="card-text">الساعات المعتمده: 9 ساعات.</p>
+                                        <a href="#" class="btn btn-primary">تسجيل</a>
+                                    </div>
+                                </div>
+                            </div>
                         </div>
 
 
@@ -83,11 +142,6 @@
         <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBVWaKrjvy3MaE7SQ74_uJiULgl1JY0H2s&sensor=false"></script>
         <script src="js/google-map.js"></script>
         <script src="js/main.js"></script>
-        <script>
-            $(document).ready(function () {
-                $("#panel-link").addClass("active");
-                console.log("output");
-            });
-        </script>
+
     </body>
 </html>
