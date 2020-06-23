@@ -45,11 +45,14 @@
                             String[] subjects = DealingWith_DB.getCoulmnData(Helper.con,
                                     "students_subjects", "subject_id", " where student_id = " + Helper.currentStudent.getId());
                             ArrayList<Subjects> subs = Helper.currentStudent.getAvailableSubjects();
-                            for (int i = 0; i < subs.size(); i++) {
                         %>
 
-
                         <div class="row">
+                            <%
+                                for (int i = 0; i < subs.size(); i++) {
+                            %>
+
+
                             <div class="col-lg-3 col-md-6 col-sm-6 col-6">
                                 <div class="card">
                                     <img src='data:image / jpg; base64,<%=subs.get(i).getBase64_img()%>' class="card-img-top" alt="...">
@@ -61,15 +64,18 @@
                                 </div>
                             </div>
 
-                            <%}
-                            } else if (Helper.currentStudent.getStatus().equals("refused")) {%>
+                            <%}%>
+                        </div>
+
+                        <%
+                        } else if (Helper.currentStudent.getStatus().equals("refused")) {%>
 
 
 
-                            <%}
-                                } catch (Exception e) {
-                                }
-                            %>
+                        <%}
+                            } catch (Exception e) {
+                            }
+                        %>
 
                     </section>
                 </main>
