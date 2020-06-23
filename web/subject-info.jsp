@@ -18,7 +18,7 @@
 
                 <main role="main" class="col-md-9 ml-sm-auto col-lg-10 px-md-4"><div class="chartjs-size-monitor" style="position: absolute; left: 0px; top: 0px; right: 0px; bottom: 0px; overflow: hidden; pointer-events: none; visibility: hidden; z-index: -1;"><div class="chartjs-size-monitor-expand" style="position:absolute;left:0;top:0;right:0;bottom:0;overflow:hidden;pointer-events:none;visibility:hidden;z-index:-1;"><div style="position:absolute;width:1000000px;height:1000000px;left:0;top:0"></div></div><div class="chartjs-size-monitor-shrink" style="position:absolute;left:0;top:0;right:0;bottom:0;overflow:hidden;pointer-events:none;visibility:hidden;z-index:-1;"><div style="position:absolute;width:200%;height:200%;left:0; top:0"></div></div></div>
                     <div class="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center pt-3 pb-2 mb-3 border-bottom">
-                        <h1 class="h2">المواد المسجله</h1>
+                        <h1>اسم الماده</h1>
                     </div>
 
                     <section class="ftco-section" style="padding: 5px 0px;" >
@@ -42,70 +42,47 @@
 
                         <%} else if (Helper.currentStudent.getStatus().equals("accepted")) {
 
-                            String[] subjects = DealingWith_DB.getCoulmnData(Helper.con, "students_subjects", "subject_id", " where student_id = " + Helper.currentStudent.getId());
                         %>
 
+                        <h2>الحاله</h2>
+                        <p>يقوم بالدراسه</p>
+                        
+                        <hr>
 
+                        <h2>تفاصيل الحاله</h2>
+                        <p>حصول الطالب علي 20 درجه في الميد تيرم</p>
 
-                        <%if (subjects.length == 0) {%>
-
-                        <div class="alert alert-danger" role="alert">
-                            لا يوجد مواد مسجله
+                        <hr>
+                        
+                        <h2>عدد الساعات</h2>
+                        <p>9 من 12</p>
+                        <div class="progress" style="width: 50%">
+                            <div class="progress-bar progress-bar-striped bg-success" role="progressbar" style="width: calc(9/12*100%);" aria-valuenow="9" aria-valuemin="0" aria-valuemax="12">9 ساعات</div>
                         </div>
 
-                        <%} else {%>
-                        <div class="row">
-                            <div class="col-lg-3 col-md-6 col-sm-6 col-6">
-                                <a href="student-apply-to-subject.jsp">
-                                    <div class="card">
-                                        <img src="images/plus.png" class="card-img-top" alt="...">
-                                        <div class="card-body">
-                                            <h5 class="card-title">تسجيل ماده</h5>
-                                        </div>
-                                    </div>
-                                </a>
-                            </div>
-                            <%
-                                ArrayList<Subjects> sub = new ArrayList<Subjects>();
-                                for (int i = 0; i < subjects.length; i++) {
-                                    sub.add(DealingWith_DB.getSubjetcs(Helper.con, "select * from subjects where id =" + subjects[i]).get(0));
-                                }
-                                for (int i = 0; i < sub.size(); i++) {
-                                    Student_subjects data = null;
-                                    try {
-                                        data = DealingWith_DB.getStudent_subjetcs(Helper.con, "select * from students_subjects where "
-                                                + "student_id=" + Helper.currentStudent.getId() + " and subject_id=" + sub.get(i).getId()).get(0);
-                                    } catch (Exception e) {
-                                        data = new Student_subjects();
-                                    }
-                            %>
-
-                            <a href="subject-info.jsp?id=<%=sub.get(i).getId()%>">
-                                <div class="col-lg-3 col-md-6 col-sm-6 col-6">
-                                    <div class="card">
-                                        <img src='data:image / jpg; base64,<%=sub.get(i).getBase64_img()%>' class="card-img-top" alt="...">
-                                        <div class="card-body">
-                                            <h5 class="card-title"><%=sub.get(i).getName_ar()%></h5>
-                                            <p class="card-text">GPA: <%=data.getGPA()%></p>
-                                            <p class="card-text">عدد الساعات: <%=data.getHour_no()%> من <%=sub.get(i).getHours_no()%></p>
-                                            <a href="#" class="btn btn-primary">المزيد</a>
-                                        </div>
-                                    </div>
-                                </div>
-                            </a>
-
-
-                            <%}%>
+                        <hr>
+                        
+                        <h2>الدرجه</h2>
+                        <p>20 من 100</p>
+                        <div class="progress" style="width: 50%">
+                            <div class="progress-bar progress-bar-striped bg-danger" role="progressbar" style="width: 20%" aria-valuenow="20" aria-valuemin="0" aria-valuemax="100">20 درجه</div>
                         </div>
 
-                        <%
-                            }
-                        %>
+                        <hr>
+                        
+                        <h2>التقدير</h2>
+                        <p>-</p>
+                        
+                        <hr>
 
+                        <h2>تفاصيل التقدير</h2>
+                        <p>الطالب قيد التقدير</p>
+                        <hr>
 
                         <%} else if (Helper.currentStudent.getStatus().equals("refused")) {%>
 
 
+                        
 
                         <%}
                             } catch (Exception e) {
@@ -137,11 +114,5 @@
         <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBVWaKrjvy3MaE7SQ74_uJiULgl1JY0H2s&sensor=false"></script>
         <script src="js/google-map.js"></script>
         <script src="js/main.js"></script>
-        <script>
-            $(document).ready(function () {
-                $("#student-subjects-link").addClass("active");
-                console.log("output");
-            });
-        </script>
     </body>
 </html>
