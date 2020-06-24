@@ -28,6 +28,10 @@
         <servlet-name>AddDepartment</servlet-name>
         <servlet-class>Controller.Servlets.AddDepartment</servlet-class>
     </servlet>
+    <servlet>
+        <servlet-name>StudentSignToSubject</servlet-name>
+        <servlet-class>Controller.Servlets.StudentSignToSubject</servlet-class>
+    </servlet>
     <servlet-mapping>
         <servlet-name>Registeration</servlet-name>
         <url-pattern>/Registeration</url-pattern>
@@ -51,6 +55,10 @@
     <servlet-mapping>
         <servlet-name>AddDepartment</servlet-name>
         <url-pattern>/AddDepartment</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>StudentSignToSubject</servlet-name>
+        <url-pattern>/StudentSignToSubject</url-pattern>
     </servlet-mapping>
     <session-config>
         <session-timeout>

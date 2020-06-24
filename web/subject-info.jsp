@@ -41,48 +41,51 @@
 
 
                         <%} else if (Helper.currentStudent.getStatus().equals("accepted")) {
-
+                            Student_subjects s = DealingWith_DB.getStudent_subjetcs(Helper.con, "select * from students_subjects where student_id="
+                                    + Helper.currentStudent.getId() + " and subject_id=" + request.getParameter("sub_id")).get(0);
+                            Subjects sub = DealingWith_DB.getSubjetcs(Helper.con, "select * from subjects where id="
+                                    + request.getParameter("sub_id")).get(0);
                         %>
 
                         <h2>الحاله</h2>
-                        <p>يقوم بالدراسه</p>
-                        
+                        <p><%=s.getStatus()%></p>
+
                         <hr>
 
                         <h2>تفاصيل الحاله</h2>
                         <p>حصول الطالب علي 20 درجه في الميد تيرم</p>
 
                         <hr>
-                        
+
                         <h2>عدد الساعات</h2>
-                        <p>9 من 12</p>
+                        <p><%=s.getHour_no()%> من  <%=sub.getHours_no()%></p>
                         <div class="progress" style="width: 50%">
                             <div class="progress-bar progress-bar-striped bg-success" role="progressbar" style="width: calc(9/12*100%);" aria-valuenow="9" aria-valuemin="0" aria-valuemax="12">9 ساعات</div>
                         </div>
 
                         <hr>
-                        
+
                         <h2>الدرجه</h2>
-                        <p>20 من 100</p>
+                        <p><%=s.getGrade()%> من <%=sub.getTotal_grade()%></p>
                         <div class="progress" style="width: 50%">
                             <div class="progress-bar progress-bar-striped bg-danger" role="progressbar" style="width: 20%" aria-valuenow="20" aria-valuemin="0" aria-valuemax="100">20 درجه</div>
                         </div>
 
                         <hr>
-                        
+
                         <h2>التقدير</h2>
-                        <p>-</p>
-                        
+                        <p><%=s.getGrade()%></p>
+
                         <hr>
 
                         <h2>تفاصيل التقدير</h2>
-                        <p>الطالب قيد التقدير</p>
+                        <p><%=s.getGrade_info()%></p>
                         <hr>
 
                         <%} else if (Helper.currentStudent.getStatus().equals("refused")) {%>
 
 
-                        
+
 
                         <%}
                             } catch (Exception e) {

@@ -9,6 +9,7 @@ import Model.projetcModels.Admins;
 import Model.projetcModels.Departments;
 import Model.projetcModels.Students;
 import Model.projetcModels.Staff;
+import Model.projetcModels.Student_subjects;
 import Model.projetcModels.Subjects;
 import java.io.InputStream;
 import java.sql.Connection;
@@ -25,6 +26,19 @@ public class Helper {
     public static Students currentStudent = new Students();
     public static Staff currentUser = new Staff();
     public static Admins currentAdmin = new Admins();
+
+    public static boolean studentSignToSubject(HttpServletRequest request) {
+
+        try {
+            Student_subjects student_subjects = new Student_subjects();
+            student_subjects.setStudent_id(currentStudent.getId());
+            student_subjects.setSubject_id(Integer.parseInt(request.getParameter("sub_id")));
+
+            return student_subjects.add(con);
+        } catch (Exception e) {
+            return false;
+        }
+    }
 
     public static Students getStudentFromRegistrationForm(HttpServletRequest request) {
         try {
