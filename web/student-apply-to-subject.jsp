@@ -41,10 +41,10 @@
 
 
                         <%} else if (Helper.currentStudent.getStatus().equals("accepted")) {
-
                             String[] subjects = DealingWith_DB.getCoulmnData(Helper.con,
                                     "students_subjects", "subject_id", " where student_id = " + Helper.currentStudent.getId());
                             ArrayList<Subjects> subs = Helper.currentStudent.getAvailableSubjects();
+                            
                         %>
 
                         <div class="row">
@@ -59,7 +59,7 @@
                                     <div class="card-body">
                                         <h5 class="card-title"><%=subs.get(i).getName_ar()%></h5>
                                         <p class="card-text">الساعات المعتمده: <%=subs.get(i).getHours_no()%> ساعات.</p>
-                                        <a href="#" class="btn btn-primary">تسجيل</a>
+                                        <a href="StudentSignToSubject?sub_id=<%=subs.get(i).getId()%>" class="btn btn-primary">تسجيل</a>
                                     </div>
                                 </div>
                             </div>

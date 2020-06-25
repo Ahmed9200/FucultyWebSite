@@ -41,10 +41,10 @@
 
                             <div class="col-lg-3 col-md-6 col-sm-6 col-6">
                                 <div class="card">
-                                    <img src="images/course-1.jpg" class="card-img-top" alt="...">
+                                    <img src="data:image/png;base64, <%=depts.get(i).getSubjects().get(j).getBase64_img()%>" class="card-img-top" alt="...">
                                     <div class="card-body">
                                         <h5 class="card-title"><%=depts.get(i).getSubjects().get(j).getName_ar()%></h5>
-                                        <p class="card-text"><small class="text-muted"><%=depts.get(i).getSubjects().get(j).getYear_no()%></small></p>
+                                        <p class="card-text">الفرقه: <small class="text-muted"><%=depts.get(i).getSubjects().get(j).getYear_no()%></small></p>
                                         <p class="card-text">الساعات المعتمده: <%=depts.get(i).getSubjects().get(j).getHours_no()%> ساعات.</p>
                                         <p class="card-text"><a href="#">
                                                 <small class="text-muted"><i class="fa fa-pencil-square-o" aria-hidden="true"></i> تعديل</small>

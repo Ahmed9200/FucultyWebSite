@@ -30,16 +30,16 @@ public class Student_subjects {
 
     public boolean add(Connection con) {
         try {
-            PreparedStatement ps = con.prepareStatement("insert into student_subjects values(?,?,?,?,?,?,?,?,?)");
-            ps.setInt(1, Integer.parseInt(DealingWith_DB.AutoIncrementCoulmn(con, "student_subjects", "id")));
+            PreparedStatement ps = con.prepareStatement("insert into students_subjects values(?,?,?,?,?,?,?,?,?)");
+            ps.setInt(1, Integer.parseInt(DealingWith_DB.AutoIncrementCoulmn(con, "students_subjects", "id")));
             ps.setInt(2, student_id);
             ps.setInt(3, subject_id);
-            ps.setString(4, status);
+            ps.setString(4, " ");
             ps.setDouble(5, GPA);
             ps.setInt(6, hour_no);
-            ps.setString(7, status_info);
-            ps.setString(8, grade);
-            ps.setString(9, grade_info);
+            ps.setString(7, " ");
+            ps.setString(8, "-");
+            ps.setString(9, " ");
 
             int isAdded = ps.executeUpdate();
 
@@ -53,7 +53,7 @@ public class Student_subjects {
     public boolean update(Connection con) {
 
         try {
-            String strUpdate = "update student_subjects set student_id = ? , subject_id = ? , status = ? , GPA = ? ,hour_no = ? "
+            String strUpdate = "update students_subjects set student_id = ? , subject_id = ? , status = ? , GPA = ? ,hour_no = ? "
                     + "status_info = ? , grade=? , grade_info=? \n where id = ? ;";
             PreparedStatement ps = con.prepareStatement(strUpdate);
 

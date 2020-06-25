@@ -25,10 +25,10 @@ public class StudentSignToSubject extends HttpServlet {
 
         if (Helper.studentSignToSubject(request)) {
             request.setAttribute("checkSign", true);
-            request.getRequestDispatcher("student-apply-to-subject.jsp").forward(request, response);
+            request.getRequestDispatcher("student-subjects.jsp").forward(request, response);
         } else {
             request.setAttribute("checkSign", false);
-            response.sendRedirect("student-apply-to-subject.jsp");
+            response.sendRedirect("student-subjects.jsp");
 
         }
 

@@ -364,7 +364,11 @@ public class Students {
         try {
             availableSub = DealingWith_DB.getSubjetcs(Helper.con,
                     "select * from subjects where depends_on=0 and year_no='"
-                    + getYearName() + "' and dept_id = " + dept_id + ";");
+                    + total_yearsNo + "' and dept_id = " + dept_id + ";");
+//            System.out.println("year: " + getYearName());
+//            System.out.println("select * from subjects where depends_on=0 and year_no='"
+//                    + total_yearsNo + "' and dept_id = " + dept_id + ";");
+//            System.out.println("subs is " + availableSub.size());
 //            currentYearSub = DealingWith_DB.getSubjetcs(Helper.con,
 //                    "select * from subjects where year_no='" + getYearName() + "' and dept_id = " + dept_id + ";");
             studentSub = DealingWith_DB.getStudent_subjetcs(Helper.con,
@@ -377,7 +381,7 @@ public class Students {
             for (int i = 0; i < passedSub.size(); i++) {
                 ArrayList<Subjects> temp = DealingWith_DB.getSubjetcs(Helper.con,
                         "select * from subjects where depends_on=" + passedSub.get(i).getId() + " and year_no='"
-                        + getYearName() + "' and dept_id = " + dept_id + ";");
+                        + total_yearsNo + "' and dept_id = " + dept_id + ";");
                 for (int j = 0; j < temp.size(); j++) {
                     availableSub.add(temp.get(j));
                 }

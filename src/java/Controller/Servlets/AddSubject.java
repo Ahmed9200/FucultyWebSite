@@ -33,7 +33,7 @@ public class AddSubject extends HttpServlet {
         } else {
             request.setAttribute("isAdded", false);
         }
-        request.getRequestDispatcher("add-subject.jsp").forward(request, response);
+        request.getRequestDispatcher("admin-subjects.jsp").forward(request, response);
     }
 
 }

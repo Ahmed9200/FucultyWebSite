@@ -68,10 +68,10 @@
                                     <label>فرقه</label>
                                     <div class="form-group">
                                         <select name="year_no">
-                                            <option value="الفرقه الاولي">الفرقه الاولي</option>
-                                            <option value="الفرقه الثانيه">الفرقه الثانيه</option>
-                                            <option value="الفرقه الثالثه">الفرقه الثالثه</option>
-                                            <option value="الفرقه الرابعه">الفرقه الرابعه</option>
+                                            <option value="1">الفرقه الاولي</option>
+                                            <option value="2">الفرقه الثانيه</option>
+                                            <option value="3">الفرقه الثالثه</option>
+                                            <option value="4">الفرقه الرابعه</option>
                                         </select>
                                     </div>
                                     <label>معتمده علي</label>
