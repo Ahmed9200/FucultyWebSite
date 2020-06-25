@@ -1,3 +1,8 @@
+<%@page import="Model.projetcModels.Departments"%>
+<%@page import="Model.Util.Helper"%>
+<%@page import="Model.Util.DealingWith_DB"%>
+<%@page import="java.util.ArrayList"%>
+<%@page import="Model.projetcModels.Subjects"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <html lang="ar" dir="rtl" >
@@ -41,17 +46,20 @@
                             <p><a href="mailto:info@yoursite.com">	Itunit@ci.menofia.edu.eg</a></p>
                         </div>
                     </div>
-                    <!--
-                              <div class="col-md-3 d-flex">
-                                    <div class="bg-light align-self-stretch box p-4 text-center">
-                                            <h3 class="mb-4">Website</h3>
-                                        <p><a href="#">yoursite.com</a></p>
-                                      </div>
-                              </div>
-                    -->
+
                 </div>
             </div>
         </section>
+
+        <%
+            ArrayList<Departments> currentDepts = null;
+            try {
+                currentDepts = DealingWith_DB.getDepts(Helper.con, "select * from departments");
+            } catch (Exception e) {
+                e.printStackTrace();
+                currentDepts = new ArrayList<Departments>();
+            }
+        %>
 
         <section class="ftco-section ftco-no-pt ftco-no-pb contact-section">
             <div class="container">
@@ -78,8 +86,9 @@
                             <div class="form-group row" style="padding-left: 15px; padding-right: 15px;">
                                 <label class="col-3" style="padding-top: 10px;">القسم</label>
                                 <select class="form-control col-9" name="dept">
-                                    <option>علوم الحاسب</option>
-                                    <option>تكنولوجيا المعلومات</option>
+                                    <%for (int i = 0; i < currentDepts.size(); i++) {%>
+                                    <option value="<%=currentDepts.get(i).getId()%>"><%=currentDepts.get(i).getName_ar()%></option>
+                                    <%}%>
                                 </select>
                             </div>
                             <div class="form-group row" style="padding-left: 15px; padding-right: 15px;">
@@ -112,11 +121,7 @@
                         </form>
                     </div>
                     <div class="col-md-3 d-flex align-items-stretch"></div>
-                    <!--
-                                                            <div class="col-md-6 d-flex align-items-stretch">
-                                                                    <div id="map"></div>
-                                                            </div>
-                    -->
+
                 </div>
             </div>
         </section>
