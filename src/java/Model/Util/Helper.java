@@ -60,9 +60,10 @@ public class Helper {
             newStudent.setTotal_yearsNo(0);
             newStudent.setTotalHours(0);
             newStudent.setTotalGPA(0);
-            String dept_name = request.getParameter("dept");
-            System.out.println("dept name = " + dept_name);
-            newStudent.setDept_id(Integer.parseInt(DealingWith_DB.getCoulmnData(con, "departments", "id", "where name_ar='" + dept_name + "';")[0]));
+//            String dept_name = request.getParameter("dept");
+//            System.out.println("dept name = " + dept_name);
+//            newStudent.setDept_id(Integer.parseInt(DealingWith_DB.getCoulmnData(con, "departments", "id", "where name_ar='" + dept_name + "';")[0]));
+            newStudent.setDept_id(Integer.parseInt(request.getParameter("dept_id")));
 
             Part f_part = request.getPart("filtration_card_img");
             Part s_part = request.getPart("ssid_card_img");
