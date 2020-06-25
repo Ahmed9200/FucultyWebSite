@@ -4,7 +4,8 @@
     <div class="container">
         <div class="row no-gutters d-flex align-items-center align-items-stretch">
             <div class="col-md-4 d-flex align-items-center py-4">
-                <a class="navbar-brand" href="index.html">المنوفيه. <span>جامعة</span></a>
+                <!--<a class="navbar-brand" href="index.html">المنوفيه. <span>جامعة</span></a>-->
+                <img src="images/fci.png">
             </div>
         </div>
     </div>

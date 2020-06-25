@@ -174,7 +174,7 @@
                     <div class="col-md-6 col-lg-3 ftco-animate">
                         <div class="staff">
                             <div class="img-wrap d-flex align-items-stretch">
-                                <div class="img align-self-stretch" style="background-image: url(images/person_3.jpg);"></div>
+                                <div class="img align-self-stretch" style="background-image: url('images/dr/drAraby.jpg');"></div>
                             </div>
                             <div class="text pt-3 text-center">
                                 <h3>عربى السيد ابراهيم كشك</h3>
@@ -194,7 +194,7 @@
                     <div class="col-md-6 col-lg-3 ftco-animate">
                         <div class="staff">
                             <div class="img-wrap d-flex align-items-stretch">
-                                <div class="img align-self-stretch" style="background-image: url(images/person_2.jpg);"></div>
+                                <div class="img align-self-stretch" style="background-image: url(images/dr/drOsama.jpg);"></div>
                             </div>
                             <div class="text pt-3 text-center">
                                 <h3>اسامه عبد الرؤوف عبد الرحمن محمود</h3>
@@ -212,14 +212,14 @@
                     <div class="col-md-6 col-lg-3 ftco-animate">
                         <div class="staff">
                             <div class="img-wrap d-flex align-items-stretch">
-                                <div class="img align-self-stretch" style="background-image: url(images/person_1.jpg);"></div>
+                                <div class="img align-self-stretch" style="background-image: url(images/dr/drHatem.jpg);"></div>
                             </div>
                             <div class="text pt-3 text-center">
-                                <h3>حمدى محمد موسى مصطفى</h3>
+                                <h3>حاتم محمد سيد أحمد</h3>
                                 <span class="position mb-2">استاذ مساعد</span>
                                 <div class="faded">
-                                    <p>التخصص العام: هندسة التحكم الآلي</p>
-                                    <p>التخصص الدقيق: هندسة التحكم الآلي</p>
+                                    <p>التخصص العام: الهندسه الكهربيه</p>
+                                    <p>التخصص الدقيق: الهندسه الكهربيه</p>
                                     <ul class="ftco-social text-center">
                                         <li class="ftco-animate"><a href="#"><span class="icon-envelope"></span></a></li>
                                         <li class="ftco-animate"><a href="#"><span class="icon-facebook"></span></a></li>
@@ -231,14 +231,14 @@
                     <div class="col-md-6 col-lg-3 ftco-animate">
                         <div class="staff">
                             <div class="img-wrap d-flex align-items-stretch">
-                                <div class="img align-self-stretch" style="background-image: url(images/person_4.jpg);"></div>
+                                <div class="img align-self-stretch" style="background-image: url(images/dr/drSameh.jpg);"></div>
                             </div>
                             <div class="text pt-3 text-center">
-                                <h3>انس عبد العزيز عبدالرحمن يوسف</h3>
+                                <h3>سامح ظريف فهيم شنوده</h3>
                                 <span class="position mb-2">مدرس مساعد</span>
                                 <div class="faded">
-                                    <p>التخصص العام: علوم الحاسب</p>              
-                                    <p>التخصص الدقيق: علوم الحاسب</p>
+                                    <p>التخصص العام: تكنولوجيا المعلومات</p>              
+                                    <p>التخصص الدقيق: تكنولوجيا المعلومات</p>
                                     <ul class="ftco-social text-center">
                                         <li class="ftco-animate"><a href="#"><span class="icon-envelope"></span></a></li>
                                         <li class="ftco-animate"><a href="#"><span class="icon-facebook"></span></a></li>
