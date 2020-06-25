@@ -44,9 +44,9 @@
 
                     <div class="col-md-3 d-flex align-items-stretch"></div>
                     <div class="col-md-6 p-4 p-md-5  bg-light">
-                        <form action="AdminSignIn" method="POST">
+                        <form action="admin-student-applications.jsp" method="POST">
                             <div class="form-group">
-                                <input type="number" class="form-control" name="username" placeholder="اسم المستخدم">
+                                <input type="text" class="form-control" name="username" placeholder="اسم المستخدم">
                             </div>
                             <div class="form-group">
                                 <input type="password" class="form-control" name="password" placeholder="الباسوورد">

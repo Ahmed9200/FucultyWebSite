@@ -57,7 +57,7 @@ public class Helper {
             newStudent.setPhone(request.getParameter("phone"));
             newStudent.setGender(request.getParameter("gender"));
             newStudent.setStatus("pending");
-            newStudent.setTotal_yearsNo(0);
+            newStudent.setTotal_yearsNo(1);
             newStudent.setTotalHours(0);
             newStudent.setTotalGPA(0);
 //            String dept_name = request.getParameter("dept");

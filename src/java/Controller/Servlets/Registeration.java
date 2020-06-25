@@ -36,7 +36,7 @@ public class Registeration extends HttpServlet {
             throws ServletException, IOException {
         request.setCharacterEncoding("UTF-8");
         response.setCharacterEncoding("UTF-8");
-        System.out.println("1- dept name = " + request.getParameter("dept"));
+        System.out.println("1- dept name = " + request.getParameter("dept_id"));
 
         Students student = Helper.getStudentFromRegistrationForm(request);
         if (student != null) {
@@ -44,8 +44,10 @@ public class Registeration extends HttpServlet {
             if (student.add(Helper.con)) {
 
                 System.out.println("added");
+                request.getRequestDispatcher("student-sign-in.jsp").forward(request, response);
             } else {
                 System.out.println("not added");
+                request.getRequestDispatcher("register.jsp").forward(request, response);
             }
 
         } else {

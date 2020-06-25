@@ -72,7 +72,7 @@
                                 <input type="text" class="form-control" name="name_en" placeholder="الأسم بالكامل بالانجليزيه" required>
                             </div>
                             <div class="form-group">
-                                <select class="form-control">
+                                <select class="form-control" name="gender">
                                     <option>ذكر</option>
                                     <option>أنثي</option>
                                 </select>
@@ -85,7 +85,7 @@
                             </div>
                             <div class="form-group row" style="padding-left: 15px; padding-right: 15px;">
                                 <label class="col-3" style="padding-top: 10px;">القسم</label>
-                                <select class="form-control col-9" name="dept">
+                                <select class="form-control col-9" name="dept_id">
                                     <%for (int i = 0; i < currentDepts.size(); i++) {%>
                                     <option value="<%=currentDepts.get(i).getId()%>"><%=currentDepts.get(i).getName_ar()%></option>
                                     <%}%>

@@ -118,19 +118,19 @@
                                 <tbody>
                                     <tr>
                                         <td><strong>شهادة الميلاد المرفقه: </strong></td>
-                                        <td>تحميل</td>
+                                        <td><a download="FILENAME.jpg" href="data:image/png;base64,<%=Helper.currentStudent.getBase64_birthdayImg()%>">تحميل</a></td>
                                     </tr>
                                     <tr>
                                         <td><strong>صورة البطاقه المرفقه: </strong></td>
-                                        <td>تحميل</td>
+                                        <td><a download="FILENAME.jpg" href="data:image/png;base64,<%=Helper.currentStudent.getBase64_ssidImg()%>">تحميل</a></td>
                                     </tr>
                                     <tr>
                                         <td><strong>شهادة الثانويه العامه: </strong></td>
-                                        <td>تحميل</td>
+                                        <td><a download="FILENAME.jpg" href="data:image/png;base64,<%=Helper.currentStudent.getBase64_resultImg()%>">تحميل</a></td>
                                     </tr>
                                     <tr>
                                         <td><strong>بطاقة الترشح: </strong></td>
-                                        <td>تحميل</td>
+                                        <td><a download="FILENAME.jpg" href="data:image/png;base64,<%=Helper.currentStudent.getBase64_fitrationImg()%>">تحميل</a></td>
                                     </tr>
                                 </tbody>
                             </table>

@@ -52,7 +52,18 @@
                         <div class="alert alert-danger" role="alert">
                             لا يوجد مواد مسجله
                         </div>
-
+                        <div class="row">
+                            <div class="col-lg-3 col-md-6 col-sm-6 col-6">
+                                <a href="student-apply-to-subject.jsp">
+                                    <div class="card">
+                                        <img src="images/plus.png" class="card-img-top" alt="...">
+                                        <div class="card-body">
+                                            <h5 class="card-title">تسجيل ماده</h5>
+                                        </div>
+                                    </div>
+                                </a>
+                            </div>
+                        </div>
                         <%} else {%>
                         <div class="row">
                             <div class="col-lg-3 col-md-6 col-sm-6 col-6">
