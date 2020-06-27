@@ -44,10 +44,65 @@
                             String[] subjects = DealingWith_DB.getCoulmnData(Helper.con, "students_subjects", "subject_id", " where student_id = " + Helper.currentStudent.getId());
                         %>
 
-                        <div class="alert alert-success" role="alert">
-                            تم قبول طلبك
+                        <h2>الأخبار</h2>
+                        <div class="row">
+                            <div class="col-md-4">
+                                <div class="card">
+                                    <img class="card-img-top" src="images/course-5.jpg" alt="Card image cap">
+                                    <div class="card-body">
+                                        <h5 class="card-title">عنوان الخبر 1 </h5>
+                                        <p class="card-text"><small class="text-muted">عام -  د. حمدي موسي</small></p>
+                                        <p class="card-text card-text-eclipsed-3">تم الاعلان عن مواعيد بدا العملي للمواد للفرقه الثالثه ليبدا من تاريخ كذا حتي تاريخ كذا برده وينقسم الجدول كالاتي ماده الاولانيه تاريخها كذا والماده التانيه تاريخها كذا والتالته تاريخها كذا .</p>
+                                        <a href="news.jsp?id=0" class="card-link"><strong>المزيد</strong></a>
+                                    </div>
+                                    <div class="card-footer text-muted">
+                                        بتاريخ <small class="text-muted">17/7/2020</small> 
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-md-4">
+                                <div class="card">
+                                    <img class="card-img-top" src="images/course-5.jpg" alt="Card image cap">
+                                    <div class="card-body">
+                                        <h5 class="card-title">عنوان الخبر 2 </h5>
+                                        <p class="card-text"><small class="text-muted">عام -  د. حمدي موسي</small></p>
+                                        <p class="card-text card-text-eclipsed-3">تم الاعلان عن مواعيد بدا العملي للمواد للفرقه الثالثه ليبدا من تاريخ كذا حتي تاريخ كذا برده وينقسم الجدول كالاتي ماده الاولانيه تاريخها كذا والماده التانيه تاريخها كذا والتالته تاريخها كذا .</p>
+                                        <a href="news.jsp?id=0" class="card-link"><strong>المزيد</strong></a>
+                                    </div>
+                                    <div class="card-footer text-muted">
+                                        بتاريخ <small class="text-muted">17/7/2020</small> 
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-md-4">
+                                <div class="card">
+                                    <img class="card-img-top" src="images/course-5.jpg" alt="Card image cap">
+                                    <div class="card-body">
+                                        <h5 class="card-title">عنوان الخبر 3 </h5>
+                                        <p class="card-text"><small class="text-muted">عام -  د. حمدي موسي</small></p>
+                                        <p class="card-text card-text-eclipsed-3">تم الاعلان عن مواعيد بدا العملي للمواد للفرقه الثالثه ليبدا من تاريخ كذا حتي تاريخ كذا برده وينقسم الجدول كالاتي ماده الاولانيه تاريخها كذا والماده التانيه تاريخها كذا والتالته تاريخها كذا .</p>
+                                        <a href="news.jsp?id=0" class="card-link"><strong>المزيد</strong></a>
+                                    </div>
+                                    <div class="card-footer text-muted">
+                                        بتاريخ <small class="text-muted">17/7/2020</small> 
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-md-4">
+                                <div class="card">
+                                    <img class="card-img-top" src="images/course-5.jpg" alt="Card image cap">
+                                    <div class="card-body">
+                                        <h5 class="card-title">عنوان الخبر 4 </h5>
+                                        <p class="card-text"><small class="text-muted">عام -  د. حمدي موسي</small></p>
+                                        <p class="card-text card-text-eclipsed-3">تم الاعلان عن مواعيد بدا العملي للمواد للفرقه الثالثه ليبدا من تاريخ كذا حتي تاريخ كذا برده وينقسم الجدول كالاتي ماده الاولانيه تاريخها كذا والماده التانيه تاريخها كذا والتالته تاريخها كذا .</p>
+                                        <a href="news.jsp?id=0" class="card-link"><strong>المزيد</strong></a>
+                                    </div>
+                                    <div class="card-footer text-muted">
+                                        بتاريخ <small class="text-muted">17/7/2020</small> 
+                                    </div>
+                                </div>
+                            </div>
                         </div>
-
 
                         <%} else if (Helper.currentStudent.getStatus().equals("refused")) {%>
 

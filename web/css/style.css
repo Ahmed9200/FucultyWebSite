@@ -324,6 +324,24 @@ h5, .h5 {
 h6, .h6 {
   font-size: 1rem; }
 
+.card-text-eclipsed-3 {
+    overflow: hidden;
+    text-overflow: ellipsis;
+    /*text-overflow: "----";*/
+    display: -webkit-box;
+    -webkit-line-clamp: 3;
+    -webkit-box-orient: vertical;
+}
+ 
+.card-text-eclipsed-1 {
+    overflow: hidden;
+    text-overflow: ellipsis;
+    /*text-overflow: "----";*/
+    display: -webkit-box;
+    -webkit-line-clamp: 1;
+    -webkit-box-orient: vertical;
+}
+
 .lead {
   font-size: 1.25rem;
   font-weight: 300; }

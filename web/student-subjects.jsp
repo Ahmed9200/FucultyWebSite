@@ -91,7 +91,7 @@
                                     }
                             %>
 
-                            <a href="subject-info.jsp?id=<%=sub.get(i).getId()%>">
+                            <a href="subject-info.jsp?sub_id=<%=sub.get(i).getId()%>">
                                 <div class="col-lg-3 col-md-6 col-sm-6 col-6">
                                     <div class="card">
                                         <img src='data:image / jpg; base64,<%=sub.get(i).getBase64_img()%>' class="card-img-top" alt="...">
@@ -99,7 +99,7 @@
                                             <h5 class="card-title"><%=sub.get(i).getName_ar()%></h5>
                                             <p class="card-text">GPA: <%=data.getGPA()%></p>
                                             <p class="card-text">عدد الساعات: <%=data.getHour_no()%> من <%=sub.get(i).getHours_no()%></p>
-                                            <a href="#" class="btn btn-primary">المزيد</a>
+                                            <a href="subject-info.jsp?sub_id=<%=sub.get(i).getId()%>" class="btn btn-primary">المزيد</a>
                                         </div>
                                     </div>
                                 </div>

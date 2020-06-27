@@ -59,16 +59,41 @@
 
                         <h2>عدد الساعات</h2>
                         <p><%=s.getHour_no()%> من  <%=sub.getHours_no()%></p>
+                        <% 
+                            String hourBgColor = "bg-primary";
+                            if ( s.getHour_no() > (sub.getHours_no()/2) ) {
+                                hourBgColor = "bg-success";
+                            }
+                            else {
+                                hourBgColor = "bg-danger";
+                            }
+                        %>
                         <div class="progress" style="width: 50%">
-                            <div class="progress-bar progress-bar-striped bg-success" role="progressbar" style="width: calc(9/12*100%);" aria-valuenow="9" aria-valuemin="0" aria-valuemax="12">9 ساعات</div>
+                            <div class="progress-bar progress-bar-striped <%=hourBgColor%>" role="progressbar" style="width: calc(<%=s.getHour_no()%>/<%=sub.getHours_no()%>*100%);" aria-valuenow="<%=s.getHour_no()%>" aria-valuemin="0" aria-valuemax="<%=sub.getHours_no()%>"><%=s.getHour_no()%> ساعات</div>
                         </div>
 
                         <hr>
 
                         <h2>الدرجه</h2>
                         <p><%=s.getGrade()%> من <%=sub.getTotal_grade()%></p>
+                        <% 
+                            String gradeBgColor = "bg-primary";
+                            int gradeCompare = 0;
+                            try {
+                                gradeCompare = Integer.parseInt(s.getGrade());
+                            }
+                            catch (Exception e){
+                                
+                            }
+                            if ( gradeCompare > (sub.getTotal_grade()/2) ) {
+                                gradeBgColor = "bg-success";
+                            }
+                            else {
+                                gradeBgColor = "bg-danger";
+                            }
+                        %>
                         <div class="progress" style="width: 50%">
-                            <div class="progress-bar progress-bar-striped bg-danger" role="progressbar" style="width: 20%" aria-valuenow="20" aria-valuemin="0" aria-valuemax="100">20 درجه</div>
+                            <div class="progress-bar progress-bar-striped <%=gradeBgColor%>" role="progressbar" style="width: calc(<%=gradeCompare%>/<%=sub.getTotal_grade()%>*100%);" aria-valuenow="<%=gradeCompare%>" aria-valuemin="0" aria-valuemax="<%=sub.getTotal_grade()%>"><%=gradeCompare%> درجه</div>
                         </div>
 
                         <hr>
