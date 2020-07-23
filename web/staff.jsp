@@ -22,8 +22,12 @@
 
         <section class="ftco-section bg-light">
             <div class="container-fluid px-4">
-                <div class="row">
-                    <div class="col-md-6 col-lg-3 ftco-animate">
+
+                <input class="form-control mb-4" id="staff-Search" type="text" placeholder="البحث عن عضو في هيئة التدريس">
+
+
+                <div class="row" id="staff">
+                    <div class="col-md-6 col-lg-3">
                         <div class="staff">
                             <div class="img-wrap d-flex align-items-stretch">
                                 <div class="img align-self-stretch" style="background-image: url(images/teacher-1.jpg);"></div>
@@ -43,7 +47,7 @@
                             </div>
                         </div>
                     </div>
-                    <div class="col-md-6 col-lg-3 ftco-animate">
+                    <div class="col-md-6 col-lg-3">
                         <div class="staff">
                             <div class="img-wrap d-flex align-items-stretch">
                                 <div class="img align-self-stretch" style="background-image: url(images/teacher-2.jpg);"></div>
@@ -61,7 +65,7 @@
                             </div>
                         </div>
                     </div>
-                    <div class="col-md-6 col-lg-3 ftco-animate">
+                    <div class="col-md-6 col-lg-3">
                         <div class="staff">
                             <div class="img-wrap d-flex align-items-stretch">
                                 <div class="img align-self-stretch" style="background-image: url(images/teacher-3.jpg);"></div>
@@ -80,7 +84,7 @@
                             </div>
                         </div>
                     </div>
-                    <div class="col-md-6 col-lg-3 ftco-animate">
+                    <div class="col-md-6 col-lg-3">
                         <div class="staff">
                             <div class="img-wrap d-flex align-items-stretch">
                                 <div class="img align-self-stretch" style="background-image: url(images/teacher-4.jpg);"></div>
@@ -99,7 +103,7 @@
                             </div>
                         </div>
                     </div>
-                    <div class="col-md-6 col-lg-3 ftco-animate">
+                    <div class="col-md-6 col-lg-3">
                         <div class="staff">
                             <div class="img-wrap d-flex align-items-stretch">
                                 <div class="img align-self-stretch" style="background-image: url(images/teacher-1.jpg);"></div>
@@ -119,7 +123,7 @@
                             </div>
                         </div>
                     </div>
-                    <div class="col-md-6 col-lg-3 ftco-animate">
+                    <div class="col-md-6 col-lg-3">
                         <div class="staff">
                             <div class="img-wrap d-flex align-items-stretch">
                                 <div class="img align-self-stretch" style="background-image: url(images/teacher-2.jpg);"></div>
@@ -137,7 +141,7 @@
                             </div>
                         </div>
                     </div>
-                    <div class="col-md-6 col-lg-3 ftco-animate">
+                    <div class="col-md-6 col-lg-3">
                         <div class="staff">
                             <div class="img-wrap d-flex align-items-stretch">
                                 <div class="img align-self-stretch" style="background-image: url(images/teacher-3.jpg);"></div>
@@ -156,7 +160,7 @@
                             </div>
                         </div>
                     </div>
-                    <div class="col-md-6 col-lg-3 ftco-animate">
+                    <div class="col-md-6 col-lg-3">
                         <div class="staff">
                             <div class="img-wrap d-flex align-items-stretch">
                                 <div class="img align-self-stretch" style="background-image: url(images/teacher-4.jpg);"></div>
@@ -205,7 +209,15 @@
             $(document).ready(function () {
                 $("#staff-link").addClass("active");
                 console.log("output");
+                $("#staff-Search").on("keyup", function () {
+                    var value = $(this).val().toLowerCase();
+                    $("#staff h3").filter(function () {
+                        $(this).parent().parent().parent().toggle($(this).text().toLowerCase().indexOf(value) > -1)
+                    });
+                });
             });
+
+
         </script>
     </body>
 </html>

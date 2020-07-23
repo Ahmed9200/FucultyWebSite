@@ -88,7 +88,7 @@
         <script src="js/main.js"></script>
         <script>
             $(document).ready(function () {
-                $("#dept-link").addClass("active");
+                $("#admin-dept-link").addClass("active");
                 console.log("output");
             });
         </script>

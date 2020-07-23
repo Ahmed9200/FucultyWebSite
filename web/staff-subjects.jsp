@@ -31,7 +31,7 @@
                                 for (int i = 0; i < depts.size(); i++) {
                         %>
 
-                        <h2><%=depts.get(i).getName_ar()%><small> - </small><a href="add-subject.jsp?deptID=<%=depts.get(i).getId()%>"><small>إضافة ماده جديد</small></a></h2>
+                        <h2><%=depts.get(i).getName_ar()%></h2>
 
                         <div class="row">
                             
@@ -45,9 +45,8 @@
                                     <div class="card-body">
                                         <h5 class="card-title"><%=depts.get(i).getSubjects().get(j).getName_ar()%></h5>
                                         <p class="card-text">الفرقه: <small class="text-muted"><%=depts.get(i).getSubjects().get(j).getYear_no()%></small></p>
-                                        <p class="card-text">الساعات المعتمده: <%=depts.get(i).getSubjects().get(j).getHours_no()%> ساعات.</p>
-                                        <p class="card-text"><a href="#">
-                                                <small class="text-muted"><i class="fa fa-pencil-square-o" aria-hidden="true"></i> تعديل</small>
+                                        <p class="card-text"><a href="staff-view-subject.jsp?id=<%=depts.get(i).getSubjects().get(j).getId()%>">
+                                                <small class=""><i class="fa fa-folder-open"></i>  دخول </small>
                                             </a></p>
                                     </div>
                                 </div>
@@ -90,7 +89,7 @@
         <script src="js/main.js"></script>
         <script>
             $(document).ready(function () {
-                $("#admin-subjects-link").addClass("active");
+                $("#staff-subjects-link").addClass("active");
                 console.log("output");
             });
         </script>

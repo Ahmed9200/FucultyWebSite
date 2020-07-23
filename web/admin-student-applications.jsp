@@ -303,7 +303,7 @@
         <script src="js/main.js"></script>
         <script>
                                             $(document).ready(function () {
-                                                $("#applications-link").addClass("active");
+                                                $("#admin-applications-link").addClass("active");
                                                 console.log("output");
                                             });
 
