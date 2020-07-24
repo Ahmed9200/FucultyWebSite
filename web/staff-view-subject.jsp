@@ -1,3 +1,4 @@
+<%@page import="Model.projetcModels.Student_subjects"%>
 <%@page import="Model.projetcModels.Subjects"%>
 <%@page import="Model.Util.Helper"%>
 <%@page import="Model.Util.DealingWith_DB"%>
@@ -17,9 +18,18 @@
             <div class="row">
                 <%@include  file="admin-sidebar.jsp" %>
 
+
+                <%
+                    try {
+                        String sub_id = request.getParameter("id");
+                        Subjects currentSub = DealingWith_DB.getSubjetcs(Helper.con, "select * from subjects where id =" + sub_id).get(0);
+                        ArrayList<Student_subjects> studentsInfo = DealingWith_DB.getStudent_subjetcs(Helper.con, "select * from students_subjects where subject_id=" + sub_id);
+                %>
+
+
                 <main role="main" class="col-md-9 ml-sm-auto col-lg-10 px-md-4">
                     <div class="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center pt-3 pb-2 mb-3 border-bottom">
-                        <h1 class="h2">اسم الماده</h1>
+                        <h1 class="h2"><%=currentSub.getName_ar()%></h1>
 
                     </div>
 
@@ -42,27 +52,29 @@
                                 </thead>
                                 <tbody>
 
+                                    <%for (int i = 0; i < studentsInfo.size(); i++) {%>
+
                                     <tr>
-                                        <td>1</td>
-                                        <td>اسم الطالب</td>
-                                        <td>مقيد</td>
-                                        <td>2.7</td>
-                                        <td>15</td>
-                                        <td>2</td>
+                                        <td><%=studentsInfo.get(i).getStudent_id()%></td>
+                                        <td><%=studentsInfo.get(i).getStudent().getName_ar()%></td>
+                                        <td><%=studentsInfo.get(i).getStudent().getStatus()%></td>
+                                        <td><%=studentsInfo.get(i).getGPA()%></td>
+                                        <td><%=studentsInfo.get(i).getGrade()%></td>
+                                        <td><%=studentsInfo.get(i).getHour_no()%></td>
                                         <td><a onclick="showInfo(1,
-                                                        'الاسم',
-                                                        'مسجل',
-                                                        '2.3',
-                                                        '15',
-                                                        '1'
+                                                        '<%=studentsInfo.get(i).getStudent().getName_ar()%>',
+                                                        '<%=studentsInfo.get(i).getStudent().getStatus()%>',
+                                                        '<%=studentsInfo.get(i).getGPA()%>',
+                                                        '<%=studentsInfo.get(i).getGrade()%>',
+                                                        '<%=studentsInfo.get(i).getHour_no()%>'
                                                         )" 
-                                                  style="cursor: pointer;">
-                                                    تعديل
-                                                    <i class="fa fa-external-link-square" aria-hidden="true"></i>
-                                                </a>
+                                               style="cursor: pointer;">
+                                                تعديل
+                                                <i class="fa fa-external-link-square" aria-hidden="true"></i>
+                                            </a>
                                         </td>
                                     </tr>
-
+                                    <%}%>
                                 </tbody>
                             </table>
                         </div>        
@@ -73,7 +85,10 @@
             </div>
         </div>
 
-
+        <%
+            } catch (Exception e) {
+            }
+        %>
         <!-- loader -->
         <div id="ftco-loader" class="show fullscreen"><svg class="circular" width="48px" height="48px"><circle class="path-bg" cx="24" cy="24" r="22" fill="none" stroke-width="4" stroke="#eeeeee"/><circle class="path" cx="24" cy="24" r="22" fill="none" stroke-width="4" stroke-miterlimit="10" stroke="#F96D00"/></svg></div>
 

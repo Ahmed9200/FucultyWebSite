@@ -53,21 +53,20 @@ public class Student_subjects {
     public boolean update(Connection con) {
 
         try {
-            String strUpdate = "update students_subjects set student_id = ? , subject_id = ? , status = ? , GPA = ? ,hour_no = ? "
-                    + "status_info = ? , grade=? , grade_info=? \n where id = ? ;";
+            String strUpdate = "update students_subjects set status = ? , GPA = ? ,hour_no = ? "
+                    + "status_info = ? , grade=? , grade_info=? \n where student_id = ? and subject_id = ? ;";
             PreparedStatement ps = con.prepareStatement(strUpdate);
 
             // add prepared statement data 
-            ps.setInt(1, student_id);
-            ps.setInt(2, subject_id);
-            ps.setString(3, status);
-            ps.setDouble(4, GPA);
-            ps.setInt(5, hour_no);
-            ps.setString(6, status_info);
-            ps.setString(7, grade);
-            ps.setString(8, grade_info);
+            ps.setString(1, status);
+            ps.setDouble(2, GPA);
+            ps.setInt(3, hour_no);
+            ps.setString(4, status_info);
+            ps.setString(5, grade);
+            ps.setString(6, grade_info);
 
-            ps.setInt(9, id);
+            ps.setInt(7, student_id);
+            ps.setInt(8, subject_id);
 
             int isUpdated = ps.executeUpdate();
             return isUpdated > 0;

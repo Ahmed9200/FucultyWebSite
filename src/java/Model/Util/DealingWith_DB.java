@@ -45,7 +45,7 @@ public class DealingWith_DB {
     public static boolean checkStuffAuthentications(Connection con, String username, String password) {
         Helper.currentUser = getStaff(con,
                 "select * from staff where username= '" + username + "' and password= '" + password + "'").get(0);
-        if (Helper.currentStudent == null) {
+        if (Helper.currentUser == null) {
             return false;
         } else {
             return true;
@@ -57,7 +57,7 @@ public class DealingWith_DB {
     public static boolean checkAdminAuthentications(Connection con, String username, String password) {
         Helper.currentAdmin = getAdmins(con,
                 "select * from admins_view where username= '" + username + "' and password= '" + password + "'").get(0);
-        if (Helper.currentStudent == null) {
+        if (Helper.currentAdmin == null) {
             return false;
         } else {
             return true;

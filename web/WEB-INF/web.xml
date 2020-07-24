@@ -32,6 +32,10 @@
         <servlet-name>StudentSignToSubject</servlet-name>
         <servlet-class>Controller.Servlets.StudentSignToSubject</servlet-class>
     </servlet>
+    <servlet>
+        <servlet-name>ChangeStudentSubjetcInfo</servlet-name>
+        <servlet-class>Controller.Servlets.ChangeStudentSubjetcInfo</servlet-class>
+    </servlet>
     <servlet-mapping>
         <servlet-name>Registeration</servlet-name>
         <url-pattern>/Registeration</url-pattern>
@@ -59,6 +63,10 @@
     <servlet-mapping>
         <servlet-name>StudentSignToSubject</servlet-name>
         <url-pattern>/StudentSignToSubject</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>ChangeStudentSubjetcInfo</servlet-name>
+        <url-pattern>/ChangeStudentSubjetcInfo</url-pattern>
     </servlet-mapping>
     <session-config>
         <session-timeout>
