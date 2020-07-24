@@ -260,7 +260,9 @@ public class DealingWith_DB {
 //                }
                 // set img in base 64 to show it in img tag in html
                 InputStream inputStream = rs.getBlob("CV").getBinaryStream();
+                InputStream inputStream2 = rs.getBlob("img").getBinaryStream();
                 item.setBase64_cv(getBase64(inputStream));
+                item.setBase64_img(getBase64(inputStream2));
 
                 data.add(item);
             }

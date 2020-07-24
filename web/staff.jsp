@@ -1,3 +1,7 @@
+<%@page import="Model.Util.Helper"%>
+<%@page import="Model.Util.DealingWith_DB"%>
+<%@page import="Model.projetcModels.Staff"%>
+<%@page import="java.util.ArrayList"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <html lang="ar" dir="rtl">
@@ -27,18 +31,25 @@
 
 
                 <div class="row" id="staff">
+
+                    <%
+                        try {
+
+                            ArrayList<Staff> staffs = DealingWith_DB.getStaff(Helper.con, "select * from staff");
+                            for (int i = 0; i < staffs.size(); i++) {
+                    %>
+
                     <div class="col-md-6 col-lg-3">
                         <div class="staff">
                             <div class="img-wrap d-flex align-items-stretch">
-                                <div class="img align-self-stretch" style="background-image: url(images/teacher-1.jpg);"></div>
+                                <div class="img align-self-stretch" style="background-image: url(data:image/png;base64,<%=staffs.get(i).getBase64_img()%>);"></div>
                             </div>
                             <div class="text pt-3 text-center">
-                                <h3>عربى السيد ابراهيم كشك</h3>
-                                <span class="position mb-2">استاذ</span>
+                                <h3><%=staffs.get(i).getName_ar()%></h3>
+                                <span class="position mb-2"><%=staffs.get(i).getEdu_status()%></span>
                                 <div class="faded">
-                                    <p>التخصص العام: هندسة وعلوم الحاسبات</p>
-                                    <p>التخصص الدقيق: حاسبات</p>
-                                    <p>عميد كليه الحاسبات والمعلومات</p>
+                                    <p>التخصص العام: <%=DealingWith_DB.getDepts(Helper.con, "select * from departments where id=" + staffs.get(i).getDept_id()).get(0).getName_ar()%></p>
+                                    <p><%=staffs.get(i).getAbout()%></p>
                                     <ul class="ftco-social text-center">
                                         <li class="ftco-animate"><a href="#"><span class="icon-envelope"></span></a></li>
                                         <li class="ftco-animate"><a href="#"><span class="icon-facebook"></span></a></li>
@@ -47,138 +58,13 @@
                             </div>
                         </div>
                     </div>
-                    <div class="col-md-6 col-lg-3">
-                        <div class="staff">
-                            <div class="img-wrap d-flex align-items-stretch">
-                                <div class="img align-self-stretch" style="background-image: url(images/teacher-2.jpg);"></div>
-                            </div>
-                            <div class="text pt-3 text-center">
-                                <h3>اسامه عبد الرؤوف عبد الرحمن محمود</h3>
-                                <span class="position mb-2">استاذ مساعد</span>
-                                <div class="faded">
-                                    <p>التخصص العام: الهندسه الكهربيه</p>
-                                    <ul class="ftco-social text-center">
-                                        <li class="ftco-animate"><a href="#"><span class="icon-envelope"></span></a></li>
-                                        <li class="ftco-animate"><a href="#"><span class="icon-facebook"></span></a></li>
-                                    </ul>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-md-6 col-lg-3">
-                        <div class="staff">
-                            <div class="img-wrap d-flex align-items-stretch">
-                                <div class="img align-self-stretch" style="background-image: url(images/teacher-3.jpg);"></div>
-                            </div>
-                            <div class="text pt-3 text-center">
-                                <h3>حمدى محمد موسى مصطفى</h3>
-                                <span class="position mb-2">استاذ مساعد</span>
-                                <div class="faded">
-                                    <p>التخصص العام: هندسة التحكم الآلي</p>
-                                    <p>التخصص الدقيق: هندسة التحكم الآلي</p>
-                                    <ul class="ftco-social text-center">
-                                        <li class="ftco-animate"><a href="#"><span class="icon-envelope"></span></a></li>
-                                        <li class="ftco-animate"><a href="#"><span class="icon-facebook"></span></a></li>
-                                    </ul>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-md-6 col-lg-3">
-                        <div class="staff">
-                            <div class="img-wrap d-flex align-items-stretch">
-                                <div class="img align-self-stretch" style="background-image: url(images/teacher-4.jpg);"></div>
-                            </div>
-                            <div class="text pt-3 text-center">
-                                <h3>انس عبد العزيز عبدالرحمن يوسف</h3>
-                                <span class="position mb-2">مدرس مساعد</span>
-                                <div class="faded">
-                                    <p>التخصص العام: علوم الحاسب</p>              
-                                    <p>التخصص الدقيق: علوم الحاسب</p>
-                                    <ul class="ftco-social text-center">
-                                        <li class="ftco-animate"><a href="#"><span class="icon-envelope"></span></a></li>
-                                        <li class="ftco-animate"><a href="#"><span class="icon-facebook"></span></a></li>
-                                    </ul>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-md-6 col-lg-3">
-                        <div class="staff">
-                            <div class="img-wrap d-flex align-items-stretch">
-                                <div class="img align-self-stretch" style="background-image: url(images/teacher-1.jpg);"></div>
-                            </div>
-                            <div class="text pt-3 text-center">
-                                <h3>عربى السيد ابراهيم كشك</h3>
-                                <span class="position mb-2">استاذ</span>
-                                <div class="faded">
-                                    <p>التخصص العام: هندسة وعلوم الحاسبات</p>
-                                    <p>التخصص الدقيق: حاسبات</p>
-                                    <p>عميد كليه الحاسبات والمعلومات</p>
-                                    <ul class="ftco-social text-center">
-                                        <li class="ftco-animate"><a href="#"><span class="icon-envelope"></span></a></li>
-                                        <li class="ftco-animate"><a href="#"><span class="icon-facebook"></span></a></li>
-                                    </ul>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-md-6 col-lg-3">
-                        <div class="staff">
-                            <div class="img-wrap d-flex align-items-stretch">
-                                <div class="img align-self-stretch" style="background-image: url(images/teacher-2.jpg);"></div>
-                            </div>
-                            <div class="text pt-3 text-center">
-                                <h3>اسامه عبد الرؤوف عبد الرحمن محمود</h3>
-                                <span class="position mb-2">استاذ مساعد</span>
-                                <div class="faded">
-                                    <p>التخصص العام: الهندسه الكهربيه</p>
-                                    <ul class="ftco-social text-center">
-                                        <li class="ftco-animate"><a href="#"><span class="icon-envelope"></span></a></li>
-                                        <li class="ftco-animate"><a href="#"><span class="icon-facebook"></span></a></li>
-                                    </ul>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-md-6 col-lg-3">
-                        <div class="staff">
-                            <div class="img-wrap d-flex align-items-stretch">
-                                <div class="img align-self-stretch" style="background-image: url(images/teacher-3.jpg);"></div>
-                            </div>
-                            <div class="text pt-3 text-center">
-                                <h3>حمدى محمد موسى مصطفى</h3>
-                                <span class="position mb-2">استاذ مساعد</span>
-                                <div class="faded">
-                                    <p>التخصص العام: هندسة التحكم الآلي</p>
-                                    <p>التخصص الدقيق: هندسة التحكم الآلي</p>
-                                    <ul class="ftco-social text-center">
-                                        <li class="ftco-animate"><a href="#"><span class="icon-envelope"></span></a></li>
-                                        <li class="ftco-animate"><a href="#"><span class="icon-facebook"></span></a></li>
-                                    </ul>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-md-6 col-lg-3">
-                        <div class="staff">
-                            <div class="img-wrap d-flex align-items-stretch">
-                                <div class="img align-self-stretch" style="background-image: url(images/teacher-4.jpg);"></div>
-                            </div>
-                            <div class="text pt-3 text-center">
-                                <h3>انس عبد العزيز عبدالرحمن يوسف</h3>
-                                <span class="position mb-2">مدرس مساعد</span>
-                                <div class="faded">
-                                    <p>التخصص العام: علوم الحاسب</p>              
-                                    <p>التخصص الدقيق: علوم الحاسب</p>
-                                    <ul class="ftco-social text-center">
-                                        <li class="ftco-animate"><a href="#"><span class="icon-envelope"></span></a></li>
-                                        <li class="ftco-animate"><a href="#"><span class="icon-facebook"></span></a></li>
-                                    </ul>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
+
+                    <%
+                            }
+                        } catch (Exception e) {
+                        }
+                    %>
+
                 </div>
             </div>
         </section>

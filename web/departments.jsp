@@ -1,3 +1,7 @@
+<%@page import="Model.Util.Helper"%>
+<%@page import="Model.Util.DealingWith_DB"%>
+<%@page import="Model.projetcModels.Departments"%>
+<%@page import="java.util.ArrayList"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <html lang="ar" dir="rtl">
@@ -25,97 +29,31 @@
             <div class="container-fluid px-4">
 
                 <div class="row">
+
+
+
+                    <%
+                        try {
+                            ArrayList<Departments> depts = DealingWith_DB.getDepts(Helper.con, "select * from departments");
+                            for (int j = 0; j < depts.size(); j++) {
+                    %>
+
                     <div class="col-md-3 course ftco-animate">
-                        <div class="img" style="background-image: url(images/course-1.jpg);"></div>
+                        <div class="img" style="background-image: url(data:image/png;base64,<%=depts.get(j).getBase64_image()%>);"></div>
                         <div class="text pt-4">
                             <p class="meta d-flex">
-                                <span><i class="icon-user mr-2"></i>د./ خالد محمد أمين</span>
-                                <!--
-                                                                                                <span><i class="icon-table mr-2"></i>10 seats</span>
-                                                                                                <span><i class="icon-calendar mr-2"></i>4 Years</span>
-                                -->
+                                <span><i class="icon-user mr-2"></i>د./<%=depts.get(j).getDoctor().getName_ar()%></span>
                             </p>
-                            <h3><a href="#">تكنولوجيا المعلومات</a></h3>
-                            <!--							<p>Separated they live in. A small river named Duden flows by their place and supplies it with the necessary regelialia. It is a paradisematic country</p>-->
-                            <p><a href="#" class="btn btn-primary">معلومات اكثر</a></p>
-                        </div>
-                    </div>
-                    <div class="col-md-3 course ftco-animate">
-                        <div class="img" style="background-image: url(images/course-2.jpg);"></div>
-                        <div class="text pt-4">
-                            <p class="meta d-flex">
-                                <span><i class="icon-user mr-2"></i>د./ حمدي محمد موسي مصطفي</span>
-                                <!--
-                                                                                                <span><i class="icon-table mr-2"></i>10 seats</span>
-                                                                                                <span><i class="icon-calendar mr-2"></i>4 Years</span>
-                                -->
-                            </p>
-                            <h3><a href="#">علوم الحاسب</a></h3>
-                            <!--							<p>Separated they live in. A small river named Duden flows by their place and supplies it with the necessary regelialia. It is a paradisematic country</p>-->
-                            <p><a href="#" class="btn btn-primary">معلومات اكثر</a></p>
-                        </div>
-                    </div>
-                    <div class="col-md-3 course ftco-animate">
-                        <div class="img" style="background-image: url(images/course-3.jpg);"></div>
-                        <div class="text pt-4">
-                            <p class="meta d-flex">
-                                <span><i class="icon-user mr-2"></i>أ.د./حاتم السيد عبد القادر</span>
-                                <!--
-                                                                                                <span><i class="icon-table mr-2"></i>10 seats</span>
-                                                                                                <span><i class="icon-calendar mr-2"></i>4 Years</span>
-                                -->
-                            </p>
-                            <h3><a href="#">نظم المعلومات</a></h3>
-                            <!--							<p>Separated they live in. A small river named Duden flows by their place and supplies it with the necessary regelialia. It is a paradisematic country</p>-->
-                            <p><a href="#" class="btn btn-primary">معلومات اكثر</a></p>
-                        </div>
-                    </div>
-                    <div class="col-md-3 course ftco-animate">
-                        <div class="img" style="background-image: url(images/course-4.jpg);"></div>
-                        <div class="text pt-4">
-                            <p class="meta d-flex">
-                                <span><i class="icon-user mr-2"></i>د/ أسامة عبد الرؤوف عبد الرحمن</span>
-                                <!--
-                                                                                                <span><i class="icon-table mr-2"></i>10 seats</span>
-                                                                                                <span><i class="icon-calendar mr-2"></i>4 Years</span>
-                                -->
-                            </p>
-                            <h3><a href="#">بحوث العمليات ودعم القرار</a></h3>
-                            <!--							<p>Separated they live in. A small river named Duden flows by their place and supplies it with the necessary regelialia. It is a paradisematic country</p>-->
+                            <h3><a href="#"><%=depts.get(j).getName_ar()%></a></h3>
                             <p><a href="#" class="btn btn-primary">معلومات اكثر</a></p>
                         </div>
                     </div>
 
-                    <div class="col-md-3 course ftco-animate">
-                        <div class="img" style="background-image: url(images/course-3.jpg);"></div>
-                        <div class="text pt-4">
-                            <p class="meta d-flex">
-                                <!--								<span><i class="icon-user mr-2"></i>أ.د./حاتم السيد عبد القادر</span>-->
-                                <!--
-                                                                                                <span><i class="icon-table mr-2"></i>10 seats</span>
-                                                                                                <span><i class="icon-calendar mr-2"></i>4 Years</span>
-                                -->
-                            </p>
-                            <h3><a href="#">الحوسبة و المعلوماتية الحيوية</a></h3>
-                            <!--							<p>Separated they live in. A small river named Duden flows by their place and supplies it with the necessary regelialia. It is a paradisematic country</p>-->
-                            <p><a href="#" class="btn btn-primary">معلومات اكثر</a></p>
-                        </div>
-                    </div>
-                    <div class="col-md-3 course ftco-animate">
-                        <div class="img" style="background-image: url(images/course-4.jpg);"></div>
-                        <div class="text pt-4">
-                            <p class="meta d-flex">
-                                <!--								<span><i class="icon-user mr-2"></i>د/ أسامة عبد الرؤوف عبد الرحمن</span>-->
-                                <!--
-                                                                                                <span><i class="icon-table mr-2"></i>10 seats</span>
-                                                                                                <span><i class="icon-calendar mr-2"></i>4 Years</span>
-                                -->
-                            </p>
-                            <h3><a href="#">هندسة البرمجيات</a></h3>
-                            <!--							<p>Separated they live in. A small river named Duden flows by their place and supplies it with the necessary regelialia. It is a paradisematic country</p>-->
-                            <p><a href="#" class="btn btn-primary">معلومات اكثر</a></p>
-                        </div>
-                    </div>
+                    <%
+                            }
+                        } catch (Exception exx) {
+                        }
+                    %>
 
                 </div>
 

@@ -30,15 +30,17 @@ public class Staff {
     private String personal_mail;
     private String edu_mail;
     private InputStream CV;
+    private InputStream img;
     private int dept_id;
     private String edu_status;
     private String username;
     private String password;
     private String base64_cv;
+    private String base64_img;
 
     public boolean add(Connection con) {
         try {
-            PreparedStatement ps = con.prepareStatement("insert into stuff values(?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?)");
+            PreparedStatement ps = con.prepareStatement("insert into stuff values(?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?)");
             ps.setInt(1, Integer.parseInt(DealingWith_DB.AutoIncrementCoulmn(con, "stuff", "id")));
             ps.setString(2, name_ar);
             ps.setString(3, name_en);
@@ -56,6 +58,7 @@ public class Staff {
             ps.setString(15, edu_status);
             ps.setString(16, username);
             ps.setString(17, password);
+            ps.setBlob(18, img);
 
             int isAdded = ps.executeUpdate();
 
@@ -71,7 +74,7 @@ public class Staff {
         try {
             String strUpdate = "update stuff set name_ar = ? , name_en = ? , about = ? , age = ? ,address = ? "
                     + "governorate = ? ,city=? , phone1=? , phone2=? , personal_mail=? , edu_mail=? , CV=? ,"
-                    + " dept_id =? ,  edu_status=? , username=? , password=?  \n where id = ? ;";
+                    + " dept_id =? ,  edu_status=? , username=? , password=? , img=?  \n where id = ? ;";
             PreparedStatement ps = con.prepareStatement(strUpdate);
 
             // add prepared statement data 
@@ -91,8 +94,9 @@ public class Staff {
             ps.setString(14, edu_status);
             ps.setString(15, username);
             ps.setString(16, password);
+            ps.setBlob(17, img);
 
-            ps.setInt(17, id);
+            ps.setInt(18, id);
 
             int isUpdated = ps.executeUpdate();
             return isUpdated > 0;
@@ -246,6 +250,22 @@ public class Staff {
 
     public void setBase64_cv(String base64_cv) {
         this.base64_cv = base64_cv;
+    }
+
+    public InputStream getImg() {
+        return img;
+    }
+
+    public void setImg(InputStream img) {
+        this.img = img;
+    }
+
+    public String getBase64_img() {
+        return base64_img;
+    }
+
+    public void setBase64_img(String base64_img) {
+        this.base64_img = base64_img;
     }
 
 }
