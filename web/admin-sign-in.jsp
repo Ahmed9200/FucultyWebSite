@@ -44,7 +44,7 @@
 
                     <div class="col-md-3 d-flex align-items-stretch"></div>
                     <div class="col-md-6 p-4 p-md-5  bg-light">
-                        <form action="admin-student-applications.jsp" method="POST">
+                        <form action="AdminSignIn" method="POST">
                             <div class="form-group">
                                 <input type="text" class="form-control" name="username" placeholder="اسم المستخدم">
                             </div>
@@ -61,7 +61,7 @@
         </section>
 
         <br>
-        
+
         <%@include  file="footer.jsp" %>
 
         <!-- loader -->

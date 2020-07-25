@@ -54,17 +54,16 @@ public class DealingWith_DB {
     }
 
     //Check username and password for user and admin
-    public static boolean checkAdminAuthentications(Connection con, String username, String password) {
-        Helper.currentAdmin = getAdmins(con,
-                "select * from admins_view where username= '" + username + "' and password= '" + password + "'").get(0);
-        if (Helper.currentAdmin == null) {
-            return false;
-        } else {
-            return true;
-        }
-
-    }
-
+//    public static boolean checkAdminAuthentications(Connection con, String username, String password) {
+//        Helper.currentAdmin = getAdmins(con,
+//                "select * from admins_view where username= '" + username + "' and password= '" + password + "'").get(0);
+//        if (Helper.currentAdmin == null) {
+//            return false;
+//        } else {
+//            return true;
+//        }
+//
+//    }
     // Method to do some fast query in database
     public static boolean excuteQuery(Connection con, String sqlStatement) {
         try {
@@ -252,6 +251,7 @@ public class DealingWith_DB {
                 item.setEdu_status(rs.getString("edu_status"));
                 item.setUsername(rs.getString("username"));
                 item.setPassword(rs.getString("password"));
+                item.setPermession_level(rs.getString("permession_level"));
 
 //                try {
 //                    item.setDept(getDepts(con, "select * from departments where id = " + item.getDept_id()).get(0));

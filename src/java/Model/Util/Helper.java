@@ -126,15 +126,15 @@ public class Helper {
 
     }
 
-    public static boolean checkAdminAuthentication(HttpServletRequest request) {
-
-        try {
-            return DealingWith_DB.checkAdminAuthentications(con, request.getParameter("username"), request.getParameter("password"));
-        } catch (Exception e) {
-            return false;
-        }
-
-    }
+//    public static boolean checkAdminAuthentication(HttpServletRequest request) {
+//
+//        try {
+//            return DealingWith_DB.checkAdminAuthentications(con, request.getParameter("username"), request.getParameter("password"));
+//        } catch (Exception e) {
+//            return false;
+//        }
+//
+//    }
 
     public static boolean checkStuffAuthentication(HttpServletRequest request) {
 

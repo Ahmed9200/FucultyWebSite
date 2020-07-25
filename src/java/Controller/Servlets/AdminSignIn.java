@@ -39,11 +39,10 @@ public class AdminSignIn extends HttpServlet {
             throws ServletException, IOException {
         processRequest(request, response);
 
-        if (Helper.checkAdminAuthentication(request)) {
-            request.getRequestDispatcher("admin-panel.jsp").forward(request, response);
-        } else if (Helper.checkStuffAuthentication(request)) {
+        if (Helper.checkStuffAuthentication(request)) {
             request.setAttribute("checked", false);
             request.setAttribute("stuff", true);
+            request.getRequestDispatcher("admin-panel.jsp").forward(request, response);
         } else {
             request.setAttribute("stuff", false);
             request.setAttribute("checked", false);

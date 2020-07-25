@@ -15,6 +15,7 @@
 
         <%
             try {
+                System.out.println("ccccccccccccccccc    " + Helper.currentUser.getPermession_level());
                 if (Helper.currentUser.getPermession_level().equals("1")) {
         %>
 
