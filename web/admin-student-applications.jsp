@@ -24,8 +24,9 @@
                     <section class="ftco-section" style="padding: 5px 0px;" >
 
                         <h2>قيد المراجعه</h2>
-                        <div class="table-responsive">
-                            <table class="table table-striped table-sm">
+                        <!--<input type="button" value="Print 1st Div" onclick="javascript:printProgress('progressTable')" />-->
+                        <div class="table-responsive" >
+                            <table class="table table-striped table-sm" id="progressTable">
                                 <thead>
                                     <tr>
                                         <th>#</th>
@@ -344,6 +345,24 @@
                                                 $(".modal-img-birth").attr('src', $img4);
 
                                             }
+        </script>
+        
+        <script>
+             function printProgress(divID) {
+        //Get the HTML of div
+        var divElements = document.getElementById(divID).innerHTML;
+        //Get the HTML of whole page
+        var oldPage = document.body.innerHTML;
+        //Reset the page's HTML with div's HTML only
+        document.body.innerHTML = 
+          "<html><head><title></title><style>table th{background-color:black;color:white;width:100%;</style></head><body><table border='1px solid black'>" + 
+          divElements + "</table></body>";
+        //Print Page
+        window.print();
+        //Restore orignal HTML
+        document.body.innerHTML = oldPage;
+
+    }
         </script>
     </body>
 </html>

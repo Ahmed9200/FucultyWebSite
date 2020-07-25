@@ -16,7 +16,21 @@
                     <div class="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center pt-3 pb-2 mb-3 border-bottom">
                         <h1 class="h2">التقارير</h1>
                     </div>
+                    <section class="ftco-section" style="padding: 5px 0px;" >
 
+                        <h2>الطلاب المُتقدمين قيد المراجعه: <small class="text-muted"><a href="#"  onclick="javascript:printDiv('printablediv')" ><i class="fa fa-print" aria-hidden="true"></i> طباعه</a></small> </h2>
+                        <br>
+                        <h2>الطلاب المقبولين: <small class="text-muted"><a href="#"><i class="fa fa-print" aria-hidden="true"></i> طباعه</a></small> </h2>
+                        <br>
+                        <h2>الطلاب المُسجلون بكل ماده: </h2>
+                        <ul class="list-group col-4">
+                            <li class="list-group-item">ماده رقم 1: <a href="#"><i class="fa fa-print" aria-hidden="true"></i> طباعه</a></li>
+                            <li class="list-group-item">ماده رقم 2: <a href="#"><i class="fa fa-print" aria-hidden="true"></i> طباعه</a></li>
+                            <li class="list-group-item">ماده رقم 3: <a href="#"><i class="fa fa-print" aria-hidden="true"></i> طباعه</a></li>
+                            <li class="list-group-item">ماده رقم 4: <a href="#"><i class="fa fa-print" aria-hidden="true"></i> طباعه</a></li>
+                        </ul>
+    
+                    </section>
                 </main>
             </div>
         </div>
@@ -43,9 +57,26 @@
         <script src="js/main.js"></script>
         <script>
             $(document).ready(function () {
-                $("#admin-reports-link").addClass("active");
+                $("#reports-link").addClass("active");
                 console.log("output");
             });
+        </script>
+        <script>
+            function printDiv(divID) {
+                //Get the HTML of div
+                var divElements = document.getElementById(divID).innerHTML;
+                //Get the HTML of whole page
+                var oldPage = document.body.innerHTML;
+                //Reset the page's HTML with div's HTML only
+                document.body.innerHTML =
+                        "<html><head><title></title></head><body>" +
+                        divElements + "</body>";
+                //Print Page
+                window.print();
+                //Restore orignal HTML
+                document.body.innerHTML = oldPage;
+
+            }
         </script>
     </body>
 </html>

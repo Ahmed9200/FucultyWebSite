@@ -16,6 +16,11 @@
                     <div class="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center pt-3 pb-2 mb-3 border-bottom">
                         <h1 class="h2">الرئيسيه</h1>
                     </div>
+                    <section class="ftco-section" style="padding: 5px 0px;" >
+                        
+                        <h2>مرحباً بك في لوحة الاداره</h2>
+                        <p>تم تسجيل الدخول بنجاح</p>
+                    </section>
 
                 </main>
             </div>
