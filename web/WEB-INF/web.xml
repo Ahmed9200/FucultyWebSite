@@ -36,6 +36,10 @@
         <servlet-name>ChangeStudentSubjetcInfo</servlet-name>
         <servlet-class>Controller.Servlets.ChangeStudentSubjetcInfo</servlet-class>
     </servlet>
+    <servlet>
+        <servlet-name>AddStaff</servlet-name>
+        <servlet-class>Controller.Servlets.AddStaff</servlet-class>
+    </servlet>
     <servlet-mapping>
         <servlet-name>Registeration</servlet-name>
         <url-pattern>/Registeration</url-pattern>
@@ -67,6 +71,10 @@
     <servlet-mapping>
         <servlet-name>ChangeStudentSubjetcInfo</servlet-name>
         <url-pattern>/ChangeStudentSubjetcInfo</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>AddStaff</servlet-name>
+        <url-pattern>/AddStaff</url-pattern>
     </servlet-mapping>
     <session-config>
         <session-timeout>

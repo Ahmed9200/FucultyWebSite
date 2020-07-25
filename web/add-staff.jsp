@@ -24,7 +24,7 @@
 
                             <div class="col-3"></div>
                             <div class="col-6 p-4 p-md-5 bg-light">
-                                <form action="" enctype="multipart/form-data" method="POST">
+                                <form action="AddStaff" enctype="multipart/form-data" method="POST">
                                     <div class="form-group">
                                         <input type="text" class="form-control" name="name_ar" placeholder="الأسم بالكامل بالعربيه" required>
                                         <input type="text" class="form-control" name="name_en" placeholder="الأسم بالكامل بالانجليزيه" required>

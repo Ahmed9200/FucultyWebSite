@@ -126,16 +126,6 @@ public class Helper {
 
     }
 
-//    public static boolean checkAdminAuthentication(HttpServletRequest request) {
-//
-//        try {
-//            return DealingWith_DB.checkAdminAuthentications(con, request.getParameter("username"), request.getParameter("password"));
-//        } catch (Exception e) {
-//            return false;
-//        }
-//
-//    }
-
     public static boolean checkStuffAuthentication(HttpServletRequest request) {
 
         try {
@@ -170,6 +160,47 @@ public class Helper {
         } catch (Exception e) {
             e.printStackTrace();
             return false;
+        }
+    }
+
+    public static boolean addStaffToDB(HttpServletRequest r) {
+
+        try {
+            Staff s = new Staff();
+            s.setAbout(r.getParameter("about"));
+            s.setAddress(r.getParameter("address"));
+            s.setAge(Integer.parseInt(r.getParameter("age")));
+            s.setCity(r.getParameter("city"));
+            int id = Integer.parseInt(DealingWith_DB.getCoulmnData(con, "departments", "id", " where name ='" + r.getParameter("dept") + "';")[0]);
+            s.setDept_id(id);
+            s.setEdu_mail(r.getParameter("edu_email"));
+            s.setEdu_status(r.getParameter("edu_status"));
+            s.setGovernorate(r.getParameter("gov"));
+            s.setName_ar(r.getParameter("name_ar"));
+            s.setName_en(r.getParameter("name_en"));
+            s.setPassword(r.getParameter("password"));
+            s.setPermession_level(r.getParameter("permession_level"));
+            s.setPersonal_mail(r.getParameter("personal_mail"));
+            s.setPhone1(r.getParameter("phone1"));
+            s.setPhone2(r.getParameter("phone2"));
+            s.setUsername(r.getParameter("username"));
+
+            Part part = r.getPart("img");
+//            Part part2 = r.getPart("cv");
+            InputStream inputStream = null;
+//            InputStream inputStream2 = null;
+            if (part != null) {
+                inputStream = part.getInputStream();
+            }
+//            if (part2 != null) {
+//                inputStream2 = part2.getInputStream();
+//            }
+            s.setImg(inputStream);
+//            s.setCV(inputStream2);
+            return s.add(con);
+        } catch (Exception e) {
+            return false;
+
         }
     }
 
