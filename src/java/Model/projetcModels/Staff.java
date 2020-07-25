@@ -41,8 +41,9 @@ public class Staff {
 
     public boolean add(Connection con) {
         try {
-            PreparedStatement ps = con.prepareStatement("insert into stuff values(?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?)");
-            ps.setInt(1, Integer.parseInt(DealingWith_DB.AutoIncrementCoulmn(con, "stuff", "id")));
+            
+            PreparedStatement ps = con.prepareStatement("insert into staff values(?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?)");
+            ps.setInt(1, Integer.parseInt(DealingWith_DB.AutoIncrementCoulmn(con, "staff", "id")));
             ps.setString(2, name_ar);
             ps.setString(3, name_en);
             ps.setString(4, about);

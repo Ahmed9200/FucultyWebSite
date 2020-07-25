@@ -42,7 +42,7 @@ public class AddStaff extends HttpServlet {
         } else {
             request.setAttribute("isAdded", false);
         }
-        request.getRequestDispatcher("admin-subjects.jsp").forward(request, response);
+        request.getRequestDispatcher("add-staff.jsp").forward(request, response);
     }
 
     // <editor-fold defaultstate="collapsed" desc="HttpServlet methods. Click on the + sign on the left to edit the code.">

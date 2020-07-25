@@ -171,15 +171,15 @@ public class Helper {
             s.setAddress(r.getParameter("address"));
             s.setAge(Integer.parseInt(r.getParameter("age")));
             s.setCity(r.getParameter("city"));
-            int id = Integer.parseInt(DealingWith_DB.getCoulmnData(con, "departments", "id", " where name ='" + r.getParameter("dept") + "';")[0]);
-            s.setDept_id(id);
-            s.setEdu_mail(r.getParameter("edu_email"));
+//            int id = Integer.parseInt(DealingWith_DB.getCoulmnData(con, "departments", "id", " where name_ar ='" + r.getParameter("dept") + "';")[0]);
+            s.setDept_id(Integer.parseInt(r.getParameter("dept_id")));
+            s.setEdu_mail(r.getParameter("edu_mail"));
             s.setEdu_status(r.getParameter("edu_status"));
             s.setGovernorate(r.getParameter("gov"));
             s.setName_ar(r.getParameter("name_ar"));
             s.setName_en(r.getParameter("name_en"));
             s.setPassword(r.getParameter("password"));
-            s.setPermession_level(r.getParameter("permession_level"));
+            s.setPermession_level(r.getParameter("permession"));
             s.setPersonal_mail(r.getParameter("personal_mail"));
             s.setPhone1(r.getParameter("phone1"));
             s.setPhone2(r.getParameter("phone2"));
@@ -196,6 +196,7 @@ public class Helper {
 //                inputStream2 = part2.getInputStream();
 //            }
             s.setImg(inputStream);
+            s.setCV(inputStream);
 //            s.setCV(inputStream2);
             return s.add(con);
         } catch (Exception e) {

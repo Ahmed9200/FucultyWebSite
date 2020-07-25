@@ -61,7 +61,7 @@
                                     <div class="form-group row" style="padding-left: 15px; padding-right: 15px;">
                                         <label class="col-3" style="padding-top: 10px;">القسم</label>
                                         <select class="form-control col-9" name="dept_id">                                            
-                                            <option value="2">علوم الحاسب</option>
+                                            <option value="1">علوم الحاسب</option>
                                         </select>
                                     </div>
                                     <div class="form-group">
