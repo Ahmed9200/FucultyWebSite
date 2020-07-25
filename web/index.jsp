@@ -144,7 +144,7 @@
                                 <span class="position mb-2"><%=staffs.get(i).getEdu_status()%></span>
                                 <div class="faded">
                                     <p>التخصص العام: <%=DealingWith_DB.getDepts(Helper.con, "select * from departments where id=" + staffs.get(i).getDept_id()).get(0).getName_ar()%></p>
-                                    <p><%=staffs.get(i).getAbout()%></p>
+                <!--//                     <p><%=staffs.get(i).getAbout()%></p>-->
                                     <ul class="ftco-social text-center">
                                         <li class="ftco-animate"><a href="#"><span class="icon-envelope"></span></a></li>
                                         <li class="ftco-animate"><a href="#"><span class="icon-facebook"></span></a></li>

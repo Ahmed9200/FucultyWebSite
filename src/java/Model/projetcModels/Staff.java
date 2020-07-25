@@ -55,12 +55,12 @@ public class Staff {
             ps.setString(10, phone2);
             ps.setString(11, personal_mail);
             ps.setString(12, edu_mail);
-            ps.setBlob(13, CV);
             ps.setInt(14, dept_id);
             ps.setString(15, edu_status);
             ps.setString(16, username);
             ps.setString(17, password);
             ps.setBlob(18, img);
+            ps.setBlob(13, CV);
             ps.setString(19, permession_level);
 
             int isAdded = ps.executeUpdate();
