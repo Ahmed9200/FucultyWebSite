@@ -2,7 +2,7 @@
 <!DOCTYPE html>
 <html lang="ar" dir="rtl" >
     <head>
-        <title>Sign In</title>
+        <title>الدخول</title>
         <%@include  file="head.jsp" %>
     </head>
     <body>

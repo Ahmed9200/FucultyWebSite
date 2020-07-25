@@ -3,7 +3,7 @@
 <!DOCTYPE html>
 <html lang="ar" dir="rtl">
     <head>
-        <title>الرئيسيه</title>
+        <title>إضافه</title>
         <%@include  file="head.jsp" %>
     </head>
     <body>

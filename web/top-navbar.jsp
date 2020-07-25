@@ -20,7 +20,7 @@
         <div class="collapse navbar-collapse" id="ftco-nav">
             <ul class="navbar-nav mr-auto">
                 <li class="nav-item" id="index-link"><a href="index.jsp" class="nav-link pl-0">الرئيسيه</a></li>
-                <li class="nav-item" id="about-link"><a href="about.html" class="nav-link">عن الكليه</a></li>
+                <!--<li class="nav-item" id="about-link"><a href="about.html" class="nav-link">عن الكليه</a></li>-->
                 <li class="nav-item" id="dept-link"><a href="departments.jsp" class="nav-link">الاقسام</a></li>
                 <li class="nav-item" id="staff-link"><a href="staff.jsp" class="nav-link">هيئة التدريس</a></li>
                 <li class="nav-item" id="register-link"><a href="register.jsp" class="nav-link">تقديم طلب التحاق</a></li>

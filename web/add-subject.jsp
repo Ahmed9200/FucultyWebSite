@@ -8,7 +8,7 @@
 <!DOCTYPE html>
 <html lang="ar" dir="rtl">
     <head>
-        <title>الأقسام</title>
+        <title>إضافه</title>
         <%@include  file="head.jsp" %>
 
     </head>

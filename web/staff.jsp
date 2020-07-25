@@ -6,7 +6,7 @@
 <!DOCTYPE html>
 <html lang="ar" dir="rtl">
     <head>
-        <title>Fox University - Free Bootstrap 4 Template by Colorlib</title>
+        <title>هيئة التدريس</title>
         <%@include  file="head.jsp" %>
     </head>
     <body>
