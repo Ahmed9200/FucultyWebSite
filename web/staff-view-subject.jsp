@@ -61,7 +61,7 @@
                                         <td><%=studentsInfo.get(i).getGPA()%></td>
                                         <td><%=studentsInfo.get(i).getGrade()%></td>
                                         <td><%=studentsInfo.get(i).getHour_no()%></td>
-                                        <td><a onclick="showInfo(1,
+                                        <td><a onclick="showInfo(<%=studentsInfo.get(i).getStudent_id()%>,
                                                         '<%=studentsInfo.get(i).getStudent().getName_ar()%>',
                                                         '<%=studentsInfo.get(i).getStudent().getStatus()%>',
                                                         '<%=studentsInfo.get(i).getGPA()%>',
@@ -85,10 +85,7 @@
             </div>
         </div>
 
-        <%
-            } catch (Exception e) {
-            }
-        %>
+        
         <!-- loader -->
         <div id="ftco-loader" class="show fullscreen"><svg class="circular" width="48px" height="48px"><circle class="path-bg" cx="24" cy="24" r="22" fill="none" stroke-width="4" stroke="#eeeeee"/><circle class="path" cx="24" cy="24" r="22" fill="none" stroke-width="4" stroke-miterlimit="10" stroke="#F96D00"/></svg></div>
 
@@ -133,7 +130,7 @@
                                     <tr>
                                         <td><strong>عدد الساعات</strong></td>
                                         <td class="modal-hours">
-                                            <input id="modal-hours" type="text" name="hours" value="0"/>
+                                            <input id="modal-hours" type="text" name="hour_no" value="0"/>
                                         </td>
                                     </tr>
                                 </tbody>
@@ -143,12 +140,16 @@
                         <div class="modal-footer">
 
 
-                            <input class="idInput" type="text" name="id" value="0" hidden/>
+                            <input class="idInput" id="idStudentInput" type="text" name="student_id" value="0" hidden/>
+                            <input class="idSubInput" type="text" name="sub_id" value="<%=currentSub.getId()%>" hidden/>
                             <input type="submit" class="btn btn-success" value="تحديث"/>
                             <button type="button" class="btn btn-danger" data-dismiss="modal">اغلق</button>
                         </div>
                     </form>
-
+<%
+            } catch (Exception e) {
+            }
+        %>
                 </div>
             </div>
         </div>
@@ -178,7 +179,7 @@
                                             function showInfo($id, $name, $status, $gpa, $grade, $hours) {
                                                 $('#studentInfo').modal('show');
 //                console.log('id' , $id , 'nameAr' , $nameAr);
-                                                $('.idInput').val($id);
+                                                $('#idStudentInput').val($id);
                                                 $('.modal-student-id').text($id);
                                                 $('.modal-name').text($name);
                                                 $('#modal-status').val($status);

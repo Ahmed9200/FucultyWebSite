@@ -232,10 +232,12 @@ public class Helper {
             Student_subjects ss = new Student_subjects();
             ss.setGPA(Double.parseDouble(request.getParameter("gpa")));
             ss.setGrade(request.getParameter("grade"));
-            ss.setGrade_info(request.getParameter("grade_info"));
+//            ss.setGrade_info(request.getParameter("grade_info"));
+            ss.setGrade_info("0");
             ss.setHour_no(Integer.parseInt(request.getParameter("hour_no")));
             ss.setStatus(request.getParameter("status"));
-            ss.setStatus_info(request.getParameter("status_info"));
+//            ss.setStatus_info(request.getParameter("status_info"));
+            ss.setStatus_info("0");
 
             ss.setStudent_id(Integer.parseInt(request.getParameter("student_id")));
             ss.setSubject_id(Integer.parseInt(request.getParameter("sub_id")));

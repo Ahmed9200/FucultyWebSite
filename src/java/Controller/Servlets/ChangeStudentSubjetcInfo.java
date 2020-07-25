@@ -35,10 +35,10 @@ public class ChangeStudentSubjetcInfo extends HttpServlet {
         if (Helper.updateStudentSubjectData(request)) {
 
             //success page
-            request.getRequestDispatcher("").forward(request, response);
+            request.getRequestDispatcher("staff-view-subject.jsp?id=1").forward(request, response);
         } else {
             //error page
-            request.getRequestDispatcher("").forward(request, response);
+            request.getRequestDispatcher("staff-view-subject.jsp?id=1").forward(request, response);
 
         }
 

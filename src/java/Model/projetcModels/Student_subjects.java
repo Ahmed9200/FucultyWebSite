@@ -53,8 +53,8 @@ public class Student_subjects {
     public boolean update(Connection con) {
 
         try {
-            String strUpdate = "update students_subjects set status = ? , GPA = ? ,hour_no = ? "
-                    + "status_info = ? , grade=? , grade_info=? \n where student_id = ? and subject_id = ? ;";
+            String strUpdate = "update students_subjects set status=? , GPA=? ,hour_no=? ,"
+                    + "status_info=? , grade=? , grade_info=? \n where student_id=? and subject_id=? ;";
             PreparedStatement ps = con.prepareStatement(strUpdate);
 
             // add prepared statement data 
@@ -68,6 +68,8 @@ public class Student_subjects {
             ps.setInt(7, student_id);
             ps.setInt(8, subject_id);
 
+            System.out.println("update students_subjects set status = " + status + " , GPA = " + GPA + " ,hour_no = " + hour_no + " ,"
+                    + "status_info = " + status_info + " , grade=" + grade + " , grade_info=" + grade_info + " \n where student_id = " + student_id + " and subject_id = " + subject_id + " ;");
             int isUpdated = ps.executeUpdate();
             return isUpdated > 0;
         } catch (SQLException ex) {

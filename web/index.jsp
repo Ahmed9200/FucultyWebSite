@@ -131,7 +131,7 @@
                         try {
 
                             ArrayList<Staff> staffs = DealingWith_DB.getStaff(Helper.con, "select * from staff");
-                            for (int i = 0; i < staffs.size(); i++) {
+                            for (int i = 0; i < 4; i++) {
                     %>
 
                     <div class="col-md-6 col-lg-3">
