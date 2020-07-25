@@ -29,7 +29,7 @@
                         ArrayList<Staff> currentStaff = null;
                         try {
                             currentSubjects = DealingWith_DB.getSubjetcs(Helper.con, "select * from subjects");
-                            currentStaff = DealingWith_DB.getStaff(Helper.con, "select * from staff");
+                            currentStaff = DealingWith_DB.getStaff(Helper.con, "select * from staff where permession_level=1");
                         } catch (Exception e) {
                             e.printStackTrace();
                             currentStaff = new ArrayList<Staff>();
